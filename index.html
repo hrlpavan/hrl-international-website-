@@ -213,17 +213,23 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       text-decoration: none;
       color: var(--apple-text-dark);
       font-weight: 600;
-      font-size: 14px;
-      letter-spacing: -0.01em;
+      font-size: 13.5px;
+      letter-spacing: -0.015em;
+      transition: opacity 0.2s ease;
+    }
+    .nav-brand:hover {
+      opacity: 0.75;
     }
     .nav-logo-img {
-      height: 22px;
+      height: 16px;
       width: auto;
+      max-width: 54px;
       object-fit: contain;
+      display: block;
     }
     .nav-links {
       display: flex;
