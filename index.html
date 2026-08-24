@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   
   <!-- Primary SEO Meta Tags -->
   <title>HRL International Pvt. Ltd.</title>
@@ -12,6 +12,9 @@
   <meta name="author" content="Pavan Kumar S" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://hrlinternationalprivatelimited.nett.to/" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
   <!-- Open Graph / Apple iMessage / Social -->
   <meta property="og:type" content="website" />
@@ -23,6 +26,7 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/favicon.png" />
 
   <!-- ========================================================= -->
   <!-- JSON-LD STRUCTURED DATA (GOOGLE KNOWLEDGE GRAPH + E-E-A-T)-->
@@ -128,7 +132,7 @@
   }
   </script>
 
-  <!-- Apple Human Interface Typography & Design Tokens -->
+  <!-- Apple Human Interface System & Mobile-First Styling -->
   <style>
     :root {
       --apple-bg: #f5f5f7;
@@ -142,7 +146,7 @@
       --apple-blue-hover: #0077ed;
       --apple-border: rgba(0, 0, 0, 0.08);
       --apple-border-dark: rgba(255, 255, 255, 0.12);
-      --apple-nav-height: 48px;
+      --apple-nav-height: 52px;
     }
 
     * {
@@ -151,13 +155,19 @@
       padding: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       background-color: var(--apple-bg);
       color: var(--apple-text-dark);
       overflow-x: hidden;
+      width: 100%;
     }
 
     /* Apple Ribbon Banner */
@@ -165,24 +175,23 @@
       background-color: #f5f5f7;
       border-bottom: 1px solid var(--apple-border);
       text-align: center;
-      padding: 10px 16px;
-      font-size: 13px;
+      padding: 10px 14px;
+      font-size: 12px;
+      line-height: 1.4;
       color: var(--apple-text-dark);
       letter-spacing: -0.01em;
     }
     .apple-ribbon a {
       color: var(--apple-blue);
       text-decoration: none;
-      margin-left: 4px;
-    }
-    .apple-ribbon a:hover {
-      text-decoration: underline;
+      font-weight: 500;
+      display: inline-block;
     }
 
     /* Apple Global Navigation Bar */
     .apple-nav {
       height: var(--apple-nav-height);
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.88);
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       position: sticky;
@@ -196,7 +205,7 @@
       max-width: 1024px;
       margin: 0 auto;
       width: 100%;
-      padding: 0 22px;
+      padding: 0 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -212,17 +221,13 @@
       letter-spacing: -0.01em;
     }
     .nav-logo-img {
-      height: 24px;
+      height: 22px;
       width: auto;
       object-fit: contain;
-      transition: transform 0.2s;
-    }
-    .nav-brand:hover .nav-logo-img {
-      transform: scale(1.05);
     }
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 24px;
       align-items: center;
       list-style: none;
     }
@@ -237,179 +242,240 @@
       color: var(--apple-blue);
     }
 
+    /* Mobile Menu Hamburger Button */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .mobile-menu-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--apple-text-dark);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: calc(var(--apple-nav-height) + 38px);
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      padding: 24px 20px;
+      border-bottom: 1px solid var(--apple-border);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      z-index: 9998;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--apple-text-dark);
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
     /* Apple Hero Section */
     .apple-hero {
       background: var(--apple-white);
       text-align: center;
-      padding: 60px 20px 70px;
+      padding: 48px 16px 56px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
     }
     .hero-eyebrow {
-      font-size: 17px;
+      font-size: 14px;
       font-weight: 600;
       color: #bf4800;
       margin-bottom: 6px;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
     }
     .hero-headline {
-      font-size: 56px;
+      font-size: clamp(34px, 7vw, 56px);
       font-weight: 700;
       letter-spacing: -0.03em;
-      line-height: 1.07;
+      line-height: 1.08;
       color: var(--apple-text-dark);
       margin-bottom: 12px;
       max-width: 800px;
+      padding: 0 8px;
     }
     .hero-subhead {
-      font-size: 26px;
+      font-size: clamp(18px, 4vw, 24px);
       font-weight: 400;
       letter-spacing: -0.015em;
-      line-height: 1.25;
+      line-height: 1.3;
       color: var(--apple-text-dark);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       max-width: 650px;
+      padding: 0 10px;
     }
     .hero-description {
-      font-size: 17px;
+      font-size: clamp(15px, 3.5vw, 17px);
       color: var(--apple-text-muted);
       max-width: 580px;
       line-height: 1.45;
       margin-bottom: 24px;
+      padding: 0 12px;
     }
     .apple-cta-group {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       align-items: center;
       justify-content: center;
-      margin-top: 4px;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 400px;
     }
     .apple-btn-primary {
       background: var(--apple-blue);
       color: #fff;
       font-size: 15px;
-      font-weight: 400;
-      padding: 10px 22px;
+      font-weight: 500;
+      padding: 12px 24px;
       border-radius: 980px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
+      min-height: 44px;
       transition: background-color 0.2s, transform 0.15s;
     }
-    .apple-btn-primary:hover {
-      background: var(--apple-blue-hover);
-      transform: scale(1.02);
+    .apple-btn-primary:active {
+      transform: scale(0.97);
     }
     .apple-btn-secondary {
       border: 1px solid var(--apple-blue);
       color: var(--apple-blue);
       background: transparent;
       font-size: 15px;
-      font-weight: 400;
-      padding: 9px 21px;
+      font-weight: 500;
+      padding: 11px 22px;
       border-radius: 980px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
+      min-height: 44px;
       transition: all 0.2s;
     }
-    .apple-btn-secondary:hover {
-      background: rgba(0, 113, 227, 0.05);
+    .apple-btn-secondary:active {
+      background: rgba(0, 113, 227, 0.08);
     }
 
     /* Apple Feature Hero Visual Banner */
     .hero-visual-card {
-      margin-top: 40px;
+      margin-top: 36px;
       width: 100%;
       max-width: 980px;
       background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
-      border-radius: 28px;
+      border-radius: 24px;
       border: 1px solid var(--apple-border);
-      padding: 40px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      padding: 30px 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
     }
     .stats-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
       width: 100%;
       text-align: center;
     }
     .stat-number {
-      font-size: 44px;
+      font-size: clamp(32px, 6vw, 44px);
       font-weight: 700;
       letter-spacing: -0.03em;
       color: var(--apple-text-dark);
     }
     .stat-label {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--apple-text-muted);
       margin-top: 4px;
     }
 
-    /* Apple "PRO" Dark Showcase Section (Credentials) */
+    /* Apple "PRO" Dark Showcase Section */
     .apple-pro-section {
       background: var(--apple-dark);
       color: var(--apple-text-light);
-      padding: 90px 20px;
+      padding: 60px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
     }
     .pro-header {
       text-align: center;
       max-width: 780px;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
     .pro-eyebrow {
-      font-size: 17px;
+      font-size: 14px;
       font-weight: 600;
       color: #2997ff;
       margin-bottom: 8px;
+      display: block;
     }
     .pro-headline {
-      font-size: 48px;
+      font-size: clamp(28px, 6vw, 44px);
       font-weight: 700;
       letter-spacing: -0.03em;
       color: #f5f5f7;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+      padding: 0 8px;
     }
     .pro-subhead {
-      font-size: 21px;
+      font-size: clamp(16px, 3.8vw, 20px);
       color: #86868b;
       line-height: 1.35;
+      padding: 0 10px;
     }
 
     /* Apple Tab Segment Selector */
+    .apple-segmented-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .apple-segmented-wrapper::-webkit-scrollbar {
+      display: none;
+    }
     .apple-segmented-tabs {
       background: #1d1d1f;
       border: 1px solid var(--apple-border-dark);
       border-radius: 980px;
-      padding: 5px;
+      padding: 4px;
       display: inline-flex;
       gap: 4px;
-      margin-bottom: 40px;
-      overflow-x: auto;
-      max-width: 100%;
+      white-space: nowrap;
     }
     .segment-btn {
       background: transparent;
       border: none;
       color: #86868b;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
-      padding: 8px 18px;
+      padding: 8px 14px;
       border-radius: 980px;
       cursor: pointer;
       transition: all 0.2s;
-      white-space: nowrap;
-    }
-    .segment-btn:hover {
-      color: #fff;
+      min-height: 36px;
     }
     .segment-btn.active {
       background: #333336;
@@ -422,19 +488,19 @@
       max-width: 980px;
       background: var(--apple-dark-elevated);
       border: 1px solid var(--apple-border-dark);
-      border-radius: 28px;
-      padding: 40px 48px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      border-radius: 24px;
+      padding: 24px 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
     .spec-pane {
       display: none;
-      animation: appleFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: appleFadeIn 0.3s ease-out;
     }
     .spec-pane.active {
       display: block;
     }
     @keyframes appleFadeIn {
-      from { opacity: 0; transform: scale(0.98); }
+      from { opacity: 0; transform: scale(0.99); }
       to { opacity: 1; transform: scale(1); }
     }
     .spec-headline-row {
@@ -442,19 +508,19 @@
       justify-content: space-between;
       align-items: flex-start;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 24px;
-      margin-bottom: 30px;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 12px;
     }
     .spec-org-title {
-      font-size: 28px;
+      font-size: clamp(22px, 5vw, 28px);
       font-weight: 700;
       color: #fff;
       letter-spacing: -0.02em;
     }
     .spec-program-name {
-      font-size: 17px;
+      font-size: 15px;
       color: #2997ff;
       margin-top: 4px;
     }
@@ -462,123 +528,124 @@
       background: rgba(41, 151, 255, 0.12);
       border: 1px solid rgba(41, 151, 255, 0.3);
       color: #2997ff;
-      padding: 6px 14px;
+      padding: 4px 12px;
       border-radius: 980px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
+      align-self: flex-start;
     }
     .spec-details-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
+      grid-template-columns: 1fr;
+      gap: 24px;
     }
-    @media (max-width: 768px) {
-      .spec-details-grid { grid-template-columns: 1fr; }
-      .pro-specs-card { padding: 24px 20px; }
-      .hero-headline { font-size: 40px; }
-      .pro-headline { font-size: 34px; }
-      .nav-links { display: none; }
+    @media (min-width: 768px) {
+      .spec-details-grid { grid-template-columns: 1.2fr 0.8fr; gap: 36px; }
+      .pro-specs-card { padding: 36px 40px; }
     }
     .spec-list-title {
-      font-size: 13px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: #86868b;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       font-weight: 600;
     }
     .spec-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
+      gap: 6px;
+      margin-bottom: 18px;
     }
     .spec-pill {
       background: #242426;
       border: 1px solid rgba(255, 255, 255, 0.08);
       color: #e2e8f0;
-      padding: 7px 14px;
+      padding: 6px 12px;
       border-radius: 980px;
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: -0.01em;
     }
     .apple-code-box {
       background: #000000;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 20px;
+      border-radius: 14px;
+      padding: 16px;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-      font-size: 13px;
+      font-size: 12px;
     }
     .code-row {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       padding: 6px 0;
       border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+      gap: 8px;
     }
     .code-row:last-child {
       border-bottom: none;
     }
-    .code-label { color: #86868b; }
-    .code-val { color: #2997ff; font-weight: 600; }
+    .code-label { color: #86868b; font-size: 11px; }
+    .code-val { color: #2997ff; font-weight: 600; word-break: break-all; text-align: right; }
 
     /* Apple Bento Grid Section */
     .apple-bento-section {
       max-width: 1024px;
-      margin: 80px auto;
-      padding: 0 20px;
+      margin: 50px auto;
+      padding: 0 16px;
+      width: 100%;
     }
     .bento-header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
     .bento-title {
-      font-size: 40px;
+      font-size: clamp(28px, 6vw, 38px);
       font-weight: 700;
       letter-spacing: -0.025em;
       color: var(--apple-text-dark);
     }
     .bento-subtitle {
-      font-size: 19px;
+      font-size: clamp(15px, 3.5vw, 18px);
       color: var(--apple-text-muted);
       margin-top: 6px;
+      padding: 0 10px;
     }
     .bento-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .bento-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
     }
     .bento-card {
       background: var(--apple-white);
-      border-radius: 24px;
+      border-radius: 20px;
       border: 1px solid var(--apple-border);
-      padding: 36px 32px;
+      padding: 28px 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .bento-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
     }
     .bento-tag {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: var(--apple-blue);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .bento-card h3 {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 600;
       letter-spacing: -0.02em;
       color: var(--apple-text-dark);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .bento-card p {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--apple-text-muted);
       line-height: 1.5;
     }
@@ -588,28 +655,30 @@
       background: var(--apple-white);
       border-top: 1px solid var(--apple-border);
       border-bottom: 1px solid var(--apple-border);
-      padding: 80px 20px;
+      padding: 60px 16px;
       text-align: center;
+      width: 100%;
     }
     .keynote-container {
       max-width: 720px;
       margin: 0 auto;
     }
     .keynote-quote {
-      font-size: 28px;
+      font-size: clamp(20px, 4.5vw, 26px);
       font-weight: 600;
       letter-spacing: -0.02em;
       line-height: 1.35;
       color: var(--apple-text-dark);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      padding: 0 10px;
     }
     .keynote-author {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 600;
       color: var(--apple-text-dark);
     }
     .keynote-role {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--apple-text-muted);
       margin-top: 4px;
     }
@@ -617,10 +686,11 @@
     /* Apple Footer */
     .apple-footer {
       background: #f5f5f7;
-      font-size: 12px;
+      font-size: 11px;
       color: #86868b;
-      padding: 30px 20px 50px;
+      padding: 24px 16px 40px;
       line-height: 1.5;
+      width: 100%;
     }
     .footer-content {
       max-width: 1024px;
@@ -628,23 +698,41 @@
     }
     .footer-legal-text {
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      padding-bottom: 16px;
-      margin-bottom: 16px;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
     }
     .footer-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+    @media (min-width: 600px) {
+      .footer-bottom { flex-direction: row; text-align: left; }
+    }
+    .footer-links {
+      display: flex;
+      gap: 14px;
       flex-wrap: wrap;
-      gap: 10px;
+      justify-content: center;
     }
     .footer-links a {
       color: #515154;
       text-decoration: none;
-      margin-left: 12px;
     }
-    .footer-links a:hover {
-      color: var(--apple-text-dark);
+
+    /* Responsive Nav Rules */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .nav-brand span { font-size: 13px; }
+      .apple-btn-primary.nav-cta { display: none; }
+      .apple-cta-group .apple-btn-primary,
+      .apple-cta-group .apple-btn-secondary {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -663,6 +751,8 @@
         <img src="assets/logo.png" alt="HRL Logo" class="nav-logo-img" />
         <span>HRL International</span>
       </a>
+      
+      <!-- Desktop Links -->
       <ul class="nav-links">
         <li><a href="#overview">Overview</a></li>
         <li><a href="#credentials">Credentials</a></li>
@@ -670,9 +760,26 @@
         <li><a href="#leadership">Leadership</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="#contact" class="apple-btn-primary" style="padding: 6px 14px; font-size: 12px;">Get in Touch</a>
+      
+      <a href="#contact" class="apple-btn-primary nav-cta" style="padding: 6px 14px; font-size: 12px; min-height: unset;">Get in Touch</a>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#overview" onclick="toggleMobileMenu()">Overview</a>
+    <a href="#credentials" onclick="toggleMobileMenu()">Credentials</a>
+    <a href="#capabilities" onclick="toggleMobileMenu()">Capabilities</a>
+    <a href="#leadership" onclick="toggleMobileMenu()">Leadership</a>
+    <a href="#contact" onclick="toggleMobileMenu()">Contact & Inquiries</a>
+  </div>
 
   <!-- Apple Hero Section -->
   <section class="apple-hero" id="overview">
@@ -699,7 +806,7 @@
         </div>
         <div>
           <div class="stat-number">100%</div>
-          <div class="stat-label">Verified Entity & Brand Indexing</div>
+          <div class="stat-label">Verified Entity & Indexing</div>
         </div>
       </div>
     </div>
@@ -713,12 +820,14 @@
       <p class="pro-subhead">Official certifications in Software Engineering, Cyber Security, and Studio Production.</p>
     </div>
 
-    <!-- Apple Segmented Switcher -->
-    <div class="apple-segmented-tabs">
-      <button class="segment-btn active" onclick="appleSwitchTab('jpm')">JPMorgan Chase</button>
-      <button class="segment-btn" onclick="appleSwitchTab('deloitte')">Deloitte</button>
-      <button class="segment-btn" onclick="appleSwitchTab('davinci')">Blackmagic DaVinci</button>
-      <button class="segment-btn" onclick="appleSwitchTab('ai')">AI & Prompting</button>
+    <!-- Touch-Scrollable Segmented Switcher -->
+    <div class="apple-segmented-wrapper">
+      <div class="apple-segmented-tabs">
+        <button class="segment-btn active" onclick="appleSwitchTab('jpm')">JPMorgan Chase</button>
+        <button class="segment-btn" onclick="appleSwitchTab('deloitte')">Deloitte</button>
+        <button class="segment-btn" onclick="appleSwitchTab('davinci')">Blackmagic DaVinci</button>
+        <button class="segment-btn" onclick="appleSwitchTab('ai')">AI & Prompting</button>
+      </div>
     </div>
 
     <!-- Spec Sheets -->
@@ -730,7 +839,7 @@
             <div class="spec-org-title">JPMorgan Chase & Co.</div>
             <div class="spec-program-name">Software Engineering Job Simulation</div>
           </div>
-          <span class="apple-verified-badge">✓ Officially Certified</span>
+          <span class="apple-verified-badge">✓ Certified</span>
         </div>
         <div class="spec-details-grid">
           <div>
@@ -739,9 +848,9 @@
               <span class="spec-pill">Kafka Stream Processing</span>
               <span class="spec-pill">REST API Controller Architecture</span>
               <span class="spec-pill">H2 Database Integration</span>
-              <span class="spec-pill">Enterprise Backend Infrastructure</span>
+              <span class="spec-pill">Enterprise Backend</span>
             </div>
-            <p style="color: #86868b; font-size: 14px; line-height: 1.5;">
+            <p style="color: #86868b; font-size: 13px; line-height: 1.5;">
               Demonstrated mastery in financial-grade distributed architectures, reliable messaging queues, and high-performance server controllers.
             </p>
           </div>
@@ -773,7 +882,7 @@
             <div class="spec-org-title">Deloitte Australia</div>
             <div class="spec-program-name">Cyber Job Simulation (Cyber Security)</div>
           </div>
-          <span class="apple-verified-badge">✓ Officially Certified</span>
+          <span class="apple-verified-badge">✓ Certified</span>
         </div>
         <div class="spec-details-grid">
           <div>
@@ -784,7 +893,7 @@
               <span class="spec-pill">Security Risk Governance</span>
               <span class="spec-pill">Access & Cryptographic Control</span>
             </div>
-            <p style="color: #86868b; font-size: 14px; line-height: 1.5;">
+            <p style="color: #86868b; font-size: 13px; line-height: 1.5;">
               Trained in corporate network perimeter defense, vulnerability assessments, and enterprise compliance protocols.
             </p>
           </div>
@@ -803,7 +912,7 @@
             </div>
             <div class="code-row">
               <span class="code-label">Signatory:</span>
-              <span class="code-val">Tina McCreery (Chief HR, Deloitte)</span>
+              <span class="code-val">Tina McCreery (Deloitte)</span>
             </div>
           </div>
         </div>
@@ -816,7 +925,7 @@
             <div class="spec-org-title">Blackmagic Design</div>
             <div class="spec-program-name">The Beginner's Guide to DaVinci Resolve 20 · Certified User</div>
           </div>
-          <span class="apple-verified-badge">✓ Officially Certified</span>
+          <span class="apple-verified-badge">✓ Certified</span>
         </div>
         <div class="spec-details-grid">
           <div>
@@ -825,9 +934,9 @@
               <span class="spec-pill">DaVinci Resolve Studio 20</span>
               <span class="spec-pill">Advanced Color Science & Grading</span>
               <span class="spec-pill">High-End NLE Post-Production</span>
-              <span class="spec-pill">Short-Form Viral Retention Engineering</span>
+              <span class="spec-pill">Short-Form Viral Retention</span>
             </div>
-            <p style="color: #86868b; font-size: 14px; line-height: 1.5;">
+            <p style="color: #86868b; font-size: 13px; line-height: 1.5;">
               Certified by the industry leader in Hollywood post-production technology. Applying cinematic color science and pace to viral digital formats.
             </p>
           </div>
@@ -856,10 +965,10 @@
       <div id="spec-ai" class="spec-pane">
         <div class="spec-headline-row">
           <div>
-            <div class="spec-org-title">AI & Machine Learning Systems</div>
+            <div class="spec-org-title">AI & Machine Learning</div>
             <div class="spec-program-name">Generative AI & System Prompt Engineering</div>
           </div>
-          <span class="apple-verified-badge">✓ Applied Production</span>
+          <span class="apple-verified-badge">✓ Applied</span>
         </div>
         <div class="spec-details-grid">
           <div>
@@ -867,10 +976,10 @@
             <div class="spec-pills">
               <span class="spec-pill">Multimodal Generative Pipelines</span>
               <span class="spec-pill">LLM Prompt Architecture</span>
-              <span class="spec-pill">Algorithmic Reach & Retention Optimization</span>
+              <span class="spec-pill">Algorithmic Reach Optimization</span>
               <span class="spec-pill">Sahyadri College (B.E. AI)</span>
             </div>
-            <p style="color: #86868b; font-size: 14px; line-height: 1.5;">
+            <p style="color: #86868b; font-size: 13px; line-height: 1.5;">
               Applying artificial intelligence at the intersection of media creation, automated data pipelines, and viral distribution.
             </p>
           </div>
@@ -881,7 +990,7 @@
             </div>
             <div class="code-row">
               <span class="code-label">Academic Anchor:</span>
-              <span class="code-val">B.E. in Artificial Intelligence</span>
+              <span class="code-val">B.E. Artificial Intelligence</span>
             </div>
             <div class="code-row">
               <span class="code-label">Impact:</span>
@@ -957,7 +1066,7 @@
     </div>
   </footer>
 
-  <!-- Apple Tab Switching Logic -->
+  <!-- Interactive JavaScript -->
   <script>
     function appleSwitchTab(tabId) {
       document.querySelectorAll('.segment-btn').forEach(btn => btn.classList.remove('active'));
@@ -967,6 +1076,13 @@
       const targetPane = document.getElementById('spec-' + tabId);
       if (targetPane) {
         targetPane.classList.add('active');
+      }
+    }
+
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      if (drawer) {
+        drawer.classList.toggle('open');
       }
     }
   </script>
