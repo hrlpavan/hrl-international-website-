@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://hrlinternationalprivatelimited.nett.to/sitemap.xml
