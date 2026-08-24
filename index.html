@@ -629,6 +629,59 @@
     .code-label { color: #86868b; font-size: 11px; }
     .code-val { color: #2997ff; font-weight: 600; word-break: break-all; text-align: right; }
 
+    /* Real Certificate Document Frame */
+    .cert-document-container {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .cert-document-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .cert-doc-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #86868b;
+      font-weight: 600;
+    }
+    .cert-expand-link {
+      color: #2997ff;
+      font-size: 13px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+    .cert-expand-link:hover {
+      text-decoration: underline;
+    }
+    .cert-document-preview {
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .cert-document-preview:hover {
+      border-color: rgba(41, 151, 255, 0.4);
+      transform: translateY(-2px);
+    }
+    .cert-real-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
     /* Apple Bento Grid Section */
     .apple-bento-section {
       max-width: 1024px;
@@ -922,6 +975,21 @@
             </div>
           </div>
         </div>
+
+        <!-- Real Certificate Document Frame -->
+        <div class="cert-document-container">
+          <div class="cert-document-header">
+            <span class="cert-doc-badge">Official Certificate Document</span>
+            <a href="assets/cert-jpmorgan.png" target="_blank" rel="noopener noreferrer" class="cert-expand-link">
+              View Full-Res Document &nearr;
+            </a>
+          </div>
+          <div class="cert-document-preview">
+            <a href="assets/cert-jpmorgan.png" target="_blank" rel="noopener noreferrer">
+              <img src="assets/cert-jpmorgan.png" alt="JPMorgan Chase & Co. - Software Engineering Job Simulation Certificate" class="cert-real-image" loading="lazy" />
+            </a>
+          </div>
+        </div>
       </div>
 
       <!-- 2. DELOITTE -->
@@ -965,6 +1033,21 @@
             </div>
           </div>
         </div>
+
+        <!-- Real Certificate Document Frame -->
+        <div class="cert-document-container">
+          <div class="cert-document-header">
+            <span class="cert-doc-badge">Official Certificate Document</span>
+            <a href="assets/cert-deloitte.png" target="_blank" rel="noopener noreferrer" class="cert-expand-link">
+              View Full-Res Document &nearr;
+            </a>
+          </div>
+          <div class="cert-document-preview">
+            <a href="assets/cert-deloitte.png" target="_blank" rel="noopener noreferrer">
+              <img src="assets/cert-deloitte.png" alt="Deloitte Australia - Cyber Job Simulation Certificate" class="cert-real-image" loading="lazy" />
+            </a>
+          </div>
+        </div>
       </div>
 
       <!-- 3. DAVINCI RESOLVE -->
@@ -1006,6 +1089,21 @@
               <span class="code-label">Signatory:</span>
               <span class="code-val">Grant Petty (CEO, Blackmagic)</span>
             </div>
+          </div>
+        </div>
+
+        <!-- Real Certificate Document Frame -->
+        <div class="cert-document-container">
+          <div class="cert-document-header">
+            <span class="cert-doc-badge">Official Certified User Credential</span>
+            <a href="assets/cert-davinci.png" target="_blank" rel="noopener noreferrer" class="cert-expand-link">
+              View Full-Res Document &nearr;
+            </a>
+          </div>
+          <div class="cert-document-preview">
+            <a href="assets/cert-davinci.png" target="_blank" rel="noopener noreferrer">
+              <img src="assets/cert-davinci.png" alt="Blackmagic Design - DaVinci Resolve 20 Certified User Credential" class="cert-real-image" loading="lazy" />
+            </a>
           </div>
         </div>
       </div>
