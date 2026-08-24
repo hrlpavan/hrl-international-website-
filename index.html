@@ -185,13 +185,17 @@
       font-size: 1.2rem;
       color: #fff;
     }
-    .logo-badge {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      padding: 0.35rem 0.75rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 0.5px;
+    .logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(255, 50, 50, 0.35));
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .logo-img:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 16px rgba(255, 50, 50, 0.6));
     }
     nav a {
       color: var(--text-muted);
@@ -533,7 +537,7 @@
 
   <header>
     <div class="logo-container">
-      <div class="logo-badge">HRL</div>
+      <img src="assets/logo.png" alt="HRL International Pvt. Ltd. Official Logo" class="logo-img" />
       <span>HRL International Pvt. Ltd.</span>
     </div>
     <nav>
