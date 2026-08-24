@@ -447,23 +447,19 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      overflow-x: auto;
-      padding-bottom: 8px;
+      padding: 0 16px;
       margin-bottom: 24px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .apple-segmented-wrapper::-webkit-scrollbar {
-      display: none;
     }
     .apple-segmented-tabs {
       background: #1d1d1f;
       border: 1px solid var(--apple-border-dark);
-      border-radius: 980px;
-      padding: 4px;
-      display: inline-flex;
-      gap: 4px;
-      white-space: nowrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      width: 100%;
+      max-width: 440px;
+      border-radius: 18px;
+      padding: 6px;
     }
     .segment-btn {
       background: transparent;
@@ -471,15 +467,42 @@
       color: #86868b;
       font-size: 13px;
       font-weight: 500;
-      padding: 8px 14px;
-      border-radius: 980px;
+      padding: 10px 8px;
+      border-radius: 12px;
       cursor: pointer;
       transition: all 0.2s;
-      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 42px;
+      white-space: normal;
+      line-height: 1.25;
+    }
+    .segment-btn:hover {
+      color: #fff;
     }
     .segment-btn.active {
       background: #333336;
       color: #fff;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+    @media (min-width: 680px) {
+      .apple-segmented-tabs {
+        display: inline-flex;
+        border-radius: 980px;
+        width: auto;
+        max-width: none;
+        padding: 4px;
+        gap: 4px;
+      }
+      .segment-btn {
+        padding: 8px 18px;
+        border-radius: 980px;
+        min-height: 36px;
+        white-space: nowrap;
+      }
     }
 
     /* Apple Pro Specs Grid */
