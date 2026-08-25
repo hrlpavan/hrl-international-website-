@@ -1138,16 +1138,30 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 11px;
+      font-size: 10.5px;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #ffffff;
-      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #8c8c94;
+      font-weight: 600;
       background: #121214;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      padding: 6px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 5px 12px;
       border-radius: 9999px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+    .elevenlabs-badge-logo {
+      height: 10px;
+      width: auto;
+      display: inline-block;
+      vertical-align: middle;
+      opacity: 0.95;
+    }
+    .elevenlabs-badge-divider {
+      width: 1px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.18);
+      display: inline-block;
     }
     .elevenlabs-mark-icon {
       display: inline-flex;
@@ -2504,8 +2518,9 @@
       
       <div style="text-align: center;">
         <div class="elevenlabs-brand-badge">
-          <img src="assets/brands/brand-elevenlabs-white.png" alt="ElevenLabs Official Logo" style="height: 15px; width: auto; vertical-align: middle; display: inline-block;" />
-          <span style="border-left: 1px solid rgba(255,255,255,0.25); padding-left: 8px; margin-left: 4px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #a1a1aa;">Neural Voice Studio</span>
+          <img src="assets/brands/brand-elevenlabs-white.png" alt="ElevenLabs" class="elevenlabs-badge-logo" />
+          <span class="elevenlabs-badge-divider"></span>
+          <span>Neural Voice Studio</span>
         </div>
         <h2 class="elevenlabs-headline">Creative Audio AI.<br/>Engineered by ElevenLabs.</h2>
         <p class="elevenlabs-subhead">Studio-grade speech synthesis, dynamic human voice inflection, and automated multimodal audio pipelines for next-gen creator media.</p>
