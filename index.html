@@ -1332,74 +1332,246 @@
       margin-top: 4px;
     }
 
-    /* ElevenLabs Equalizer Waveform */
-    .eleven-equalizer-box {
-      background: #09090b;
-      border: 1px solid #27272a;
-      border-radius: 12px;
-      padding: 14px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .eleven-bars-container {
+        /* ========================================================= */
+    /* OFFICIAL ELEVENLABS GLOWING ORB ANIMATION SYSTEM          */
+    /* Source: elevenlabs.io Conversational Voice Agent          */
+    /* ========================================================= */
+    .eleven-orb-stage {
+      position: relative;
+      width: 100%;
+      height: 230px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 3px;
-      height: 36px;
-      padding: 0 4px;
-    }
-    .eleven-bar {
-      flex: 1;
-      background: #27272a;
-      height: 4px;
-      border-radius: 2px;
-      transition: height 0.15s ease, background 0.15s ease;
-    }
-    .eleven-bars-container.playing .eleven-bar {
-      background: #ffffff;
-      animation: elevenEqualizerPulse 1s ease-in-out infinite alternate;
-    }
-    @keyframes elevenEqualizerPulse {
-      0% { height: 4px; opacity: 0.4; }
-      50% { height: 28px; opacity: 1; }
-      100% { height: 8px; opacity: 0.6; }
+      justify-content: center;
+      overflow: visible;
+      margin: 10px 0 16px;
     }
 
-    .eleven-status-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: #71717a;
-      font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    /* Expanding Audio Resonance Ripples */
+    .eleven-orb-ripple {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 1px solid rgba(78, 199, 224, 0.4);
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.8);
     }
-    .eleven-status-live {
+    .eleven-orb-stage.speaking .eleven-orb-ripple:nth-child(1) {
+      animation: elevenRippleExpand 2.4s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+    }
+    .eleven-orb-stage.speaking .eleven-orb-ripple:nth-child(2) {
+      animation: elevenRippleExpand 2.4s cubic-bezier(0.1, 0.8, 0.3, 1) 0.8s infinite;
+    }
+    .eleven-orb-stage.speaking .eleven-orb-ripple:nth-child(3) {
+      animation: elevenRippleExpand 2.4s cubic-bezier(0.1, 0.8, 0.3, 1) 1.6s infinite;
+    }
+
+    @keyframes elevenRippleExpand {
+      0% {
+        transform: scale(0.85);
+        opacity: 0.8;
+        border-color: rgba(78, 199, 224, 0.5);
+      }
+      50% {
+        border-color: rgba(45, 210, 141, 0.3);
+      }
+      100% {
+        transform: scale(1.65);
+        opacity: 0;
+        border-color: rgba(93, 121, 223, 0);
+      }
+    }
+
+    /* Core Morphing Iridescent Orb */
+    .eleven-orb-core {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+      background: radial-gradient(circle at 35% 30%, #a7f3d0 0%, #34d399 28%, #38bdf8 60%, #3b82f6 85%, #1d4ed8 100%);
+      box-shadow: 
+        0 0 35px rgba(52, 211, 153, 0.45),
+        0 0 70px rgba(56, 189, 248, 0.3),
+        inset 0 0 25px rgba(255, 255, 255, 0.5);
+      filter: contrast(1.15) saturate(1.2);
+      animation: elevenOrbIdleMorph 8s ease-in-out infinite alternate, elevenOrbRotate 20s linear infinite;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 2;
+    }
+    .eleven-orb-core:hover {
+      transform: scale(1.05);
+      box-shadow: 
+        0 0 45px rgba(52, 211, 153, 0.6),
+        0 0 90px rgba(56, 189, 248, 0.45),
+        inset 0 0 30px rgba(255, 255, 255, 0.7);
+    }
+    .eleven-orb-stage.speaking .eleven-orb-core {
+      animation: elevenOrbActiveMorph 2.8s ease-in-out infinite alternate, elevenOrbRotate 10s linear infinite;
+      box-shadow: 
+        0 0 50px rgba(52, 211, 153, 0.7),
+        0 0 100px rgba(56, 189, 248, 0.5),
+        inset 0 0 35px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Morphing Organic Radii Keyframes */
+    @keyframes elevenOrbIdleMorph {
+      0% {
+        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+        transform: scale(1);
+      }
+      33% {
+        border-radius: 55% 45% 58% 42% / 48% 54% 46% 52%;
+        transform: scale(1.02);
+      }
+      66% {
+        border-radius: 46% 54% 44% 56% / 54% 46% 56% 44%;
+        transform: scale(0.98);
+      }
+      100% {
+        border-radius: 52% 48% 56% 44% / 46% 52% 48% 54%;
+        transform: scale(1.01);
+      }
+    }
+
+    @keyframes elevenOrbActiveMorph {
+      0% {
+        border-radius: 46% 54% 62% 38% / 44% 60% 40% 56%;
+        transform: scale(0.98);
+      }
+      25% {
+        border-radius: 60% 40% 48% 52% / 58% 42% 58% 42%;
+        transform: scale(1.07);
+      }
+      50% {
+        border-radius: 44% 56% 54% 46% / 48% 58% 42% 52%;
+        transform: scale(0.95);
+      }
+      75% {
+        border-radius: 58% 42% 62% 38% / 52% 44% 56% 48%;
+        transform: scale(1.05);
+      }
+      100% {
+        border-radius: 50% 50% 46% 54% / 46% 54% 50% 50%;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes elevenOrbRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Frosted Glass Speaker Center */
+    .eleven-orb-center-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      transition: all 0.2s ease;
+      z-index: 3;
+    }
+    .eleven-orb-core:hover .eleven-orb-center-btn {
+      background: rgba(0, 0, 0, 0.65);
+      transform: scale(1.08);
+    }
+
+    /* Floating Speech Dialogue Bubbles */
+    .eleven-dialog-bubble {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      color: #18181b;
+      font-size: 11.5px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      max-width: 175px;
+      line-height: 1.35;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px) scale(0.92);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 4;
+    }
+    .eleven-dialog-bubble.bubble-left {
+      left: 10px;
+      top: 30px;
+      border-bottom-right-radius: 4px;
+    }
+    .eleven-dialog-bubble.bubble-right {
+      right: 10px;
+      bottom: 25px;
+      border-top-left-radius: 4px;
+    }
+    .eleven-orb-stage.speaking .eleven-dialog-bubble {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Agent Persona Navigation Pills */
+    .eleven-agent-pills {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .eleven-agent-pill {
+      background: #18181b;
+      border: 1px solid #27272a;
+      color: #a1a1aa;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      color: #a1a1aa;
-      font-weight: 500;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
     }
-    .eleven-status-live.active {
+    .eleven-agent-pill:hover {
+      background: #27272a;
       color: #ffffff;
     }
-    .eleven-live-dot {
-      width: 6px;
-      height: 6px;
+    .eleven-agent-pill.active {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
+    }
+    .mini-orb {
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
-      background: #52525b;
+      background: radial-gradient(circle at 35% 30%, #a7f3d0 0%, #34d399 50%, #38bdf8 100%);
       display: inline-block;
     }
-    .eleven-status-live.active .eleven-live-dot {
-      background: #30d158;
-      box-shadow: 0 0 8px #30d158;
-      animation: pulseGreenDot 1s infinite;
+    .mini-orb.orb-blue {
+      background: radial-gradient(circle at 35% 30%, #bfdbfe 0%, #60a5fa 50%, #3b82f6 100%);
     }
-    @keyframes pulseGreenDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
+    .mini-orb.orb-purple {
+      background: radial-gradient(circle at 35% 30%, #f5d0fe 0%, #c084fc 50%, #9333ea 100%);
+    }
+    .mini-orb.orb-amber {
+      background: radial-gradient(circle at 35% 30%, #fef08a 0%, #fbbf24 50%, #ea580c 100%);
     }
 
     /* Action Controls */
@@ -2592,43 +2764,37 @@
             </div>
           </div>
 
-          <!-- ElevenLabs Equalizer Waveform Bars -->
-          <div class="eleven-equalizer-box">
-            <div class="eleven-bars-container" id="elevenBarsContainer">
-              <!-- 28 Equalizer bars -->
-              <div class="eleven-bar" style="animation-delay: 0.1s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.35s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.15s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.45s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.2s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.6s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.25s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.5s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.1s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.3s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.7s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.4s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.2s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.65s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.35s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.55s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.15s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.4s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.6s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.2s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.5s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.3s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.75s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.25s"></div>
-            </div>
+          <!-- Official ElevenLabs Fluid Glowing Orb Stage -->
+          <div class="eleven-orb-stage" id="elevenOrbStage">
+            <div class="eleven-orb-ripple"></div>
+            <div class="eleven-orb-ripple"></div>
+            <div class="eleven-orb-ripple"></div>
             
-            <div class="eleven-status-bar">
-              <span id="voiceStatusText" class="eleven-status-live">
-                <span class="eleven-live-dot"></span>
-                <span>ElevenLabs Engine Ready</span>
-              </span>
-              <span id="voiceModelInfo" style="color: #52525b;">Model: Eleven Multilingual v2</span>
+            <!-- Contextual Dialogue Bubbles -->
+            <div class="eleven-dialog-bubble bubble-left" id="bubbleLeft">
+              “HRL International: Media engineering supercharged by AI.”
             </div>
+
+            <!-- Morphing Orb -->
+            <div class="eleven-orb-core" id="elevenOrbCore" onclick="handleGenerateAndPlayVoice()" title="Click to Generate & Play">
+              <div class="eleven-orb-center-btn" id="orbCenterBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="eleven-dialog-bubble bubble-right" id="bubbleRight">
+              “Pioneering viral reach & creator infrastructure.”
+            </div>
+          </div>
+
+          <div class="eleven-status-bar" style="padding: 0 4px;">
+            <span id="voiceStatusText" class="eleven-status-live">
+              <span class="eleven-live-dot"></span>
+              <span>ElevenLabs Voice Agent Ready</span>
+            </span>
+            <span id="voiceModelInfo" style="color: #71717a;">Latency: 75ms (Flash v2)</span>
           </div>
 
           <!-- Controls -->
@@ -2656,6 +2822,26 @@
 
         </div>
 
+
+        <!-- Bottom Persona Switcher Pills (ElevenLabs Official Style) -->
+        <div class="eleven-agent-pills" style="grid-column: 1 / -1;">
+          <button class="eleven-agent-pill active" onclick="switchAgentPersona('director', this)">
+            <span class="mini-orb"></span>
+            <span>Enterprise Director</span>
+          </button>
+          <button class="eleven-agent-pill" onclick="switchAgentPersona('vfx', this)">
+            <span class="mini-orb orb-blue"></span>
+            <span>VFX Studio Lead</span>
+          </button>
+          <button class="eleven-agent-pill" onclick="switchAgentPersona('cloud', this)">
+            <span class="mini-orb orb-purple"></span>
+            <span>Tech Architect</span>
+          </button>
+          <button class="eleven-agent-pill" onclick="switchAgentPersona('media', this)">
+            <span class="mini-orb orb-amber"></span>
+            <span>Growth Strategist</span>
+          </button>
+        </div>
       </div>
 
     </div>
@@ -2824,7 +3010,7 @@
       }
     }
 
-    function startEqualizerAnimation() {
+    function startOrbAnimation() {
       const container = document.getElementById("elevenBarsContainer");
       const statusText = document.getElementById("voiceStatusText");
       if (container) container.classList.add("playing");
@@ -2834,7 +3020,7 @@
       }
     }
 
-    function stopEqualizerAnimation() {
+    function stopOrbAnimation() {
       const container = document.getElementById("elevenBarsContainer");
       const statusText = document.getElementById("voiceStatusText");
       if (container) container.classList.remove("playing");
@@ -2856,7 +3042,7 @@
       const apiKeyInput = document.getElementById("elevenApiKey");
       const customKey = apiKeyInput ? apiKeyInput.value.trim() : "";
 
-      startEqualizerAnimation();
+      startOrbAnimation();
 
       // Check if Custom ElevenLabs API Key is provided
       if (customKey && customKey.startsWith("sk_")) {
@@ -2927,6 +3113,92 @@
       }
     }
 
+
+    /* ========================================================= */
+    /* ELEVENLABS GLOWING ORB CONTROLLER & VOICE AGENT ENGINE   */
+    /* ========================================================= */
+    const agentPersonas = {
+      director: {
+        voice: "adam",
+        scriptIndex: 0,
+        gradient: "radial-gradient(circle at 35% 30%, #a7f3d0 0%, #34d399 28%, #38bdf8 60%, #3b82f6 85%, #1d4ed8 100%)",
+        glow: "0 0 45px rgba(52, 211, 153, 0.6), 0 0 90px rgba(56, 189, 248, 0.45)",
+        bubble1: "“Founded by Pavan Kumar Sadashiv in Mangaluru, Karnataka.”",
+        bubble2: "“Media engineering supercharged by AI.”"
+      },
+      vfx: {
+        voice: "rachel",
+        scriptIndex: 1,
+        gradient: "radial-gradient(circle at 35% 30%, #bfdbfe 0%, #60a5fa 30%, #818cf8 60%, #6366f1 85%, #4338ca 100%)",
+        glow: "0 0 45px rgba(96, 165, 250, 0.6), 0 0 90px rgba(99, 102, 241, 0.45)",
+        bubble1: "“DaVinci Resolve Studio color science & Hollywood grading.”",
+        bubble2: "“Over 2.5M+ organic video impressions driven.”"
+      },
+      cloud: {
+        voice: "antoni",
+        scriptIndex: 2,
+        gradient: "radial-gradient(circle at 35% 30%, #f5d0fe 0%, #c084fc 30%, #a855f7 60%, #7e22ce 85%, #581c87 100%)",
+        glow: "0 0 45px rgba(192, 132, 252, 0.6), 0 0 90px rgba(168, 85, 247, 0.45)",
+        bubble1: "“JPMorgan Chase & Deloitte verified engineering foundations.”",
+        bubble2: "“Distributed stream computing & cyber risk governance.”"
+      },
+      media: {
+        voice: "bella",
+        scriptIndex: 0,
+        gradient: "radial-gradient(circle at 35% 30%, #fef08a 0%, #fbbf24 30%, #f97316 60%, #ea580c 85%, #c2410c 100%)",
+        glow: "0 0 45px rgba(251, 191, 36, 0.6), 0 0 90px rgba(249, 115, 22, 0.45)",
+        bubble1: "“Connecting international creator brands with scale.”",
+        bubble2: "“Algorithm-driven distribution & viral retention.”"
+      }
+    };
+
+    function switchAgentPersona(personaKey, element) {
+      document.querySelectorAll(".eleven-agent-pill").forEach(p => p.classList.remove("active"));
+      if (element) element.classList.add("active");
+      
+      const p = agentPersonas[personaKey];
+      if (!p) return;
+      
+      // Update Orb Gradient
+      const orb = document.getElementById("elevenOrbCore");
+      if (orb) {
+        orb.style.background = p.gradient;
+      }
+      
+      // Update Dialogue Bubbles
+      const b1 = document.getElementById("bubbleLeft");
+      const b2 = document.getElementById("bubbleRight");
+      if (b1) b1.textContent = p.bubble1;
+      if (b2) b2.textContent = p.bubble2;
+
+      // Select Voice & Script
+      loadVoiceScript(p.scriptIndex);
+      const voiceCard = document.querySelector(`.eleven-voice-card[onclick*="${p.voice}"]`);
+      if (voiceCard) {
+        selectVoiceModel(p.voice, voiceCard);
+      }
+    }
+
+    function startOrbAnimation() {
+      const stage = document.getElementById("elevenOrbStage");
+      const statusText = document.getElementById("voiceStatusText");
+      if (stage) stage.classList.add("speaking");
+      if (statusText) {
+        statusText.classList.add("active");
+        statusText.querySelector("span:last-child").textContent = `Agent Speaking (${voicePresets[currentVoiceKey].name})...`;
+      }
+    }
+
+    function stopOrbAnimation() {
+      const stage = document.getElementById("elevenOrbStage");
+      const statusText = document.getElementById("voiceStatusText");
+      if (stage) stage.classList.remove("speaking");
+      if (statusText) {
+        statusText.classList.remove("active");
+        statusText.querySelector("span:last-child").textContent = "ElevenLabs Voice Agent Ready";
+      }
+    }
+
     function stopVoicePlayback() {
       isVoicePlaying = false;
       if ("speechSynthesis" in window) window.speechSynthesis.cancel();
@@ -2934,7 +3206,7 @@
         currentAudioElement.pause();
         currentAudioElement = null;
       }
-      stopEqualizerAnimation();
+      stopOrbAnimation();
     }
 
     function toggleMobileMenu() {
