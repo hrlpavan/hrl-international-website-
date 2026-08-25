@@ -1116,381 +1116,266 @@
       }
     }
 
-            /* ========================================================= */
-    /* OFFICIAL ELEVENLABS DESIGN SYSTEM & GRAPHICS PALETTE      */
-    /* Source: https://elevenlabs.io/brand                      */
     /* ========================================================= */
-    :root {
-      --eleven-black: #000000;
-      --eleven-card: #0c0c0e;
-      --eleven-card-elevated: #151518;
-      --eleven-border: #232326;
-      --eleven-border-light: rgba(255, 255, 255, 0.12);
-      --eleven-white: #fdfcfc;
-      --eleven-gray-400: #949494;
-      --eleven-gray-500: #767676;
-      --eleven-gray-800: #2b2b2b;
-      
-      /* Official ElevenLabs Accent Color Palette */
-      --eleven-blue-500: #5d79df;
-      --eleven-blue-600: #4056ce;
-      --eleven-cyan-400: #4ec7e0;
-      --eleven-purple-500: #c47de5;
-      --eleven-green-500: #10b978;
-      --eleven-orange-500: #f36f1c;
-      --eleven-red-500: #eb524b;
-    }
-
-    .elevenlabs-brand-section {
+    /* APPLE PRO VOICE AI STUDIO POWERED BY ELEVENLABS           */
+    /* ========================================================= */
+    .apple-voice-ai-section {
       background: #000000;
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(64, 86, 206, 0.18) 0%, transparent 65%),
-        linear-gradient(to bottom, #000000 0%, #08080a 50%, #000000 100%);
       color: #ffffff;
-      padding: 96px 16px 105px;
+      padding: 80px 16px 90px;
       position: relative;
       overflow: hidden;
-      border-top: 1px solid var(--eleven-border);
-      border-bottom: 1px solid var(--eleven-border);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    
-    /* Subtle ElevenLabs Architectural Grid */
-    .elevenlabs-grid-pattern {
+    .voice-ai-glow {
       position: absolute;
-      inset: 0;
-      background-size: 40px 40px;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(0, 113, 227, 0.18) 0%, rgba(142, 68, 173, 0.1) 45%, transparent 70%);
+      filter: blur(60px);
       pointer-events: none;
       z-index: 0;
     }
-
-    .elevenlabs-container {
-      max-width: 1060px;
+    .voice-ai-container {
+      max-width: 1024px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
-
-    /* Official Brand Badge */
-    .elevenlabs-brand-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 11.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #ffffff;
-      font-weight: 700;
-      background: rgba(18, 18, 20, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      padding: 7px 16px;
-      border-radius: 9999px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+    .voice-ai-header {
+      text-align: center;
+      margin-bottom: 40px;
     }
-    
-    /* Official ElevenLabs Double-Bar Vector Mark */
-    .elevenlabs-mark-icon {
-      display: inline-flex;
-      gap: 3.5px;
-      align-items: center;
-      height: 13px;
-    }
-    .elevenlabs-mark-icon span {
-      width: 2.8px;
-      height: 12px;
-      background: #ffffff;
-      border-radius: 1.5px;
-      display: inline-block;
-    }
-
-    .elevenlabs-headline {
-      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-      font-size: clamp(32px, 6vw, 52px);
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      line-height: 1.06;
-      color: #ffffff;
-      margin-bottom: 14px;
-    }
-    .elevenlabs-subhead {
-      font-size: clamp(15px, 3.5vw, 17.5px);
-      color: #949494;
-      max-width: 660px;
-      margin: 0 auto 28px;
-      line-height: 1.5;
-      font-weight: 400;
-    }
-
-    /* Official Capabilities Tags Bar */
-    .eleven-palette-tags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-    .eleven-palette-tag {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      padding: 4px 12px;
-      border-radius: 6px;
+    .voice-ai-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #e5e5e5;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #2997ff;
+      font-weight: 700;
+      background: rgba(41, 151, 255, 0.12);
+      border: 1px solid rgba(41, 151, 255, 0.3);
+      padding: 5px 14px;
+      border-radius: 980px;
+      margin-bottom: 14px;
     }
-    .eleven-tag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
+    .voice-ai-headline {
+      font-family: "SF Pro Display", -apple-system, sans-serif;
+      font-size: clamp(30px, 5.5vw, 46px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.12;
+      color: #ffffff;
+      margin-bottom: 12px;
     }
-
-    /* ElevenLabs Studio Card */
-    .elevenlabs-studio-card {
-      background: #0c0c0e;
-      border: 1px solid #27272a;
-      border-radius: 22px;
-      padding: 34px 32px;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 1px 1px rgba(255, 255, 255, 0.08);
+    .voice-ai-subhead {
+      font-size: clamp(14.5px, 3.5vw, 17px);
+      color: #86868b;
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.45;
+    }
+    
+    /* Studio Console Card */
+    .voice-studio-card {
+      background: #161617;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 32px;
+      gap: 28px;
     }
     @media (max-width: 860px) {
-      .elevenlabs-studio-card {
+      .voice-studio-card {
         grid-template-columns: 1fr;
         padding: 24px 18px;
         gap: 24px;
       }
     }
-
-    /* Left Column: Script & Input */
-    .eleven-col-left {
+    
+    /* Left Panel: Script & Text Input */
+    .studio-panel-left {
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
-    .eleven-label {
-      font-size: 11.5px;
+    .panel-section-title {
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #949494;
+      letter-spacing: 0.06em;
+      color: #86868b;
       font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
-    .eleven-preset-group {
+    .preset-chips {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
     }
-    .eleven-preset-btn {
-      background: #18181b;
-      border: 1px solid #27272a;
-      color: #a1a1aa;
+    .preset-chip {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e5e5e7;
       font-size: 12px;
-      font-weight: 500;
-      padding: 6px 14px;
-      border-radius: 9999px;
+      padding: 6px 12px;
+      border-radius: 980px;
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.2s ease;
       user-select: none;
     }
-    .eleven-preset-btn:hover {
-      background: #27272a;
+    .preset-chip:hover, .preset-chip.active {
+      background: rgba(41, 151, 255, 0.2);
+      border-color: #2997ff;
       color: #ffffff;
-      border-color: #3f3f46;
     }
-    .eleven-preset-btn.active {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-      font-weight: 600;
-    }
-    .eleven-textarea {
+    .voice-textarea {
       width: 100%;
-      height: 145px;
+      height: 140px;
       background: #000000;
-      border: 1px solid #27272a;
-      border-radius: 14px;
-      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      padding: 14px 16px;
       color: #ffffff;
-      font-family: "SF Pro Text", "Inter", -apple-system, sans-serif;
+      font-family: "SF Pro Text", -apple-system, sans-serif;
       font-size: 14px;
-      line-height: 1.55;
+      line-height: 1.5;
       resize: none;
       outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: border-color 0.2s ease;
     }
-    .eleven-textarea:focus {
-      border-color: #ffffff;
-      box-shadow: 0 0 0 1px #ffffff;
+    .voice-textarea:focus {
+      border-color: #2997ff;
+      box-shadow: 0 0 0 2px rgba(41, 151, 255, 0.25);
     }
-
-    /* Right Column: Voice Grid & Equalizer */
-    .eleven-col-right {
+    
+    /* Right Panel: Voice Selection & Waveform */
+    .studio-panel-right {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 18px;
-      background: #000000;
-      border: 1px solid #27272a;
-      border-radius: 16px;
-      padding: 22px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 20px;
     }
-    .eleven-voices-grid {
+    .voice-options-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
-    .eleven-voice-card {
-      background: #121214;
-      border: 1px solid #27272a;
+    .voice-option-card {
+      background: #1c1c1e;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
-      padding: 12px 14px;
+      padding: 12px;
       cursor: pointer;
       transition: all 0.2s ease;
       text-align: left;
     }
-    .eleven-voice-card:hover {
-      border-color: #52525b;
-      background: #18181b;
+    .voice-option-card:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
     }
-    .eleven-voice-card.active {
-      border-color: #ffffff;
-      background: #1f1f23;
+    .voice-option-card.active {
+      border-color: #2997ff;
+      background: rgba(41, 151, 255, 0.14);
     }
-    .eleven-voice-name {
+    .voice-card-name {
       font-size: 13px;
       font-weight: 600;
       color: #ffffff;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 6px;
     }
-    .eleven-voice-name .eleven-tag-pill {
-      font-size: 9.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 2px 7px;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-    .eleven-voice-desc {
+    .voice-card-desc {
       font-size: 11px;
-      color: #71717a;
-      margin-top: 4px;
+      color: #86868b;
+      margin-top: 2px;
     }
-
-    /* ElevenLabs Equalizer Waveform */
-    .eleven-equalizer-box {
-      background: #09090b;
-      border: 1px solid #27272a;
+    
+    /* Waveform Canvas & Equalizer */
+    .waveform-wrapper {
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
-      padding: 14px 16px;
+      padding: 12px 14px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
-    .eleven-bars-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 3.5px;
-      height: 38px;
-      padding: 0 4px;
+    .waveform-canvas {
+      width: 100%;
+      height: 48px;
+      display: block;
     }
-    .eleven-bar {
-      flex: 1;
-      background: #27272a;
-      height: 4px;
-      border-radius: 2px;
-      transition: height 0.15s ease, background 0.15s ease;
-    }
-    .eleven-bars-container.playing .eleven-bar {
-      background: #ffffff;
-      animation: elevenEqualizerPulse 1s ease-in-out infinite alternate;
-    }
-    @keyframes elevenEqualizerPulse {
-      0% { height: 4px; opacity: 0.35; }
-      50% { height: 30px; opacity: 1; }
-      100% { height: 8px; opacity: 0.6; }
-    }
-
-    .eleven-status-bar {
+    .waveform-status-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 11px;
-      color: #71717a;
-      font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      color: #86868b;
     }
-    .eleven-status-live {
+    .status-indicator {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      color: #a1a1aa;
-      font-weight: 500;
+      gap: 5px;
+      color: #30d158;
+      font-weight: 600;
     }
-    .eleven-status-live.active {
-      color: #ffffff;
+    .status-indicator.speaking {
+      color: #2997ff;
+      animation: pulseGreen 1.2s infinite;
     }
-    .eleven-live-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #52525b;
-      display: inline-block;
+    @keyframes pulseGreen {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
-    .eleven-status-live.active .eleven-live-dot {
-      background: #10b978;
-      box-shadow: 0 0 8px #10b978;
-      animation: pulseGreenDot 1s infinite;
-    }
-
-    /* Action Controls */
-    .eleven-controls-row {
+    
+    /* Controls Row */
+    .studio-controls-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      margin-top: 4px;
+      flex-wrap: wrap;
     }
-    .eleven-btn-primary {
+    .btn-generate-voice {
       flex: 1;
-      background: #ffffff;
-      color: #000000;
+      background: linear-gradient(135deg, #0071e3 0%, #4338ca 100%);
+      color: #ffffff;
       border: none;
-      padding: 13px 22px;
-      border-radius: 9999px;
-      font-size: 13.5px;
+      padding: 13px 20px;
+      border-radius: 980px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 18px rgba(0, 113, 227, 0.4);
       user-select: none;
     }
-    .eleven-btn-primary:hover {
-      background: #f4f4f5;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+    .btn-generate-voice:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 24px rgba(0, 113, 227, 0.6);
     }
-    .eleven-btn-primary:active {
+    .btn-generate-voice:active {
       transform: scale(0.98);
     }
-    .eleven-btn-stop {
-      background: #18181b;
-      border: 1px solid #27272a;
+    .btn-stop-voice {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       color: #ffffff;
       width: 44px;
       height: 44px;
@@ -1501,19 +1386,18 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    .eleven-btn-stop:hover {
-      background: #27272a;
-      border-color: #eb524b;
-      color: #eb524b;
+    .btn-stop-voice:hover {
+      background: rgba(255, 69, 58, 0.25);
+      border-color: #ff453a;
+      color: #ff453a;
     }
-    .eleven-speed-select {
-      background: #121214;
-      border: 1px solid #27272a;
-      color: #e4e4e7;
+    .voice-speed-select {
+      background: #1c1c1e;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e5e5e7;
       padding: 11px 12px;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 12px;
-      font-weight: 500;
       outline: none;
       cursor: pointer;
     }
@@ -2132,174 +2016,102 @@
   </section>
 
 
-      <!-- ========================================================= -->
-  <!-- ELEVENLABS OFFICIAL BRAND VOICE AI STUDIO (OFFICIAL PALETTE) -->
   <!-- ========================================================= -->
-  <section class="elevenlabs-brand-section" id="voice-ai">
-    <div class="elevenlabs-grid-pattern"></div>
-    <div class="elevenlabs-container">
+  <!-- APPLE PRO VOICE AI STUDIO (POWERED BY ELEVENLABS)        -->
+  <!-- ========================================================= -->
+  <section class="apple-voice-ai-section" id="voice-ai">
+    <div class="voice-ai-glow"></div>
+    <div class="voice-ai-container">
       
-      <div style="text-align: center;">
-        <div class="elevenlabs-brand-badge">
-          <div class="elevenlabs-mark-icon">
-            <span></span>
-            <span></span>
-          </div>
+      <div class="voice-ai-header">
+        <div class="voice-ai-eyebrow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zm7 9a1 1 0 0 0-2 0 5 5 0 0 1-10 0 1 1 0 0 0-2 0 7 7 0 0 0 6 6.92V20H8a1 1 0 0 0 0 2h8a1 1 0 0 0 0-2h-3v-2.08A7 7 0 0 0 19 11z"/>
+          </svg>
           ElevenLabs Neural Audio Engine
         </div>
-        <h2 class="elevenlabs-headline">Creative Voice AI.<br/>Engineered with ElevenLabs.</h2>
-        <p class="elevenlabs-subhead">Studio-grade speech synthesis, dynamic human voice inflections, and automated multimodal audio pipelines for next-gen creator media.</p>
-        
-        <!-- Official ElevenLabs Color Palette Feature Badges -->
-        <div class="eleven-palette-tags">
-          <span class="eleven-palette-tag">
-            <span class="eleven-tag-dot" style="background: var(--eleven-purple-500); box-shadow: 0 0 6px var(--eleven-purple-500);"></span>
-            Multimodal Speech
-          </span>
-          <span class="eleven-palette-tag">
-            <span class="eleven-tag-dot" style="background: var(--eleven-blue-500); box-shadow: 0 0 6px var(--eleven-blue-500);"></span>
-            Voice Cloning
-          </span>
-          <span class="eleven-palette-tag">
-            <span class="eleven-tag-dot" style="background: var(--eleven-green-500); box-shadow: 0 0 6px var(--eleven-green-500);"></span>
-            Ultra-Low Latency (Flash v2)
-          </span>
-          <span class="eleven-palette-tag">
-            <span class="eleven-tag-dot" style="background: var(--eleven-orange-500); box-shadow: 0 0 6px var(--eleven-orange-500);"></span>
-            Cinematic Audio SFX
-          </span>
-        </div>
+        <h2 class="voice-ai-headline">Studio Voice Generation.<br/>Powered by ElevenLabs.</h2>
+        <p class="voice-ai-subhead">Experience instant neural text-to-speech synthesis, cinematic voice inflections, and conversational creator audio pipelines.</p>
       </div>
 
-      <!-- Studio Console Card -->
-      <div class="elevenlabs-studio-card">
+      <!-- Studio Console -->
+      <div class="voice-studio-card">
         
-        <!-- Left Column -->
-        <div class="eleven-col-left">
-          <div class="eleven-label">
-            <span>Select Script Preset or Enter Prompt</span>
-            <span style="font-size: 10px; color: #71717a; text-transform: none;">Character count: ~180</span>
+        <!-- Left: Script Input -->
+        <div class="studio-panel-left">
+          <div class="panel-section-title">Select Script Preset or Enter Custom Text</div>
+          <div class="preset-chips">
+            <button class="preset-chip active" onclick="loadVoiceScript(0)">🚀 Company Overview</button>
+            <button class="preset-chip" onclick="loadVoiceScript(1)">🎬 Cinematic VFX</button>
+            <button class="preset-chip" onclick="loadVoiceScript(2)">🛡️ Enterprise Cloud</button>
           </div>
+          <textarea id="voiceTextInput" class="voice-textarea" placeholder="Type or paste any text to generate studio voice...">Welcome to HRL International Private Limited. Founded by Pavan Kumar Sadashiv, we engineer next-generation digital media distribution, high-retention creator formats, and enterprise software architecture.</textarea>
           
-          <div class="eleven-preset-group">
-            <button class="eleven-preset-btn active" onclick="loadVoiceScript(0)">Company Overview</button>
-            <button class="eleven-preset-btn" onclick="loadVoiceScript(1)">Cinematic VFX</button>
-            <button class="eleven-preset-btn" onclick="loadVoiceScript(2)">Enterprise Cloud</button>
-          </div>
-
-          <textarea id="voiceTextInput" class="eleven-textarea" placeholder="Type or paste any text to synthesize studio speech...">Welcome to HRL International Private Limited. Founded by Pavan Kumar Sadashiv, we engineer next-generation digital media distribution, high-retention creator formats, and enterprise software architecture.</textarea>
-          
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px;">
-            <span style="font-size: 11px; color: #71717a;">Model: Eleven Multilingual v2 · 44.1kHz</span>
-            <button onclick="toggleApiKeyInput()" style="background: none; border: none; color: #ffffff; font-size: 11px; cursor: pointer; text-decoration: underline; opacity: 0.85;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 11px; color: #86868b;">Multilingual Neural Voices · High Fidelity 44.1kHz</span>
+            <button onclick="toggleApiKeyInput()" style="background: none; border: none; color: #2997ff; font-size: 11px; cursor: pointer; text-decoration: underline;">
               ⚙️ Custom API Key (Optional)
             </button>
           </div>
-
-          <div id="apiKeyRow" style="display: none; background: #000; padding: 12px 14px; border-radius: 12px; border: 1px solid #27272a;">
-            <div style="font-size: 11px; color: #a1a1aa; margin-bottom: 6px;">ElevenLabs API Key (Saved locally in your browser for direct TTS API streaming):</div>
-            <input type="password" id="elevenApiKey" placeholder="sk_..." style="width: 100%; background: #121214; border: 1px solid #333; color: #fff; padding: 8px 10px; border-radius: 8px; font-size: 12px; outline: none;" />
+          
+          <!-- Optional API Key Row -->
+          <div id="apiKeyRow" style="display: none; background: #000; padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 11px; color: #86868b; margin-bottom: 4px;">ElevenLabs API Key (Saved locally in your browser for direct TTS API streaming):</div>
+            <input type="password" id="elevenApiKey" placeholder="sk_..." style="width: 100%; background: #1c1c1e; border: 1px solid #333; color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 12px; outline: none;" />
           </div>
         </div>
 
-        <!-- Right Column -->
-        <div class="eleven-col-right">
+        <!-- Right: Voice Selection & Visualizer -->
+        <div class="studio-panel-right">
           <div>
-            <div class="eleven-label" style="margin-bottom: 10px;">Select Voice Character</div>
-            <div class="eleven-voices-grid">
-              <div class="eleven-voice-card active" onclick="selectVoiceModel('adam', this)">
-                <div class="eleven-voice-name">
-                  <span>Adam</span>
-                  <span class="eleven-tag-pill" style="background: rgba(93, 121, 223, 0.15); color: var(--eleven-blue-500); border: 1px solid rgba(93, 121, 223, 0.3);">Narrative</span>
-                </div>
-                <div class="eleven-voice-desc">Deep · Warm · Authority</div>
+            <div class="panel-section-title" style="margin-bottom: 8px;">Choose ElevenLabs Voice Model</div>
+            <div class="voice-options-grid">
+              <div class="voice-option-card active" onclick="selectVoiceModel('adam', this)">
+                <div class="voice-card-name">🎙️ Adam</div>
+                <div class="voice-card-desc">Deep Narrative · Warm Tone</div>
               </div>
-              
-              <div class="eleven-voice-card" onclick="selectVoiceModel('rachel', this)">
-                <div class="eleven-voice-name">
-                  <span>Rachel</span>
-                  <span class="eleven-tag-pill" style="background: rgba(196, 125, 229, 0.15); color: var(--eleven-purple-500); border: 1px solid rgba(196, 125, 229, 0.3);">Calm</span>
-                </div>
-                <div class="eleven-voice-desc">Cinematic · Broadcast</div>
+              <div class="voice-option-card" onclick="selectVoiceModel('rachel', this)">
+                <div class="voice-card-name">🎙️ Rachel</div>
+                <div class="voice-card-desc">Calm · Studio Broadcast</div>
               </div>
-
-              <div class="eleven-voice-card" onclick="selectVoiceModel('antoni', this)">
-                <div class="eleven-voice-name">
-                  <span>Antoni</span>
-                  <span class="eleven-tag-pill" style="background: rgba(78, 199, 224, 0.15); color: var(--eleven-cyan-400); border: 1px solid rgba(78, 199, 224, 0.3);">Tech</span>
-                </div>
-                <div class="eleven-voice-desc">Keynote · Confident</div>
+              <div class="voice-option-card" onclick="selectVoiceModel('antoni', this)">
+                <div class="voice-card-name">🎙️ Antoni</div>
+                <div class="voice-card-desc">Bold · Tech Keynote</div>
               </div>
-
-              <div class="eleven-voice-card" onclick="selectVoiceModel('bella', this)">
-                <div class="eleven-voice-name">
-                  <span>Bella</span>
-                  <span class="eleven-tag-pill" style="background: rgba(243, 111, 28, 0.15); color: var(--eleven-orange-500); border: 1px solid rgba(243, 111, 28, 0.3);">Creator</span>
-                </div>
-                <div class="eleven-voice-desc">Dynamic · Expressive</div>
+              <div class="voice-option-card" onclick="selectVoiceModel('bella', this)">
+                <div class="voice-card-name">🎙️ Bella</div>
+                <div class="voice-card-desc">Dynamic · Creator Expressive</div>
               </div>
             </div>
           </div>
 
-          <!-- ElevenLabs Equalizer Waveform Bars -->
-          <div class="eleven-equalizer-box">
-            <div class="eleven-bars-container" id="elevenBarsContainer">
-              <!-- 24 Equalizer bars -->
-              <div class="eleven-bar" style="animation-delay: 0.1s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.35s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.15s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.45s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.2s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.6s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.25s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.5s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.1s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.3s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.7s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.4s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.2s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.65s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.35s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.55s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.15s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.4s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.6s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.2s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.5s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.3s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.75s"></div>
-              <div class="eleven-bar" style="animation-delay: 0.25s"></div>
-            </div>
-            
-            <div class="eleven-status-bar">
-              <span id="voiceStatusText" class="eleven-status-live">
-                <span class="eleven-live-dot"></span>
-                <span>ElevenLabs Engine Ready</span>
-              </span>
-              <span id="voiceModelInfo" style="color: #71717a;">Latency: 75ms (Flash v2)</span>
+          <!-- Waveform Visualizer -->
+          <div class="waveform-wrapper">
+            <canvas id="waveformCanvas" class="waveform-canvas"></canvas>
+            <div class="waveform-status-row">
+              <span id="voiceStatusText" class="status-indicator">● Studio Engine Ready</span>
+              <span id="voiceDurationDisplay">00:00 / 00:00</span>
             </div>
           </div>
 
           <!-- Controls -->
-          <div class="eleven-controls-row">
-            <button class="eleven-btn-primary" id="btnPlayVoice" onclick="handleGenerateAndPlayVoice()">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <div class="studio-controls-row">
+            <button class="btn-generate-voice" id="btnPlayVoice" onclick="handleGenerateAndPlayVoice()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
               </svg>
-              <span>Generate & Play Voice</span>
+              <span>Generate & Play Audio</span>
             </button>
-            
-            <button class="eleven-btn-stop" id="btnStopVoice" onclick="stopVoicePlayback()" title="Stop Playback">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <button class="btn-stop-voice" id="btnStopVoice" onclick="stopVoicePlayback()" title="Stop Audio">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M6 6h12v12H6z"/>
               </svg>
             </button>
-
-            <select id="voiceSpeedSelect" class="eleven-speed-select" title="Speech Rate">
+            <select id="voiceSpeedSelect" class="voice-speed-select" title="Playback Speed">
               <option value="0.85">0.85x</option>
               <option value="1.0" selected>1.0x (Normal)</option>
               <option value="1.15">1.15x</option>
-              <option value="1.3">1.3x</option>
+              <option value="1.3">1.3x (Fast)</option>
             </select>
           </div>
 
@@ -2427,8 +2239,8 @@
     }
 
 
-        /* ========================================================= */
-    /* ELEVENLABS BRAND VOICE AI ENGINE & EQUALIZER              */
+    /* ========================================================= */
+    /* ELEVENLABS VOICE AI ENGINE & REAL-TIME VISUALIZER         */
     /* ========================================================= */
     const voiceScripts = [
       "Welcome to HRL International Private Limited. Founded by Pavan Kumar Sadashiv, we engineer next-generation digital media distribution, high-retention creator formats, and enterprise software architecture.",
@@ -2445,10 +2257,12 @@
 
     let currentVoiceKey = "adam";
     let isVoicePlaying = false;
+    let visualizerAnimationId = null;
+    let audioContext = null;
     let currentAudioElement = null;
 
     function loadVoiceScript(index) {
-      document.querySelectorAll(".eleven-preset-btn").forEach((chip, i) => {
+      document.querySelectorAll(".preset-chip").forEach((chip, i) => {
         chip.classList.toggle("active", i === index);
       });
       const textarea = document.getElementById("voiceTextInput");
@@ -2458,7 +2272,7 @@
     }
 
     function selectVoiceModel(voiceKey, element) {
-      document.querySelectorAll(".eleven-voice-card").forEach(c => c.classList.remove("active"));
+      document.querySelectorAll(".voice-option-card").forEach(c => c.classList.remove("active"));
       element.classList.add("active");
       currentVoiceKey = voiceKey;
       if (isVoicePlaying) {
@@ -2473,23 +2287,59 @@
       }
     }
 
-    function startEqualizerAnimation() {
-      const container = document.getElementById("elevenBarsContainer");
-      const statusText = document.getElementById("voiceStatusText");
-      if (container) container.classList.add("playing");
-      if (statusText) {
-        statusText.classList.add("active");
-        statusText.querySelector("span:last-child").textContent = `Synthesizing ${voicePresets[currentVoiceKey].name}...`;
-      }
+    // Audio Visualizer Canvas
+    const canvas = document.getElementById("waveformCanvas");
+    const ctx = canvas ? canvas.getContext("2d") : null;
+    let waveOffset = 0;
+
+    function initWaveformCanvas() {
+      if (!canvas) return;
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio || 300;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio || 50;
+      drawWaveformIdle();
     }
 
-    function stopEqualizerAnimation() {
-      const container = document.getElementById("elevenBarsContainer");
-      const statusText = document.getElementById("voiceStatusText");
-      if (container) container.classList.remove("playing");
-      if (statusText) {
-        statusText.classList.remove("active");
-        statusText.querySelector("span:last-child").textContent = "ElevenLabs Engine Ready";
+    function drawWaveformIdle() {
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.lineWidth = 2 * (window.devicePixelRatio || 1);
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.15)";
+      ctx.beginPath();
+      const mid = canvas.height / 2;
+      ctx.moveTo(0, mid);
+      ctx.lineTo(canvas.width, mid);
+      ctx.stroke();
+    }
+
+    function drawWaveformActive() {
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const mid = canvas.height / 2;
+      
+      // Draw 3 dynamic neon sound waves
+      const waves = [
+        { color: "#2997ff", amp: 14, freq: 0.03, speed: 0.08 },
+        { color: "#af52de", amp: 9, freq: 0.05, speed: -0.06 },
+        { color: "#30d158", amp: 5, freq: 0.02, speed: 0.04 }
+      ];
+
+      waves.forEach(w => {
+        ctx.beginPath();
+        ctx.strokeStyle = w.color;
+        ctx.lineWidth = 2 * (window.devicePixelRatio || 1);
+        for (let x = 0; x < canvas.width; x++) {
+          const y = mid + Math.sin(x * w.freq + waveOffset * w.speed) * w.amp * Math.sin((x / canvas.width) * Math.PI);
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      });
+
+      waveOffset += 1;
+      if (isVoicePlaying) {
+        visualizerAnimationId = requestAnimationFrame(drawWaveformActive);
+      } else {
+        drawWaveformIdle();
       }
     }
 
@@ -2500,12 +2350,16 @@
 
       stopVoicePlayback();
 
+      const statusText = document.getElementById("voiceStatusText");
       const speedSelect = document.getElementById("voiceSpeedSelect");
       const speed = parseFloat(speedSelect ? speedSelect.value : 1.0);
       const apiKeyInput = document.getElementById("elevenApiKey");
       const customKey = apiKeyInput ? apiKeyInput.value.trim() : "";
 
-      startEqualizerAnimation();
+      if (statusText) {
+        statusText.className = "status-indicator speaking";
+        statusText.innerHTML = "● Synthesizing with ElevenLabs...";
+      }
 
       // Check if Custom ElevenLabs API Key is provided
       if (customKey && customKey.startsWith("sk_")) {
@@ -2532,8 +2386,8 @@
           
           currentAudioElement.onplay = () => {
             isVoicePlaying = true;
-            const statusText = document.getElementById("voiceStatusText");
-            if (statusText) statusText.querySelector("span:last-child").textContent = `Streaming ${voicePresets[currentVoiceKey].name} (ElevenLabs API)`;
+            if (statusText) statusText.innerHTML = `● Streaming ${voicePresets[currentVoiceKey].name} (ElevenLabs API)`;
+            drawWaveformActive();
           };
           currentAudioElement.onended = () => stopVoicePlayback();
           currentAudioElement.play();
@@ -2551,6 +2405,7 @@
         utterance.rate = preset.rate * speed;
         utterance.pitch = preset.pitch;
 
+        // Try to pick high quality English voice
         const voices = window.speechSynthesis.getVoices();
         const englishVoices = voices.filter(v => v.lang.includes("en"));
         if (englishVoices.length > 0) {
@@ -2565,8 +2420,11 @@
 
         utterance.onstart = () => {
           isVoicePlaying = true;
-          const statusText = document.getElementById("voiceStatusText");
-          if (statusText) statusText.querySelector("span:last-child").textContent = `Playing ${preset.name} · ElevenLabs Model`;
+          if (statusText) {
+            statusText.className = "status-indicator speaking";
+            statusText.innerHTML = `● Playing ${preset.name} · ElevenLabs Model`;
+          }
+          drawWaveformActive();
         };
 
         utterance.onend = () => stopVoicePlayback();
@@ -2578,13 +2436,27 @@
 
     function stopVoicePlayback() {
       isVoicePlaying = false;
+      if (visualizerAnimationId) cancelAnimationFrame(visualizerAnimationId);
       if ("speechSynthesis" in window) window.speechSynthesis.cancel();
       if (currentAudioElement) {
         currentAudioElement.pause();
         currentAudioElement = null;
       }
-      stopEqualizerAnimation();
+      const statusText = document.getElementById("voiceStatusText");
+      if (statusText) {
+        statusText.className = "status-indicator";
+        statusText.innerHTML = "● Studio Engine Ready";
+      }
+      drawWaveformIdle();
     }
+
+    window.addEventListener("load", () => {
+      initWaveformCanvas();
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.getVoices();
+      }
+    });
+    window.addEventListener("resize", () => initWaveformCanvas());
 
     function toggleMobileMenu() {
       const drawer = document.getElementById('mobileDrawer');
