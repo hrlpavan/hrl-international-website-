@@ -893,7 +893,7 @@
       display: flex;
       gap: 18px;
       width: max-content;
-      animation: brandMarqueeScroll 36s linear infinite;
+      animation: brandMarqueeScroll 40s linear infinite;
       will-change: transform;
       transform: translateZ(0);
       align-items: center;
@@ -901,12 +901,13 @@
     .brand-marquee-track:hover {
       animation-play-state: paused;
     }
+    /* Left to Right continuous infinite flow */
     @keyframes brandMarqueeScroll {
       0% {
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(calc(-50% - 9px), 0, 0);
       }
       100% {
-        transform: translate3d(calc(-50% - 9px), 0, 0);
+        transform: translate3d(0, 0, 0);
       }
     }
     .brand-logo-pill {
@@ -1397,13 +1398,17 @@
 
     <div class="brand-marquee-viewport">
       <div class="brand-marquee-track">
-        <!-- Set 1 (All 7 Brands) -->
+        <!-- Set 1 (All 8 Brands & Fests) -->
         <div class="brand-logo-pill" title="Apple Ecosystem">
           <img src="assets/brands/brand-apple.png" alt="Apple" class="brand-logo-img" loading="lazy" />
         </div>
 
         <div class="brand-logo-pill" title="NVIDIA AI & GPU Architecture">
           <img src="assets/brands/brand-nvidia.png" alt="NVIDIA" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" title="SYNERGIA 26 Cultural & Technology Mega Fest">
+          <img src="assets/brands/brand-synergia.png" alt="SYNERGIA 26" class="brand-logo-img" loading="lazy" />
         </div>
 
         <div class="brand-logo-pill" title="Blackmagic Design Hollywood Post-Production">
@@ -1426,13 +1431,17 @@
           <img src="assets/brands/brand-deloitte.png" alt="Deloitte" class="brand-logo-img" loading="lazy" />
         </div>
 
-        <!-- Set 2 (Seamless Infinite Clone) -->
+        <!-- Set 2 (Seamless Infinite Clone for Left-to-Right Flow) -->
         <div class="brand-logo-pill" aria-hidden="true">
           <img src="assets/brands/brand-apple.png" alt="Apple" class="brand-logo-img" loading="lazy" />
         </div>
 
         <div class="brand-logo-pill" aria-hidden="true">
           <img src="assets/brands/brand-nvidia.png" alt="NVIDIA" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" aria-hidden="true">
+          <img src="assets/brands/brand-synergia.png" alt="SYNERGIA 26" class="brand-logo-img" loading="lazy" />
         </div>
 
         <div class="brand-logo-pill" aria-hidden="true">
