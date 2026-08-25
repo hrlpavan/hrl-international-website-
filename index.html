@@ -1265,6 +1265,39 @@
       border-color: #ffffff;
       font-weight: 600;
     }
+        /* Verified Socials HUD in ElevenLabs Studio */
+    .eleven-socials-hud {
+      background: #000000;
+      border: 1px solid #1f1f23;
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+    .eleven-socials-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .eleven-social-chip {
+      background: #121214;
+      border: 1px solid #27272a;
+      color: #e4e4e7;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 9px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+    .eleven-social-chip:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      transform: translateY(-1px);
+    }
+
     .eleven-textarea {
       width: 100%;
       height: 145px;
@@ -2206,17 +2239,46 @@
         
         <!-- Left Column -->
         <div class="eleven-col-left">
-          <div class="eleven-label">Select Script Preset or Enter Prompt</div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="eleven-label">Select Script Preset or Enter Prompt</div>
+            <span style="font-size: 10px; color: #a1a1aa; background: #1c1c1f; padding: 2px 8px; border-radius: 9999px; border: 1px solid #27272a;">⚡ 45s Retention Mode</span>
+          </div>
           <div class="eleven-preset-group">
-            <button class="eleven-preset-btn active" onclick="loadVoiceScript(0)">Company Overview</button>
-            <button class="eleven-preset-btn" onclick="loadVoiceScript(1)">Cinematic VFX</button>
-            <button class="eleven-preset-btn" onclick="loadVoiceScript(2)">Enterprise Cloud</button>
+            <button class="eleven-preset-btn active" onclick="loadVoiceScript(0)" style="border-color: #ffffff;">⚡ 45s Viral Story & Handles</button>
+            <button class="eleven-preset-btn" onclick="loadVoiceScript(1)">Overview</button>
+            <button class="eleven-preset-btn" onclick="loadVoiceScript(2)">Cinematic VFX</button>
+            <button class="eleven-preset-btn" onclick="loadVoiceScript(3)">Enterprise Cloud</button>
           </div>
 
-          <textarea id="voiceTextInput" class="eleven-textarea" placeholder="Type or paste any text to synthesize studio speech...">Welcome to HRL International Private Limited. Founded by Pavan Kumar Sadashiv, we engineer next-generation digital media distribution, high-retention creator formats, and enterprise software architecture.</textarea>
+          <textarea id="voiceTextInput" class="eleven-textarea" placeholder="Type or paste any text to synthesize studio speech...">Stop scrolling. Here is how one visionary built an empire commanding over 2.5 million organic views. Founded in Mangaluru by Pavan Kumar Sadashiv, HRL International began by engineering Hollywood-grade DaVinci Resolve color science into viral short-form media. Today, that creative engine is fused with enterprise cloud architecture verified by JPMorgan Chase and Deloitte. From high-retention media on @hrlpremiumstudio and cinematic VFX on @hrlefx, to global stream updates on @hrlflix and open-source software on GitHub @hrlpavan—HRL International is engineering the future of digital media. Follow all official channels below and join the network.</textarea>
           
+          <!-- Verified Social Media Handles HUD (High Retention Clickable Bar) -->
+          <div class="eleven-socials-hud">
+            <div style="font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: #8c8c94; font-weight: 600; margin-bottom: 6px;">Verified Network Channels (Click to Open):</div>
+            <div class="eleven-socials-pills">
+              <a href="https://www.instagram.com/hrlpremiumstudio/" target="_blank" rel="noopener noreferrer" class="eleven-social-chip">
+                <span>📸</span> <span>@hrlpremiumstudio</span>
+              </a>
+              <a href="https://www.instagram.com/hrlefx/" target="_blank" rel="noopener noreferrer" class="eleven-social-chip">
+                <span>🎬</span> <span>@hrlefx</span>
+              </a>
+              <a href="https://www.instagram.com/hrlflix/" target="_blank" rel="noopener noreferrer" class="eleven-social-chip">
+                <span>📺</span> <span>@hrlflix</span>
+              </a>
+              <a href="https://www.instagram.com/hrlstayupdated/" target="_blank" rel="noopener noreferrer" class="eleven-social-chip">
+                <span>⚡</span> <span>@hrlstayupdated</span>
+              </a>
+              <a href="https://github.com/hrlpavan" target="_blank" rel="noopener noreferrer" class="eleven-social-chip">
+                <span>💻</span> <span>@hrlpavan</span>
+              </a>
+              <a href="https://www.linkedin.com/in/pavan-kumar-s-703993330/" target="_blank" rel="noopener noreferrer" class="eleven-social-chip">
+                <span>💼</span> <span>Pavan Kumar Sadashiv</span>
+              </a>
+            </div>
+          </div>
+
           <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px;">
-            <span style="font-size: 11px; color: #71717a;">Neural Engine · High Fidelity 44.1kHz</span>
+            <span style="font-size: 11px; color: #71717a;">Neural Engine · 45s Optimized Script · 44.1kHz</span>
             <button onclick="toggleApiKeyInput()" style="background: none; border: none; color: #ffffff; font-size: 11px; cursor: pointer; text-decoration: underline; opacity: 0.85;">
               Custom API Key (Optional)
             </button>
@@ -2455,6 +2517,7 @@
     /* Real-Time Acoustic Harmonic Synthesis Simulation         */
     /* ========================================================= */
     const voiceScripts = [
+      "Stop scrolling. Here is how one visionary built an empire commanding over 2.5 million organic views. Founded in Mangaluru by Pavan Kumar Sadashiv, HRL International began by engineering Hollywood-grade DaVinci Resolve color science into viral short-form media. Today, that creative engine is fused with enterprise cloud architecture verified by JPMorgan Chase and Deloitte. From high-retention media on @hrlpremiumstudio and cinematic VFX on @hrlefx, to global stream updates on @hrlflix and open-source software on GitHub @hrlpavan—HRL International is engineering the future of digital media. Follow all official channels below and join the network.",
       "Welcome to HRL International Private Limited. Founded by Pavan Kumar Sadashiv, we engineer next-generation digital media distribution, high-retention creator formats, and enterprise software architecture.",
       "By combining Hollywood-grade DaVinci Resolve color science with cinematic short-form storytelling, HRL International has driven over 2.5 million organic video impressions across social platforms.",
       "Our software engineering infrastructure is built on verified qualifications from JPMorgan Chase and Deloitte, delivering distributed stream computing, high-velocity APIs, and cyber security governance."
@@ -2596,6 +2659,15 @@
       requestAnimationFrame(renderFluidFrequencyAnimation);
     }
 
+
+    // Dynamic Dialogue Bubble Script Lines for 45s Story
+    const storyDialogueSteps = [
+      { left: "“Stop scrolling: Over 2.5M+ organic impressions.”", right: "“Pavan Kumar Sadashiv · Founder & MD”" },
+      { left: "“Hollywood DaVinci Resolve Color Science.”", right: "“JPMorgan & Deloitte Infrastructure.”" },
+      { left: "“Creator Network: @hrlpremiumstudio & @hrlefx”", right: "“GitHub Code: @hrlpavan”" }
+    ];
+    let dialogueInterval = null;
+
     // Voice Synthesis Engine
     async function handleGenerateAndPlayVoice() {
       const text = document.getElementById("voiceTextInput").value.trim();
@@ -2611,6 +2683,15 @@
       const stage = document.getElementById("elevenFluidStage");
       const statusText = document.getElementById("voiceStatusText");
       if (stage) stage.classList.add("speaking");
+      let stepIdx = 0;
+      if (dialogueInterval) clearInterval(dialogueInterval);
+      dialogueInterval = setInterval(() => {
+        stepIdx = (stepIdx + 1) % storyDialogueSteps.length;
+        const bL = document.getElementById("bubbleLeft");
+        const bR = document.getElementById("bubbleRight");
+        if (bL) bL.textContent = storyDialogueSteps[stepIdx].left;
+        if (bR) bR.textContent = storyDialogueSteps[stepIdx].right;
+      }, 8000);
       if (statusText) {
         statusText.classList.add("active");
         statusText.querySelector("span:last-child").textContent = `Synthesizing ${voicePresets[currentVoiceKey].name}...`;
@@ -2693,6 +2774,7 @@
       const stage = document.getElementById("elevenFluidStage");
       const statusText = document.getElementById("voiceStatusText");
       if (stage) stage.classList.remove("speaking");
+      if (dialogueInterval) { clearInterval(dialogueInterval); dialogueInterval = null; }
       if (statusText) {
         statusText.classList.remove("active");
         statusText.querySelector("span:last-child").textContent = "ElevenLabs Engine Ready";
