@@ -680,6 +680,146 @@
       object-fit: contain;
     }
 
+    /* Apple Infinite Right-to-Left Live Production Marquee */
+    .apple-marquee-section {
+      width: 100%;
+      padding: 64px 0 44px;
+      overflow: hidden;
+      position: relative;
+      background: var(--apple-bg);
+    }
+    .marquee-header {
+      max-width: 980px;
+      margin: 0 auto 32px;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .marquee-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #0071e3;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .marquee-headline {
+      font-size: clamp(26px, 5.5vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--apple-text-dark);
+      line-height: 1.15;
+    }
+    .marquee-subhead {
+      font-size: clamp(14px, 3.5vw, 17px);
+      color: var(--apple-text-muted);
+      margin-top: 8px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.45;
+    }
+    .marquee-viewport {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 12px 0 20px;
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: marqueeScrollRightToLeft 26s linear infinite;
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes marqueeScrollRightToLeft {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(calc(-50% - 10px), 0, 0);
+      }
+    }
+    .marquee-card {
+      position: relative;
+      width: 320px;
+      height: 220px;
+      flex-shrink: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+      cursor: pointer;
+    }
+    .marquee-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.16);
+    }
+    .marquee-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .marquee-card:hover .marquee-img {
+      transform: scale(1.05);
+    }
+    .marquee-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 16px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      pointer-events: none;
+    }
+    .caption-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #2997ff;
+      font-weight: 600;
+    }
+    .caption-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 640px) {
+      .apple-marquee-section {
+        padding: 44px 0 28px;
+      }
+      .marquee-card {
+        width: 240px;
+        height: 170px;
+        border-radius: 16px;
+      }
+      .marquee-track {
+        gap: 14px;
+        animation-duration: 20s;
+      }
+      .caption-title {
+        font-size: 12px;
+      }
+    }
+
     /* Apple Bento Grid Section */
     .apple-bento-section {
       max-width: 1024px;
@@ -845,6 +985,7 @@
       <!-- Desktop Links -->
       <ul class="nav-links">
         <li><a href="#overview">Overview</a></li>
+        <li><a href="#production-energy">Live Production</a></li>
         <li><a href="#credentials">Credentials</a></li>
         <li><a href="#capabilities">Capabilities</a></li>
         <li><a href="#leadership">Leadership</a></li>
@@ -865,6 +1006,7 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
     <a href="#overview" onclick="toggleMobileMenu()">Overview</a>
+    <a href="#production-energy" onclick="toggleMobileMenu()">Live Production</a>
     <a href="#credentials" onclick="toggleMobileMenu()">Credentials</a>
     <a href="#capabilities" onclick="toggleMobileMenu()">Capabilities</a>
     <a href="#leadership" onclick="toggleMobileMenu()">Leadership</a>
@@ -905,6 +1047,85 @@
         <div>
           <div class="stat-number">100%</div>
           <div class="stat-label">Verified Entity & Indexing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apple Live Production & Event Energy Stream (Right to Left Infinite Marquee) -->
+  <section class="apple-marquee-section" id="production-energy">
+    <div class="marquee-header">
+      <span class="marquee-eyebrow">Live Impact & Cultural Energy</span>
+      <h2 class="marquee-headline">Capturing the pulse of live audiences.</h2>
+      <p class="marquee-subhead">High-energy festival moments, cinematic community broadcasts, and viral event production powered by HRL International.</p>
+    </div>
+
+    <div class="marquee-viewport">
+      <div class="marquee-track">
+        <!-- Set 1 -->
+        <div class="marquee-card">
+          <img src="assets/events/crowd-1.jpg" alt="Live Event Audience & Fest Energy" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Live Production</span>
+            <span class="caption-title">Campus & Festival Energy</span>
+          </div>
+        </div>
+
+        <div class="marquee-card">
+          <img src="assets/events/crowd-2.jpg" alt="Creator Community & Culture" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Community</span>
+            <span class="caption-title">Youth Creator Ecosystems</span>
+          </div>
+        </div>
+
+        <div class="marquee-card">
+          <img src="assets/events/crowd-3.jpg" alt="Live Concert & Fest Vibes" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">High Retention</span>
+            <span class="caption-title">Cinematic Crowd Moments</span>
+          </div>
+        </div>
+
+        <div class="marquee-card">
+          <img src="assets/events/crowd-4.jpg" alt="Live Audience Excitement" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Viral Scale</span>
+            <span class="caption-title">Multi-Thousand Audience Pulse</span>
+          </div>
+        </div>
+
+        <!-- Set 2 (Seamless Infinite Clone for Continuous Right-to-Left Motion) -->
+        <div class="marquee-card" aria-hidden="true">
+          <img src="assets/events/crowd-1.jpg" alt="Live Event Audience & Fest Energy" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Live Production</span>
+            <span class="caption-title">Campus & Festival Energy</span>
+          </div>
+        </div>
+
+        <div class="marquee-card" aria-hidden="true">
+          <img src="assets/events/crowd-2.jpg" alt="Creator Community & Culture" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Community</span>
+            <span class="caption-title">Youth Creator Ecosystems</span>
+          </div>
+        </div>
+
+        <div class="marquee-card" aria-hidden="true">
+          <img src="assets/events/crowd-3.jpg" alt="Live Concert & Fest Vibes" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">High Retention</span>
+            <span class="caption-title">Cinematic Crowd Moments</span>
+          </div>
+        </div>
+
+        <div class="marquee-card" aria-hidden="true">
+          <img src="assets/events/crowd-4.jpg" alt="Live Audience Excitement" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Viral Scale</span>
+            <span class="caption-title">Multi-Thousand Audience Pulse</span>
+          </div>
         </div>
       </div>
     </div>
