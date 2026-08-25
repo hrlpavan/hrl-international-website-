@@ -843,6 +843,124 @@
       }
     }
 
+    /* Apple Collaborated Brands Marquee Section */
+    .apple-brand-section {
+      width: 100%;
+      padding: 36px 0 64px;
+      overflow: hidden;
+      position: relative;
+      background: var(--apple-bg);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .brand-section-header {
+      max-width: 980px;
+      margin: 0 auto 28px;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .brand-eyebrow {
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #0071e3;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .brand-headline {
+      font-size: clamp(22px, 4.5vw, 30px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--apple-text-dark);
+      line-height: 1.2;
+    }
+    .brand-subhead {
+      font-size: clamp(13.5px, 3vw, 15.5px);
+      color: var(--apple-text-muted);
+      margin-top: 6px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.45;
+    }
+    .brand-marquee-viewport {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 10px 0 16px;
+    }
+    .brand-marquee-track {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      animation: brandMarqueeScroll 36s linear infinite;
+      will-change: transform;
+      transform: translateZ(0);
+      align-items: center;
+    }
+    .brand-marquee-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes brandMarqueeScroll {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(calc(-50% - 9px), 0, 0);
+      }
+    }
+    .brand-logo-pill {
+      background: var(--apple-white);
+      border: 1px solid var(--apple-border);
+      border-radius: 18px;
+      padding: 14px 28px;
+      height: 70px;
+      min-width: 165px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      cursor: pointer;
+    }
+    .brand-logo-pill:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 113, 227, 0.35);
+    }
+    .brand-logo-img {
+      max-height: 32px;
+      max-width: 125px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(100%) opacity(0.68);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+    .brand-logo-pill:hover .brand-logo-img {
+      filter: grayscale(0%) opacity(1);
+    }
+
+    @media (max-width: 640px) {
+      .apple-brand-section {
+        padding: 24px 0 40px;
+      }
+      .brand-logo-pill {
+        height: 58px;
+        min-width: 135px;
+        padding: 10px 18px;
+        border-radius: 14px;
+      }
+      .brand-logo-img {
+        max-height: 24px;
+        max-width: 100px;
+      }
+      .brand-marquee-track {
+        gap: 12px;
+        animation-duration: 26s;
+      }
+    }
+
     /* Apple Bento Grid Section */
     .apple-bento-section {
       max-width: 1024px;
@@ -1009,6 +1127,7 @@
       <ul class="nav-links">
         <li><a href="#overview">Overview</a></li>
         <li><a href="#production-energy">Live Production</a></li>
+        <li><a href="#partners">Ecosystem</a></li>
         <li><a href="#credentials">Credentials</a></li>
         <li><a href="#capabilities">Capabilities</a></li>
         <li><a href="#leadership">Leadership</a></li>
@@ -1030,6 +1149,7 @@
   <div class="mobile-drawer" id="mobileDrawer">
     <a href="#overview" onclick="toggleMobileMenu()">Overview</a>
     <a href="#production-energy" onclick="toggleMobileMenu()">Live Production</a>
+    <a href="#partners" onclick="toggleMobileMenu()">Ecosystem & Brands</a>
     <a href="#credentials" onclick="toggleMobileMenu()">Credentials</a>
     <a href="#capabilities" onclick="toggleMobileMenu()">Capabilities</a>
     <a href="#leadership" onclick="toggleMobileMenu()">Leadership</a>
@@ -1262,6 +1382,77 @@
             <span class="caption-tag">Viral Scale</span>
             <span class="caption-title">Multi-Thousand Audience Pulse</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apple Collaborated Brands & Ecosystem Section (Infinite Marquee) -->
+  <section class="apple-brand-section" id="partners">
+    <div class="brand-section-header">
+      <span class="brand-eyebrow">Enterprise & Technology Ecosystem</span>
+      <h2 class="brand-headline">Collaborated & Powered by Industry Leaders.</h2>
+      <p class="brand-subhead">Building and integrating with world-class architectures across computing, generative AI, cinema, and enterprise technology.</p>
+    </div>
+
+    <div class="brand-marquee-viewport">
+      <div class="brand-marquee-track">
+        <!-- Set 1 (All 7 Brands) -->
+        <div class="brand-logo-pill" title="Apple Ecosystem">
+          <img src="assets/brands/brand-apple.png" alt="Apple" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" title="NVIDIA AI & GPU Architecture">
+          <img src="assets/brands/brand-nvidia.png" alt="NVIDIA" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" title="Blackmagic Design Hollywood Post-Production">
+          <img src="assets/brands/brand-blackmagic.png" alt="Blackmagic Design" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" title="ElevenLabs Voice AI">
+          <img src="assets/brands/brand-elevenlabs.png" alt="ElevenLabs" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" title="Sahyadri Educational Community">
+          <img src="assets/brands/brand-sahyadri.png" alt="Sahyadri" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" title="JPMorgan Chase & Co. Engineering">
+          <img src="assets/brands/brand-jpmorgan.png" alt="JPMorgan Chase" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" title="Deloitte Cyber Security">
+          <img src="assets/brands/brand-deloitte.png" alt="Deloitte" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <!-- Set 2 (Seamless Infinite Clone) -->
+        <div class="brand-logo-pill" aria-hidden="true">
+          <img src="assets/brands/brand-apple.png" alt="Apple" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" aria-hidden="true">
+          <img src="assets/brands/brand-nvidia.png" alt="NVIDIA" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" aria-hidden="true">
+          <img src="assets/brands/brand-blackmagic.png" alt="Blackmagic Design" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" aria-hidden="true">
+          <img src="assets/brands/brand-elevenlabs.png" alt="ElevenLabs" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" aria-hidden="true">
+          <img src="assets/brands/brand-sahyadri.png" alt="Sahyadri" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" aria-hidden="true">
+          <img src="assets/brands/brand-jpmorgan.png" alt="JPMorgan Chase" class="brand-logo-img" loading="lazy" />
+        </div>
+
+        <div class="brand-logo-pill" aria-hidden="true">
+          <img src="assets/brands/brand-deloitte.png" alt="Deloitte" class="brand-logo-img" loading="lazy" />
         </div>
       </div>
     </div>
