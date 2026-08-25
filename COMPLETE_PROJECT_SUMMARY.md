@@ -1,7 +1,7 @@
 # 🌐 HRL International Pvt. Ltd. — Master Project & SEO Documentation
 
 **Corporate Entity**: HRL International Private Limited  
-**Founder & Managing Director**: Pavan Kumar S  
+**Founder & Managing Director**: Pavan Kumar Sadashiv  
 **Headquarters**: Mangaluru, Karnataka, India  
 **Official Email**: `hrlinternationalprivatelimited@gmail.com`  
 **Live Production URL**: [https://hrl-brand-seo.vercel.app](https://hrl-brand-seo.vercel.app)  
