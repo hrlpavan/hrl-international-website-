@@ -1116,39 +1116,59 @@
       }
     }
 
-        /* ========================================================= */
-    /* OFFICIAL ELEVENLABS BRAND DESIGN SYSTEM (elevenlabs.io)   */
+            /* ========================================================= */
+    /* OFFICIAL ELEVENLABS MONOCHROME SYSTEM & KINETIC CHLADNI   */
+    /* Source: elevenlabs.io Brand Identity Guidelines           */
     /* ========================================================= */
     .elevenlabs-brand-section {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
       background: #000000;
       color: #ffffff;
-      padding: 90px 16px 100px;
+      padding: 92px 16px 105px;
       position: relative;
       overflow: hidden;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid #1f1f23;
+      border-bottom: 1px solid #1f1f23;
     }
+
+    /* Monochrome Subtle Grain Background */
+    .elevenlabs-ambient-grain {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='bgNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23bgNoise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .elevenlabs-container {
       max-width: 1040px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
+
+    /* Monochrome Brand Badge */
     .elevenlabs-brand-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-size: 10.5px;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: #8c8c94;
       font-weight: 600;
-      background: #121214;
+      background: #0c0c0e;
       border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 5px 12px;
+      padding: 5px 13px;
       border-radius: 9999px;
       margin-bottom: 20px;
       line-height: 1;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
     }
     .elevenlabs-badge-logo {
       height: 10px;
@@ -1163,48 +1183,36 @@
       background: rgba(255, 255, 255, 0.18);
       display: inline-block;
     }
-    .elevenlabs-mark-icon {
-      display: inline-flex;
-      gap: 3px;
-      align-items: center;
-      height: 12px;
-    }
-    .elevenlabs-mark-icon span {
-      width: 2.5px;
-      height: 11px;
-      background: #ffffff;
-      border-radius: 1px;
-      display: inline-block;
-    }
+
     .elevenlabs-headline {
-      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: clamp(32px, 6vw, 50px);
       font-weight: 700;
       letter-spacing: -0.03em;
-      line-height: 1.08;
+      line-height: 1.06;
       color: #ffffff;
       margin-bottom: 12px;
     }
     .elevenlabs-subhead {
-      font-size: clamp(15px, 3.5vw, 17px);
-      color: #8c8c8c;
-      max-width: 620px;
-      margin: 0 auto;
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: clamp(14.5px, 3.5vw, 17px);
+      color: #8c8c94;
+      max-width: 630px;
+      margin: 0 auto 34px;
       line-height: 1.5;
       font-weight: 400;
     }
 
-    /* ElevenLabs Studio Card */
+    /* Studio Card */
     .elevenlabs-studio-card {
       background: #09090b;
-      border: 1px solid #27272a;
-      border-radius: 20px;
-      padding: 32px 30px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+      border: 1px solid #232326;
+      border-radius: 22px;
+      padding: 34px 30px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 1px 1px rgba(255, 255, 255, 0.06);
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 30px;
-      margin-top: 36px;
     }
     @media (max-width: 860px) {
       .elevenlabs-studio-card {
@@ -1221,10 +1229,11 @@
       gap: 16px;
     }
     .eleven-label {
-      font-size: 11.5px;
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #a1a1aa;
+      color: #8c8c94;
       font-weight: 600;
     }
     .eleven-preset-group {
@@ -1233,8 +1242,9 @@
       flex-wrap: wrap;
     }
     .eleven-preset-btn {
-      background: #18181b;
-      border: 1px solid #27272a;
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #141417;
+      border: 1px solid #232326;
       color: #a1a1aa;
       font-size: 12px;
       font-weight: 500;
@@ -1245,7 +1255,7 @@
       user-select: none;
     }
     .eleven-preset-btn:hover {
-      background: #27272a;
+      background: #232326;
       color: #ffffff;
       border-color: #3f3f46;
     }
@@ -1259,11 +1269,11 @@
       width: 100%;
       height: 145px;
       background: #000000;
-      border: 1px solid #27272a;
+      border: 1px solid #232326;
       border-radius: 14px;
       padding: 16px;
       color: #ffffff;
-      font-family: "SF Pro Text", "Inter", -apple-system, sans-serif;
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 14px;
       line-height: 1.55;
       resize: none;
@@ -1275,15 +1285,15 @@
       box-shadow: 0 0 0 1px #ffffff;
     }
 
-    /* Right Column: Voice Grid & Audio Equalizer */
+    /* Right Column: Voice Selection & Liquified Animation */
     .eleven-col-right {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 18px;
       background: #000000;
-      border: 1px solid #27272a;
-      border-radius: 16px;
+      border: 1px solid #232326;
+      border-radius: 18px;
       padding: 22px;
     }
     .eleven-voices-grid {
@@ -1292,8 +1302,8 @@
       gap: 10px;
     }
     .eleven-voice-card {
-      background: #121214;
-      border: 1px solid #27272a;
+      background: #0c0c0e;
+      border: 1px solid #232326;
       border-radius: 12px;
       padding: 12px 14px;
       cursor: pointer;
@@ -1301,12 +1311,12 @@
       text-align: left;
     }
     .eleven-voice-card:hover {
-      border-color: #52525b;
-      background: #18181b;
+      border-color: #3f3f46;
+      background: #141417;
     }
     .eleven-voice-card.active {
       border-color: #ffffff;
-      background: #1f1f23;
+      background: #18181c;
     }
     .eleven-voice-name {
       font-size: 13px;
@@ -1321,10 +1331,10 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: #a1a1aa;
-      background: #27272a;
+      background: #232326;
       padding: 2px 6px;
       border-radius: 4px;
-      font-weight: 500;
+      font-weight: 600;
     }
     .eleven-voice-desc {
       font-size: 11px;
@@ -1332,251 +1342,113 @@
       margin-top: 4px;
     }
 
-                /* ========================================================= */
-    /* ELEVENLABS 3-PLATFORM ECOSYSTEM: ElevenAgents, ElevenCreative, ElevenAPI */
-    /* Source: elevenlabs.io Brand Identity Guidelines           */
-    /* ========================================================= */
-    .elevenlabs-brand-section {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-      background: #000000;
-      color: #ffffff;
-      padding: 90px 16px 105px;
-      position: relative;
-      overflow: hidden;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      transition: background 0.6s ease;
-    }
-
-    /* Platform Navigation Switcher */
-    .eleven-platform-nav {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
-    }
-    .eleven-platform-tab {
-      background: #121214;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #a1a1aa;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      padding: 8px 18px;
-      border-radius: 9999px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      user-select: none;
-    }
-    .eleven-platform-tab:hover {
-      background: #1a1a1e;
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.25);
-    }
-    .eleven-platform-tab.active {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.18);
-    }
-    .platform-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    .platform-dot.dot-agents { background: #38bdf8; box-shadow: 0 0 8px #38bdf8; }
-    .platform-dot.dot-creative { background: #f97316; box-shadow: 0 0 8px #f97316; }
-    .platform-dot.dot-api { background: #e4e4e7; box-shadow: 0 0 8px #e4e4e7; }
-
-    /* Visual Stage for Orb / Chladni / Matrix */
-    .eleven-orb-stage {
+    /* Liquified Frequency Fluid & Chladni Visual Stage */
+    .eleven-fluid-stage {
       position: relative;
       width: 100%;
-      height: 240px;
+      height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: visible;
-      margin: 12px 0 16px;
+      margin: 8px 0 14px;
     }
 
-    /* Ambient Diffused Atmospheric Glow */
-    .eleven-orb-ambient-glow {
-      position: absolute;
-      width: 230px;
-      height: 230px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(52, 211, 153, 0.3) 50%, transparent 72%);
-      filter: blur(34px);
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.8;
-      transition: all 0.6s ease;
-    }
-    .platform-creative .eleven-orb-ambient-glow {
-      background: radial-gradient(circle, rgba(249, 115, 22, 0.5) 0%, rgba(239, 68, 68, 0.35) 50%, transparent 72%);
-    }
-    .platform-api .eleven-orb-ambient-glow {
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, rgba(113, 113, 122, 0.2) 50%, transparent 72%);
-    }
-
-    /* Expanding Audio Resonance Ripples */
-    .eleven-orb-ripple {
-      position: absolute;
-      width: 175px;
-      height: 175px;
-      border-radius: 50%;
-      border: 1px solid rgba(78, 199, 224, 0.4);
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(0.85);
-      z-index: 1;
-    }
-    .eleven-orb-stage.speaking .eleven-orb-ripple:nth-child(2) {
-      animation: elevenRippleExpand 2.4s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
-    }
-    .eleven-orb-stage.speaking .eleven-orb-ripple:nth-child(3) {
-      animation: elevenRippleExpand 2.4s cubic-bezier(0.1, 0.8, 0.3, 1) 0.8s infinite;
-    }
-    .eleven-orb-stage.speaking .eleven-orb-ripple:nth-child(4) {
-      animation: elevenRippleExpand 2.4s cubic-bezier(0.1, 0.8, 0.3, 1) 1.6s infinite;
-    }
-
-    /* Core Morphing Iridescent Grain Orb */
-    .eleven-orb-core {
+    /* Monochromatic Atmospheric Lens */
+    .eleven-fluid-lens {
       position: relative;
-      width: 156px;
-      height: 156px;
+      width: 168px;
+      height: 168px;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 25%, #d1fae5 0%, #34d399 26%, #38bdf8 55%, #2563eb 82%, #1e3a8a 100%);
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.16);
       box-shadow: 
-        0 0 40px rgba(52, 211, 153, 0.5),
-        0 0 80px rgba(56, 189, 248, 0.35),
-        inset 0 0 28px rgba(255, 255, 255, 0.6),
-        inset -10px -10px 30px rgba(30, 58, 138, 0.7);
-      animation: elevenOrbIdleMorph 8s ease-in-out infinite alternate, elevenOrbRotate 24s linear infinite;
+        0 0 35px rgba(255, 255, 255, 0.08),
+        inset 0 0 25px rgba(255, 255, 255, 0.12);
+      overflow: hidden;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, background 0.6s ease;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
       z-index: 2;
-      overflow: hidden;
     }
-    .platform-creative .eleven-orb-core {
-      background: radial-gradient(circle at 35% 25%, #fef08a 0%, #fbbf24 24%, #f97316 55%, #dc2626 80%, #7f1d1d 100%);
-      box-shadow: 
-        0 0 45px rgba(249, 115, 22, 0.55),
-        0 0 85px rgba(220, 38, 38, 0.35),
-        inset 0 0 28px rgba(255, 255, 255, 0.65),
-        inset -10px -10px 30px rgba(127, 29, 29, 0.7);
-    }
-    .platform-api .eleven-orb-core {
-      background: radial-gradient(circle at 35% 25%, #ffffff 0%, #d4d4d8 28%, #71717a 60%, #27272a 85%, #09090b 100%);
-      box-shadow: 
-        0 0 35px rgba(255, 255, 255, 0.3),
-        0 0 75px rgba(113, 113, 122, 0.25),
-        inset 0 0 28px rgba(255, 255, 255, 0.7);
+    .eleven-fluid-lens:hover {
+      transform: scale(1.05);
+      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 0 45px rgba(255, 255, 255, 0.15);
     }
 
-    /* Grain / Film Noise Layer */
-    .eleven-orb-grain-overlay {
+    /* Frequency Fluid Canvas (Liquified Plasma & Chladni Waves) */
+    .eleven-fluid-canvas {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.32'/%3E%3C/svg%3E");
+      display: block;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    /* Analog Noise & Film Grain Overlay */
+    .eleven-fluid-grain {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='fluidNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23fluidNoise)' opacity='0.36'/%3E%3C/svg%3E");
       mix-blend-mode: overlay;
       pointer-events: none;
-      border-radius: inherit;
+      border-radius: 50%;
       z-index: 3;
     }
 
-    /* Specular Glass Highlight */
-    .eleven-orb-shine {
+    /* Specular Glass Ring */
+    .eleven-fluid-shine {
       position: absolute;
       inset: 0;
-      border-radius: inherit;
-      background: radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.22) 25%, transparent 55%);
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 30%, transparent 60%);
       mix-blend-mode: screen;
       pointer-events: none;
       z-index: 4;
     }
 
-    /* 3D Particle Matrix Canvas (ElevenAgents) */
-    .eleven-particle-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: inherit;
-      z-index: 3;
-      pointer-events: none;
-    }
-
-    /* Chladni Resonance SVG Pattern (ElevenCreative) */
-    .eleven-chladni-pattern {
-      position: absolute;
-      inset: -10px;
-      width: calc(100% + 20px);
-      height: calc(100% + 20px);
-      pointer-events: none;
-      z-index: 3;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-    .platform-creative .eleven-chladni-pattern {
-      opacity: 0.75;
-      animation: chladniBreathe 4s ease-in-out infinite alternate;
-    }
-    @keyframes chladniBreathe {
-      0% { transform: scale(0.95) rotate(0deg); opacity: 0.6; }
-      100% { transform: scale(1.05) rotate(15deg); opacity: 0.9; }
-    }
-
-    /* Center Audio Speaker Disc */
-    .eleven-orb-center-btn {
-      width: 48px;
-      height: 48px;
+    /* Center Action Speaker Icon Disc */
+    .eleven-fluid-center-btn {
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background: rgba(0, 0, 0, 0.42);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.28);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #ffffff;
       transition: all 0.25s ease;
       z-index: 5;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
     }
-    .eleven-orb-core:hover .eleven-orb-center-btn {
-      background: rgba(0, 0, 0, 0.62);
+    .eleven-fluid-lens:hover .eleven-fluid-center-btn {
+      background: rgba(0, 0, 0, 0.85);
       transform: scale(1.08);
-      border-color: rgba(255, 255, 255, 0.6);
+      border-color: #ffffff;
     }
 
-    /* Speech Dialogue Bubbles */
+    /* Dialogue Bubbles (Monochrome Apple Style) */
     .eleven-dialog-bubble {
       position: absolute;
-      background: rgba(255, 255, 255, 0.96);
-      color: #111113;
+      background: #ffffff;
+      color: #000000;
       font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 11.5px;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: -0.01em;
       padding: 9px 15px;
-      border-radius: 16px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
       max-width: 180px;
       line-height: 1.35;
       pointer-events: none;
@@ -1586,71 +1458,54 @@
       z-index: 6;
     }
     .eleven-dialog-bubble.bubble-left {
-      left: 10px;
-      top: 30px;
+      left: 6px;
+      top: 25px;
       border-bottom-right-radius: 4px;
     }
     .eleven-dialog-bubble.bubble-right {
-      right: 10px;
-      bottom: 25px;
+      right: 6px;
+      bottom: 20px;
       border-top-left-radius: 4px;
     }
-    .eleven-orb-stage.speaking .eleven-dialog-bubble {
+    .eleven-fluid-stage.speaking .eleven-dialog-bubble {
       opacity: 1;
       transform: translateY(0) scale(1);
     }
 
-    /* Agent Persona Navigation Pills */
-    .eleven-agent-pills {
+    /* Status Bar */
+    .eleven-status-bar {
       display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #71717a;
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
     }
-    .eleven-agent-pill {
-      background: #18181b;
-      border: 1px solid #27272a;
-      color: #a1a1aa;
-      font-size: 12px;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 9999px;
-      cursor: pointer;
+    .eleven-status-live {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      user-select: none;
+      gap: 6px;
+      color: #a1a1aa;
+      font-weight: 500;
     }
-    .eleven-agent-pill:hover {
-      background: #27272a;
+    .eleven-status-live.active {
       color: #ffffff;
     }
-    .eleven-agent-pill.active {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-      font-weight: 600;
-      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
-    }
-    .mini-orb {
-      width: 14px;
-      height: 14px;
+    .eleven-live-dot {
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #a7f3d0 0%, #34d399 50%, #38bdf8 100%);
+      background: #52525b;
       display: inline-block;
     }
-    .mini-orb.orb-blue {
-      background: radial-gradient(circle at 35% 30%, #bfdbfe 0%, #60a5fa 50%, #3b82f6 100%);
+    .eleven-status-live.active .eleven-live-dot {
+      background: #ffffff;
+      box-shadow: 0 0 8px #ffffff;
+      animation: pulseWhiteDot 1s infinite;
     }
-    .mini-orb.orb-purple {
-      background: radial-gradient(circle at 35% 30%, #f5d0fe 0%, #c084fc 50%, #9333ea 100%);
-    }
-    .mini-orb.orb-amber {
-      background: radial-gradient(circle at 35% 30%, #fef08a 0%, #fbbf24 50%, #ea580c 100%);
+    @keyframes pulseWhiteDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.8); }
     }
 
     /* Action Controls */
@@ -1668,6 +1523,7 @@
       border-radius: 9999px;
       font-size: 13.5px;
       font-weight: 600;
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -1679,14 +1535,14 @@
     .eleven-btn-primary:hover {
       background: #f4f4f5;
       transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 18px rgba(255, 255, 255, 0.2);
     }
     .eleven-btn-primary:active {
       transform: scale(0.98);
     }
     .eleven-btn-stop {
-      background: #18181b;
-      border: 1px solid #27272a;
+      background: #141417;
+      border: 1px solid #232326;
       color: #ffffff;
       width: 44px;
       height: 44px;
@@ -1698,13 +1554,12 @@
       transition: all 0.2s ease;
     }
     .eleven-btn-stop:hover {
-      background: #27272a;
-      border-color: #ff453a;
-      color: #ff453a;
+      background: #232326;
+      border-color: #ffffff;
     }
     .eleven-speed-select {
-      background: #121214;
-      border: 1px solid #27272a;
+      background: #0c0c0e;
+      border: 1px solid #232326;
       color: #e4e4e7;
       padding: 11px 12px;
       border-radius: 10px;
@@ -1712,439 +1567,7 @@
       font-weight: 500;
       outline: none;
       cursor: pointer;
-    }
-
-
-    /* Apple Bento Grid Section */
-    .apple-bento-section {
-      max-width: 1024px;
-      margin: 50px auto;
-      padding: 0 16px;
-      width: 100%;
-    }
-    .bento-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .bento-title {
-      font-size: clamp(28px, 6vw, 38px);
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      color: var(--apple-text-dark);
-    }
-    .bento-subtitle {
-      font-size: clamp(15px, 3.5vw, 18px);
-      color: var(--apple-text-muted);
-      margin-top: 6px;
-      padding: 0 10px;
-    }
-    .bento-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-    @media (min-width: 640px) {
-      .bento-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    }
-    .bento-card {
-      background: var(--apple-white);
-      border-radius: 20px;
-      border: 1px solid var(--apple-border);
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
-    }
-    .bento-tag {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--apple-blue);
-      margin-bottom: 8px;
-    }
-    .bento-card h3 {
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--apple-text-dark);
-      margin-bottom: 8px;
-    }
-    .bento-card p {
-      font-size: 14px;
-      color: var(--apple-text-muted);
-      line-height: 1.5;
-    }
-
-    /* Apple Keynote Founder Section */
-    .apple-keynote-section {
-      background: var(--apple-white);
-      border-top: 1px solid var(--apple-border);
-      border-bottom: 1px solid var(--apple-border);
-      padding: 60px 16px;
-      text-align: center;
-      width: 100%;
-    }
-    .keynote-container {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .keynote-quote {
-      font-size: clamp(20px, 4.5vw, 26px);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.35;
-      color: var(--apple-text-dark);
-      margin-bottom: 20px;
-      padding: 0 10px;
-    }
-    .keynote-author {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--apple-text-dark);
-    }
-    .keynote-role {
-      font-size: 13px;
-      color: var(--apple-text-muted);
-      margin-top: 4px;
-    }
-
-    /* Apple Footer */
-    .apple-footer {
-      background: #f5f5f7;
-      font-size: 11px;
-      color: #86868b;
-      padding: 24px 16px 40px;
-      line-height: 1.5;
-      width: 100%;
-    }
-    .footer-content {
-      max-width: 1024px;
-      margin: 0 auto;
-    }
-    .footer-legal-text {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      padding-bottom: 14px;
-      margin-bottom: 14px;
-    }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: column;
-      gap: 12px;
-      text-align: center;
-    }
-    @media (min-width: 600px) {
-      .footer-bottom { flex-direction: row; text-align: left; }
-    }
-    .footer-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .footer-links a {
-      color: #515154;
-      text-decoration: none;
-    }
-
-    /* Responsive Nav Rules */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: block; }
-      .apple-btn-primary.nav-cta { display: none; }
-      .apple-cta-group .apple-btn-primary,
-      .apple-cta-group .apple-btn-secondary {
-        width: 100%;
-      }
-    }
-
-    /* ========================================================= */
-    /* APPLE PRO VOICE AI STUDIO POWERED BY ELEVENLABS           */
-    /* ========================================================= */
-    .apple-voice-ai-section {
-      background: #000000;
-      color: #ffffff;
-      padding: 80px 16px 90px;
-      position: relative;
-      overflow: hidden;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .voice-ai-glow {
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 350px;
-      background: radial-gradient(circle, rgba(0, 113, 227, 0.18) 0%, rgba(142, 68, 173, 0.1) 45%, transparent 70%);
-      filter: blur(60px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .voice-ai-container {
-      max-width: 1024px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    .voice-ai-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .voice-ai-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #2997ff;
-      font-weight: 700;
-      background: rgba(41, 151, 255, 0.12);
-      border: 1px solid rgba(41, 151, 255, 0.3);
-      padding: 5px 14px;
-      border-radius: 980px;
-      margin-bottom: 14px;
-    }
-    .voice-ai-headline {
-      font-family: "SF Pro Display", -apple-system, sans-serif;
-      font-size: clamp(30px, 5.5vw, 46px);
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      line-height: 1.12;
-      color: #ffffff;
-      margin-bottom: 12px;
-    }
-    .voice-ai-subhead {
-      font-size: clamp(14.5px, 3.5vw, 17px);
-      color: #86868b;
-      max-width: 650px;
-      margin: 0 auto;
-      line-height: 1.45;
-    }
-    
-    /* Studio Console Card */
-    .voice-studio-card {
-      background: #161617;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 24px;
-      padding: 32px 28px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-    }
-    @media (max-width: 860px) {
-      .voice-studio-card {
-        grid-template-columns: 1fr;
-        padding: 24px 18px;
-        gap: 24px;
-      }
-    }
-    
-    /* Left Panel: Script & Text Input */
-    .studio-panel-left {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .panel-section-title {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #86868b;
-      font-weight: 600;
-    }
-    .preset-chips {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .preset-chip {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #e5e5e7;
-      font-size: 12px;
-      padding: 6px 12px;
-      border-radius: 980px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      user-select: none;
-    }
-    .preset-chip:hover, .preset-chip.active {
-      background: rgba(41, 151, 255, 0.2);
-      border-color: #2997ff;
-      color: #ffffff;
-    }
-    .voice-textarea {
-      width: 100%;
-      height: 140px;
-      background: #000000;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 16px;
-      padding: 14px 16px;
-      color: #ffffff;
       font-family: "SF Pro Text", -apple-system, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-      resize: none;
-      outline: none;
-      transition: border-color 0.2s ease;
-    }
-    .voice-textarea:focus {
-      border-color: #2997ff;
-      box-shadow: 0 0 0 2px rgba(41, 151, 255, 0.25);
-    }
-    
-    /* Right Panel: Voice Selection & Waveform */
-    .studio-panel-right {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 20px;
-    }
-    .voice-options-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .voice-option-card {
-      background: #1c1c1e;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 12px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-align: left;
-    }
-    .voice-option-card:hover {
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-    }
-    .voice-option-card.active {
-      border-color: #2997ff;
-      background: rgba(41, 151, 255, 0.14);
-    }
-    .voice-card-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .voice-card-desc {
-      font-size: 11px;
-      color: #86868b;
-      margin-top: 2px;
-    }
-    
-    /* Waveform Canvas & Equalizer */
-    .waveform-wrapper {
-      background: #000000;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .waveform-canvas {
-      width: 100%;
-      height: 48px;
-      display: block;
-    }
-    .waveform-status-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: #86868b;
-    }
-    .status-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      color: #30d158;
-      font-weight: 600;
-    }
-    .status-indicator.speaking {
-      color: #2997ff;
-      animation: pulseGreen 1.2s infinite;
-    }
-    @keyframes pulseGreen {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    
-    /* Controls Row */
-    .studio-controls-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 4px;
-      flex-wrap: wrap;
-    }
-    .btn-generate-voice {
-      flex: 1;
-      background: linear-gradient(135deg, #0071e3 0%, #4338ca 100%);
-      color: #ffffff;
-      border: none;
-      padding: 13px 20px;
-      border-radius: 980px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 18px rgba(0, 113, 227, 0.4);
-      user-select: none;
-    }
-    .btn-generate-voice:hover {
-      transform: scale(1.02);
-      box-shadow: 0 6px 24px rgba(0, 113, 227, 0.6);
-    }
-    .btn-generate-voice:active {
-      transform: scale(0.98);
-    }
-    .btn-stop-voice {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .btn-stop-voice:hover {
-      background: rgba(255, 69, 58, 0.25);
-      border-color: #ff453a;
-      color: #ff453a;
-    }
-    .voice-speed-select {
-      background: #1c1c1e;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #e5e5e7;
-      padding: 11px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      outline: none;
-      cursor: pointer;
     }
 
   </style>
@@ -2761,38 +2184,21 @@
   </section>
 
 
-    <!-- ========================================================= -->
-  <!-- ELEVENLABS OFFICIAL BRAND VOICE AI STUDIO                -->
+      <!-- ========================================================= -->
+  <!-- ELEVENLABS MONOCHROME SYSTEM & LIQUIFIED CHLADNI STAGE   -->
   <!-- ========================================================= -->
   <section class="elevenlabs-brand-section" id="voice-ai">
+    <div class="elevenlabs-ambient-grain"></div>
     <div class="elevenlabs-container">
       
-      <div style="text-align: center;" id="elevenPlatformRoot">
-        
-        <!-- Official ElevenLabs 3-Platform Selector Tabs -->
-        <div class="eleven-platform-nav">
-          <button class="eleven-platform-tab active" id="tabAgents" onclick="switchElevenPlatform('agents', this)">
-            <span class="platform-dot dot-agents"></span>
-            <span>ElevenAgents</span>
-          </button>
-          <button class="eleven-platform-tab" id="tabCreative" onclick="switchElevenPlatform('creative', this)">
-            <span class="platform-dot dot-creative"></span>
-            <span>ElevenCreative</span>
-          </button>
-          <button class="eleven-platform-tab" id="tabApi" onclick="switchElevenPlatform('api', this)">
-            <span class="platform-dot dot-api"></span>
-            <span>ElevenAPI</span>
-          </button>
-        </div>
-
-        <div class="elevenlabs-brand-badge" id="platformBadge">
+      <div style="text-align: center;">
+        <div class="elevenlabs-brand-badge">
           <img src="assets/brands/brand-elevenlabs-white.png" alt="ElevenLabs" class="elevenlabs-badge-logo" />
           <span class="elevenlabs-badge-divider"></span>
-          <span id="platformBadgeText">ElevenAgents · Conversational Voice</span>
+          <span>Acoustic Wave & Voice Studio</span>
         </div>
-
-        <h2 class="elevenlabs-headline" id="platformHeadline">Voice AI Infrastructure.<br/>Engineered with ElevenLabs.</h2>
-        <p class="elevenlabs-subhead" id="platformSubhead">Studio-grade speech synthesis, dynamic conversational agents, and automated multimodal audio pipelines for creator media.</p>
+        <h2 class="elevenlabs-headline">Neural Speech Synthesis.<br/>Engineered with ElevenLabs.</h2>
+        <p class="elevenlabs-subhead">Liquified frequency-reactive fluid mechanics, Chladni acoustic resonance wave patterns, and enterprise multimodal audio generation.</p>
       </div>
 
       <!-- Studio Console Card -->
@@ -2800,7 +2206,7 @@
         
         <!-- Left Column -->
         <div class="eleven-col-left">
-          <div class="eleven-label">Select Script Preset or Enter Custom Prompt</div>
+          <div class="eleven-label">Select Script Preset or Enter Prompt</div>
           <div class="eleven-preset-group">
             <button class="eleven-preset-btn active" onclick="loadVoiceScript(0)">Company Overview</button>
             <button class="eleven-preset-btn" onclick="loadVoiceScript(1)">Cinematic VFX</button>
@@ -2810,27 +2216,27 @@
           <textarea id="voiceTextInput" class="eleven-textarea" placeholder="Type or paste any text to synthesize studio speech...">Welcome to HRL International Private Limited. Founded by Pavan Kumar Sadashiv, we engineer next-generation digital media distribution, high-retention creator formats, and enterprise software architecture.</textarea>
           
           <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px;">
-            <span style="font-size: 11px; color: #71717a;">Multilingual v2 · High-Fidelity 44.1kHz</span>
-            <button onclick="toggleApiKeyInput()" style="background: none; border: none; color: #ffffff; font-size: 11px; cursor: pointer; text-decoration: underline; opacity: 0.8;">
+            <span style="font-size: 11px; color: #71717a;">Neural Engine · High Fidelity 44.1kHz</span>
+            <button onclick="toggleApiKeyInput()" style="background: none; border: none; color: #ffffff; font-size: 11px; cursor: pointer; text-decoration: underline; opacity: 0.85;">
               Custom API Key (Optional)
             </button>
           </div>
 
-          <div id="apiKeyRow" style="display: none; background: #000; padding: 12px 14px; border-radius: 12px; border: 1px solid #27272a;">
+          <div id="apiKeyRow" style="display: none; background: #000; padding: 12px 14px; border-radius: 12px; border: 1px solid #232326;">
             <div style="font-size: 11px; color: #a1a1aa; margin-bottom: 6px;">ElevenLabs API Key (Saved locally in your browser for direct TTS API streaming):</div>
             <input type="password" id="elevenApiKey" placeholder="sk_..." style="width: 100%; background: #121214; border: 1px solid #333; color: #fff; padding: 8px 10px; border-radius: 8px; font-size: 12px; outline: none;" />
           </div>
         </div>
 
-        <!-- Right Column -->
+        <!-- Right Column: Liquified Frequency Fluid & Chladni Wave Canvas -->
         <div class="eleven-col-right">
           <div>
-            <div class="eleven-label" style="margin-bottom: 10px;">Select ElevenLabs Voice</div>
+            <div class="eleven-label" style="margin-bottom: 10px;">Select Voice Character</div>
             <div class="eleven-voices-grid">
-              <div class="eleven-voice-card active" onclick="selectVoiceModel('custom', this)" title="Voice ID: exsUS4vynmxd379XN4yO">
+              <div class="eleven-voice-card active" onclick="selectVoiceModel('custom', this)">
                 <div class="eleven-voice-name">
                   <span>Studio Master</span>
-                  <span class="eleven-tag-pill" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">Primary</span>
+                  <span class="eleven-tag-pill">Primary</span>
                 </div>
                 <div class="eleven-voice-desc">Signature · Executive Studio</div>
               </div>
@@ -2861,33 +2267,21 @@
             </div>
           </div>
 
-          <!-- Official ElevenLabs Multi-Platform Stage (Dot-Matrix Sphere & Chladni Resonance) -->
-          <div class="eleven-orb-stage" id="elevenOrbStage">
-            <div class="eleven-orb-ambient-glow" id="orbAmbientGlow"></div>
-            <div class="eleven-orb-ripple"></div>
-            <div class="eleven-orb-ripple"></div>
-            <div class="eleven-orb-ripple"></div>
+          <!-- Liquified Frequency Fluid Stage -->
+          <div class="eleven-fluid-stage" id="elevenFluidStage">
             
-            <!-- Contextual Dialogue Bubbles -->
+            <!-- Dialogue Bubbles -->
             <div class="eleven-dialog-bubble bubble-left" id="bubbleLeft">
               “HRL International: Media engineering supercharged by AI.”
             </div>
 
-            <!-- Morphing Orb with Particle Sphere Canvas & Chladni Resonators -->
-            <div class="eleven-orb-core" id="elevenOrbCore" onclick="handleGenerateAndPlayVoice()" title="Click to Generate & Play">
-              <canvas id="elevenParticleCanvas" class="eleven-particle-canvas"></canvas>
+            <!-- Liquified Lens Canvas Container -->
+            <div class="eleven-fluid-lens" id="elevenFluidLens" onclick="handleGenerateAndPlayVoice()" title="Click to Generate & Play">
+              <canvas id="elevenFluidCanvas" class="eleven-fluid-canvas"></canvas>
+              <div class="eleven-fluid-grain"></div>
+              <div class="eleven-fluid-shine"></div>
               
-              <!-- ElevenCreative Chladni Nodal Resonance Waves -->
-              <svg class="eleven-chladni-pattern" viewBox="0 0 160 160" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.2">
-                <path d="M 30 80 Q 80 30 130 80 Q 80 130 30 80 Z" stroke-dasharray="3 3"/>
-                <path d="M 80 30 Q 30 80 80 130 Q 130 80 80 30 Z" stroke-dasharray="3 3"/>
-                <circle cx="80" cy="80" r="45" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
-                <circle cx="80" cy="80" r="62" stroke="rgba(255,255,255,0.3)" stroke-width="0.6"/>
-              </svg>
-              
-              <div class="eleven-orb-grain-overlay"></div>
-              <div class="eleven-orb-shine"></div>
-              <div class="eleven-orb-center-btn" id="orbCenterBtn">
+              <div class="eleven-fluid-center-btn" id="orbCenterBtn">
                 <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                   <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
@@ -2904,7 +2298,7 @@
           <div class="eleven-status-bar" style="padding: 0 4px;">
             <span id="voiceStatusText" class="eleven-status-live">
               <span class="eleven-live-dot"></span>
-              <span>ElevenLabs Voice Agent Ready</span>
+              <span>ElevenLabs Engine Ready</span>
             </span>
             <span id="voiceModelInfo" style="color: #71717a;">Latency: 75ms · 44.1kHz PCM</span>
           </div>
@@ -2934,26 +2328,6 @@
 
         </div>
 
-
-        <!-- Bottom Persona Switcher Pills (ElevenLabs Official Style) -->
-        <div class="eleven-agent-pills" style="grid-column: 1 / -1;">
-          <button class="eleven-agent-pill active" onclick="switchAgentPersona('director', this)">
-            <span class="mini-orb"></span>
-            <span>Enterprise Director</span>
-          </button>
-          <button class="eleven-agent-pill" onclick="switchAgentPersona('vfx', this)">
-            <span class="mini-orb orb-blue"></span>
-            <span>VFX Studio Lead</span>
-          </button>
-          <button class="eleven-agent-pill" onclick="switchAgentPersona('cloud', this)">
-            <span class="mini-orb orb-purple"></span>
-            <span>Tech Architect</span>
-          </button>
-          <button class="eleven-agent-pill" onclick="switchAgentPersona('media', this)">
-            <span class="mini-orb orb-amber"></span>
-            <span>Growth Strategist</span>
-          </button>
-        </div>
       </div>
 
     </div>
@@ -3076,8 +2450,9 @@
     }
 
 
-        /* ========================================================= */
-    /* ELEVENLABS BRAND VOICE AI ENGINE & EQUALIZER              */
+            /* ========================================================= */
+    /* ELEVENLABS LIQUIFIED FREQUENCY FLUID & CHLADNI WAVE ENGINE*/
+    /* Real-Time Acoustic Harmonic Synthesis Simulation         */
     /* ========================================================= */
     const voiceScripts = [
       "Welcome to HRL International Private Limited. Founded by Pavan Kumar Sadashiv, we engineer next-generation digital media distribution, high-retention creator formats, and enterprise software architecture.",
@@ -3086,7 +2461,7 @@
     ];
 
     const voicePresets = {
-      custom: { name: "Studio Voice (exsUS4vynmxd379XN4yO)", pitch: 1.0, rate: 1.0, elevenVoiceId: "exsUS4vynmxd379XN4yO" },
+      custom: { name: "Studio Master", pitch: 1.0, rate: 1.0, elevenVoiceId: "exsUS4vynmxd379XN4yO" },
       adam: { name: "Adam", pitch: 0.85, rate: 0.95, elevenVoiceId: "pNInz6obpgDQGcFmaJgB" },
       rachel: { name: "Rachel", pitch: 1.05, rate: 1.0, elevenVoiceId: "21m00Tcm4TlvDq8ikWAM" },
       antoni: { name: "Antoni", pitch: 0.95, rate: 1.05, elevenVoiceId: "ErXwobaYiN019PkySvjV" }
@@ -3122,24 +2497,103 @@
       }
     }
 
-    function startOrbAnimation() {
-      const container = document.getElementById("elevenBarsContainer");
-      const statusText = document.getElementById("voiceStatusText");
-      if (container) container.classList.add("playing");
-      if (statusText) {
-        statusText.classList.add("active");
-        statusText.querySelector("span:last-child").textContent = `Synthesizing ${voicePresets[currentVoiceKey].name}...`;
-      }
+    /* ========================================================= */
+    /* REAL-TIME LIQUIFIED PLASMA & CHLADNI KINETIC WAVE RENDERER*/
+    /* ========================================================= */
+    let fluidCanvas = null;
+    let fluidCtx = null;
+    let fluidTime = 0;
+    let fluidFreqEnergy = 0;
+    const kineticLetters = ["E", "L", "E", "V", "E", "N", "P", "R", "O", "C", "E", "S", "S"];
+
+    function initFluidCanvas() {
+      fluidCanvas = document.getElementById("elevenFluidCanvas");
+      if (!fluidCanvas) return;
+      const size = 168 * (window.devicePixelRatio || 1);
+      fluidCanvas.width = size;
+      fluidCanvas.height = size;
+      fluidCtx = fluidCanvas.getContext("2d");
+      renderFluidFrequencyAnimation();
     }
 
-    function stopOrbAnimation() {
-      const container = document.getElementById("elevenBarsContainer");
-      const statusText = document.getElementById("voiceStatusText");
-      if (container) container.classList.remove("playing");
-      if (statusText) {
-        statusText.classList.remove("active");
-        statusText.querySelector("span:last-child").textContent = "ElevenLabs Engine Ready";
+    function renderFluidFrequencyAnimation() {
+      if (!fluidCtx || !fluidCanvas) return;
+      const w = fluidCanvas.width;
+      const h = fluidCanvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const dpr = window.devicePixelRatio || 1;
+
+      fluidTime += isVoicePlaying ? 0.045 : 0.015;
+      
+      // Frequency Energy Physics
+      const targetEnergy = isVoicePlaying ? (0.8 + Math.sin(fluidTime * 3) * 0.4) : 0.15;
+      fluidFreqEnergy += (targetEnergy - fluidFreqEnergy) * 0.1;
+
+      fluidCtx.clearRect(0, 0, w, h);
+
+      // 1. Draw Deep Smoky Liquid Plasma Metablobs
+      const numBlobs = 5;
+      for (let i = 0; i < numBlobs; i++) {
+        const angle = (i / numBlobs) * Math.PI * 2 + fluidTime * 0.6;
+        const dist = (35 + Math.sin(fluidTime * 1.5 + i * 2) * 18 * fluidFreqEnergy) * dpr;
+        const bx = cx + Math.cos(angle) * dist;
+        const by = cy + Math.sin(angle) * dist;
+        const radius = (55 + Math.cos(fluidTime * 2 + i) * 20 * fluidFreqEnergy) * dpr;
+
+        const grad = fluidCtx.createRadialGradient(bx, by, 0, bx, by, radius);
+        grad.addColorStop(0, "rgba(255, 255, 255, 0.45)");
+        grad.addColorStop(0.4, "rgba(160, 160, 165, 0.22)");
+        grad.addColorStop(0.8, "rgba(60, 60, 65, 0.08)");
+        grad.addColorStop(1, "rgba(0, 0, 0, 0)");
+
+        fluidCtx.fillStyle = grad;
+        fluidCtx.beginPath();
+        fluidCtx.arc(bx, by, radius, 0, Math.PI * 2);
+        fluidCtx.fill();
       }
+
+      // 2. Draw Parametric Chladni Acoustic Resonance Wave Curves
+      fluidCtx.lineWidth = 1.0 * dpr;
+      const numLines = 6;
+      for (let l = 0; l < numLines; l++) {
+        const lineOffset = (l / numLines) * Math.PI;
+        fluidCtx.strokeStyle = `rgba(255, 255, 255, ${0.18 + (l / numLines) * 0.3 * fluidFreqEnergy})`;
+        fluidCtx.beginPath();
+        
+        for (let t = 0; t <= Math.PI * 2; t += 0.08) {
+          // Parametric Harmonic Chladni Function: r(t) = R + A * cos(n*t) * sin(m*t)
+          const harmonic = Math.sin(3 * t + fluidTime * 1.2 + lineOffset) * Math.cos(2 * t - fluidTime * 0.8);
+          const r = (52 + l * 8 + harmonic * (14 + fluidFreqEnergy * 24)) * dpr;
+          const x = cx + Math.cos(t) * r;
+          const y = cy + Math.sin(t) * r;
+          if (t === 0) fluidCtx.moveTo(x, y);
+          else fluidCtx.lineTo(x, y);
+        }
+        fluidCtx.closePath();
+        fluidCtx.stroke();
+      }
+
+      // 3. Draw Kinetic Wave Typography (Undulating E L E V E N / P R O C E S S)
+      fluidCtx.fillStyle = "rgba(255, 255, 255, 0.75)";
+      fluidCtx.font = `${8.5 * dpr}px "SF Pro Text", -apple-system, sans-serif`;
+      fluidCtx.textAlign = "center";
+      fluidCtx.textBaseline = "middle";
+
+      const textRadius = (58 + Math.sin(fluidTime * 2) * 8 * fluidFreqEnergy) * dpr;
+      kineticLetters.forEach((letter, idx) => {
+        const letterAngle = (idx / kineticLetters.length) * Math.PI * 2 + fluidTime * 0.35;
+        const lx = cx + Math.cos(letterAngle) * textRadius;
+        const ly = cy + Math.sin(letterAngle) * textRadius;
+        
+        fluidCtx.save();
+        fluidCtx.translate(lx, ly);
+        fluidCtx.rotate(letterAngle + Math.PI / 2);
+        fluidCtx.fillText(letter, 0, 0);
+        fluidCtx.restore();
+      });
+
+      requestAnimationFrame(renderFluidFrequencyAnimation);
     }
 
     // Voice Synthesis Engine
@@ -3154,7 +2608,13 @@
       const apiKeyInput = document.getElementById("elevenApiKey");
       const customKey = apiKeyInput ? apiKeyInput.value.trim() : "";
 
-      startOrbAnimation();
+      const stage = document.getElementById("elevenFluidStage");
+      const statusText = document.getElementById("voiceStatusText");
+      if (stage) stage.classList.add("speaking");
+      if (statusText) {
+        statusText.classList.add("active");
+        statusText.querySelector("span:last-child").textContent = `Synthesizing ${voicePresets[currentVoiceKey].name}...`;
+      }
 
       // Check if Custom ElevenLabs API Key is provided
       if (customKey && customKey.startsWith("sk_")) {
@@ -3181,7 +2641,6 @@
           
           currentAudioElement.onplay = () => {
             isVoicePlaying = true;
-            const statusText = document.getElementById("voiceStatusText");
             if (statusText) statusText.querySelector("span:last-child").textContent = `Streaming ${voicePresets[currentVoiceKey].name} (ElevenLabs API)`;
           };
           currentAudioElement.onended = () => stopVoicePlayback();
@@ -3192,7 +2651,7 @@
         }
       }
 
-      // Browser-Optimized Neural Fallback (Instant Client-Side Speech Synthesis)
+      // Browser-Optimized Neural Fallback
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
@@ -3203,18 +2662,17 @@
         const voices = window.speechSynthesis.getVoices();
         const englishVoices = voices.filter(v => v.lang.includes("en"));
         if (englishVoices.length > 0) {
-          if (currentVoiceKey === "rachel" || currentVoiceKey === "bella") {
-            const female = englishVoices.find(v => v.name.toLowerCase().includes("female") || v.name.includes("Samantha") || v.name.includes("Victoria") || v.name.includes("Google UK English Female"));
+          if (currentVoiceKey === "rachel") {
+            const female = englishVoices.find(v => v.name.toLowerCase().includes("female") || v.name.includes("Samantha") || v.name.includes("Victoria"));
             if (female) utterance.voice = female;
           } else {
-            const male = englishVoices.find(v => v.name.toLowerCase().includes("male") || v.name.includes("Daniel") || v.name.includes("Alex") || v.name.includes("Google UK English Male"));
+            const male = englishVoices.find(v => v.name.toLowerCase().includes("male") || v.name.includes("Daniel") || v.name.includes("Alex"));
             if (male) utterance.voice = male;
           }
         }
 
         utterance.onstart = () => {
           isVoicePlaying = true;
-          const statusText = document.getElementById("voiceStatusText");
           if (statusText) statusText.querySelector("span:last-child").textContent = `Playing ${preset.name} · ElevenLabs Model`;
         };
 
@@ -3225,211 +2683,6 @@
       }
     }
 
-
-    /* ========================================================= */
-    /* ELEVENLABS GLOWING ORB CONTROLLER & VOICE AGENT ENGINE   */
-    /* ========================================================= */
-    const agentPersonas = {
-      director: {
-        voice: "custom",
-        scriptIndex: 0,
-        gradient: "radial-gradient(circle at 35% 30%, #a7f3d0 0%, #34d399 28%, #38bdf8 60%, #3b82f6 85%, #1d4ed8 100%)",
-        glow: "0 0 45px rgba(52, 211, 153, 0.6), 0 0 90px rgba(56, 189, 248, 0.45)",
-        bubble1: "“Founded by Pavan Kumar Sadashiv in Mangaluru, Karnataka.”",
-        bubble2: "“Media engineering supercharged by AI.”"
-      },
-      vfx: {
-        voice: "rachel",
-        scriptIndex: 1,
-        gradient: "radial-gradient(circle at 35% 30%, #bfdbfe 0%, #60a5fa 30%, #818cf8 60%, #6366f1 85%, #4338ca 100%)",
-        glow: "0 0 45px rgba(96, 165, 250, 0.6), 0 0 90px rgba(99, 102, 241, 0.45)",
-        bubble1: "“DaVinci Resolve Studio color science & Hollywood grading.”",
-        bubble2: "“Over 2.5M+ organic video impressions driven.”"
-      },
-      cloud: {
-        voice: "antoni",
-        scriptIndex: 2,
-        gradient: "radial-gradient(circle at 35% 30%, #f5d0fe 0%, #c084fc 30%, #a855f7 60%, #7e22ce 85%, #581c87 100%)",
-        glow: "0 0 45px rgba(192, 132, 252, 0.6), 0 0 90px rgba(168, 85, 247, 0.45)",
-        bubble1: "“JPMorgan Chase & Deloitte verified engineering foundations.”",
-        bubble2: "“Distributed stream computing & cyber risk governance.”"
-      },
-      media: {
-        voice: "bella",
-        scriptIndex: 0,
-        gradient: "radial-gradient(circle at 35% 30%, #fef08a 0%, #fbbf24 30%, #f97316 60%, #ea580c 85%, #c2410c 100%)",
-        glow: "0 0 45px rgba(251, 191, 36, 0.6), 0 0 90px rgba(249, 115, 22, 0.45)",
-        bubble1: "“Connecting international creator brands with scale.”",
-        bubble2: "“Algorithm-driven distribution & viral retention.”"
-      }
-    };
-
-    function switchAgentPersona(personaKey, element) {
-      document.querySelectorAll(".eleven-agent-pill").forEach(p => p.classList.remove("active"));
-      if (element) element.classList.add("active");
-      
-      const p = agentPersonas[personaKey];
-      if (!p) return;
-      
-      // Update Orb Gradient
-      const orb = document.getElementById("elevenOrbCore");
-      if (orb) {
-        orb.style.background = p.gradient;
-      }
-      
-      // Update Dialogue Bubbles
-      const b1 = document.getElementById("bubbleLeft");
-      const b2 = document.getElementById("bubbleRight");
-      if (b1) b1.textContent = p.bubble1;
-      if (b2) b2.textContent = p.bubble2;
-
-      // Select Voice & Script
-      loadVoiceScript(p.scriptIndex);
-      const voiceCard = document.querySelector(`.eleven-voice-card[onclick*="${p.voice}"]`);
-      if (voiceCard) {
-        selectVoiceModel(p.voice, voiceCard);
-      }
-    }
-
-    function startOrbAnimation() {
-      const stage = document.getElementById("elevenOrbStage");
-      const statusText = document.getElementById("voiceStatusText");
-      if (stage) stage.classList.add("speaking");
-      if (statusText) {
-        statusText.classList.add("active");
-        statusText.querySelector("span:last-child").textContent = `Agent Speaking (${voicePresets[currentVoiceKey].name})...`;
-      }
-    }
-
-    function stopOrbAnimation() {
-      const stage = document.getElementById("elevenOrbStage");
-      const statusText = document.getElementById("voiceStatusText");
-      if (stage) stage.classList.remove("speaking");
-      if (statusText) {
-        statusText.classList.remove("active");
-        statusText.querySelector("span:last-child").textContent = "ElevenLabs Voice Agent Ready";
-      }
-    }
-
-
-    /* ========================================================= */
-    /* ELEVENLABS 3-PLATFORM ECOSYSTEM CONTROLLER               */
-    /* ElevenAgents, ElevenCreative, ElevenAPI + Particle Sphere */
-    /* ========================================================= */
-    const elevenPlatforms = {
-      agents: {
-        badge: "ElevenAgents · Conversational Voice",
-        headline: "Conversational Voice Agents.<br/>Powered by ElevenAgents.",
-        subhead: "Dynamic AI voice agents layered with tactile analog textures and 3D spherical point cloud representations.",
-        className: "platform-agents",
-        gradient: "radial-gradient(circle at 35% 25%, #d1fae5 0%, #34d399 26%, #38bdf8 55%, #2563eb 82%, #1e3a8a 100%)",
-        voice: "custom"
-      },
-      creative: {
-        badge: "ElevenCreative · Studio Speech & VFX Audio",
-        headline: "Cinematic Speech & Sound.<br/>Crafted with ElevenCreative.",
-        subhead: "Expressive audio generation styled with Chladni acoustic resonance harmonic wave patterns and rich sunset tones.",
-        className: "platform-creative",
-        gradient: "radial-gradient(circle at 35% 25%, #fef08a 0%, #fbbf24 24%, #f97316 55%, #dc2626 80%, #7f1d1d 100%)",
-        voice: "rachel"
-      },
-      api: {
-        badge: "ElevenAPI · Real-Time Audio Infrastructure",
-        headline: "Developer Audio Engine.<br/>Streaming on ElevenAPI.",
-        subhead: "Sub-75ms ultra-low latency WebSocket streaming and enterprise neural speech architecture.",
-        className: "platform-api",
-        gradient: "radial-gradient(circle at 35% 25%, #ffffff 0%, #d4d4d8 28%, #71717a 60%, #27272a 85%, #09090b 100%)",
-        voice: "antoni"
-      }
-    };
-
-    let activePlatform = "agents";
-
-    function switchElevenPlatform(platformKey, element) {
-      document.querySelectorAll(".eleven-platform-tab").forEach(tab => tab.classList.remove("active"));
-      if (element) element.classList.add("active");
-
-      const p = elevenPlatforms[platformKey];
-      if (!p) return;
-      activePlatform = platformKey;
-
-      const root = document.getElementById("voice-ai");
-      if (root) {
-        root.classList.remove("platform-agents", "platform-creative", "platform-api");
-        root.classList.add(p.className);
-      }
-
-      const badgeText = document.getElementById("platformBadgeText");
-      if (badgeText) badgeText.textContent = p.badge;
-
-      const headline = document.getElementById("platformHeadline");
-      if (headline) headline.innerHTML = p.headline;
-
-      const subhead = document.getElementById("platformSubhead");
-      if (subhead) subhead.innerHTML = p.subhead;
-
-      const orb = document.getElementById("elevenOrbCore");
-      if (orb) orb.style.background = p.gradient;
-
-      const voiceCard = document.querySelector(`.eleven-voice-card[onclick*="${p.voice}"]`);
-      if (voiceCard) selectVoiceModel(p.voice, voiceCard);
-    }
-
-    // 3D Dot-Matrix Particle Sphere Canvas (Official ElevenAgents Motif)
-    let particleCanvas = null;
-    let particleCtx = null;
-    let particleAngle = 0;
-    const numParticles = 140;
-    const sphereParticles = [];
-
-    function initParticleSphere() {
-      particleCanvas = document.getElementById("elevenParticleCanvas");
-      if (!particleCanvas) return;
-      const size = 156 * (window.devicePixelRatio || 1);
-      particleCanvas.width = size;
-      particleCanvas.height = size;
-      particleCtx = particleCanvas.getContext("2d");
-
-      sphereParticles.length = 0;
-      for (let i = 0; i < numParticles; i++) {
-        const phi = Math.acos(-1 + (2 * i) / numParticles);
-        const theta = Math.sqrt(numParticles * Math.PI) * phi;
-        sphereParticles.push({ phi, theta });
-      }
-      renderParticleSphere();
-    }
-
-    function renderParticleSphere() {
-      if (!particleCtx || !particleCanvas) return;
-      particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
-      
-      const r = (particleCanvas.width / 2) * 0.76;
-      const cx = particleCanvas.width / 2;
-      const cy = particleCanvas.height / 2;
-
-      particleAngle += isVoicePlaying ? 0.024 : 0.008;
-
-      sphereParticles.forEach(p => {
-        const x = r * Math.sin(p.phi) * Math.cos(p.theta + particleAngle);
-        const y = r * Math.cos(p.phi);
-        const z = r * Math.sin(p.phi) * Math.sin(p.theta + particleAngle) + r;
-
-        const scale = z / (r * 2);
-        const alpha = Math.max(0.12, (z / (r * 2)) * 0.85);
-
-        particleCtx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-        particleCtx.beginPath();
-        particleCtx.arc(cx + x, cy + y, 1.2 * scale * (window.devicePixelRatio || 1), 0, Math.PI * 2);
-        particleCtx.fill();
-      });
-
-      requestAnimationFrame(renderParticleSphere);
-    }
-
-    window.addEventListener("load", () => {
-      initParticleSphere();
-    });
-
     function stopVoicePlayback() {
       isVoicePlaying = false;
       if ("speechSynthesis" in window) window.speechSynthesis.cancel();
@@ -3437,8 +2690,21 @@
         currentAudioElement.pause();
         currentAudioElement = null;
       }
-      stopOrbAnimation();
+      const stage = document.getElementById("elevenFluidStage");
+      const statusText = document.getElementById("voiceStatusText");
+      if (stage) stage.classList.remove("speaking");
+      if (statusText) {
+        statusText.classList.remove("active");
+        statusText.querySelector("span:last-child").textContent = "ElevenLabs Engine Ready";
+      }
     }
+
+    window.addEventListener("load", () => {
+      initFluidCanvas();
+    });
+    window.addEventListener("resize", () => {
+      initFluidCanvas();
+    });
 
     function toggleMobileMenu() {
       const drawer = document.getElementById('mobileDrawer');
