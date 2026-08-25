@@ -3030,6 +3030,19 @@
       }
     }
 
+    // Phonetic Audio Helper: Preserves written "Pavan Kumar Sadashiv" on screen
+    // while feeding authentic Indian phonetic pronunciation "Pahwan Kuhmar Sadhashiv" to ElevenLabs
+    function preparePhoneticSpeechText(rawText) {
+      return rawText
+        .replace(/Pavan Kumar Sadashiv/gi, "Pahwan Kuhmar Sadhashiv")
+        .replace(/Pavan Kumar S\b/gi, "Pahwan Kuhmar S")
+        .replace(/Pavan Sadashiv/gi, "Pahwan Sadhashiv")
+        .replace(/\bPavan\b/gi, "Pahwan")
+        .replace(/\bKumar\b/gi, "Kuhmar")
+        .replace(/\bSadashiv\b/gi, "Sadhashiv")
+        .replace(/\bHRL\b/g, "H.R.L.");
+    }
+
     // Voice Synthesis Engine
     async function handleGenerateAndPlayVoice() {
       const text = document.getElementById("voiceTextInput").value.trim();
@@ -3041,6 +3054,9 @@
       const speed = parseFloat(speedSelect ? speedSelect.value : 1.0);
       const apiKeyInput = document.getElementById("elevenApiKey");
       const customKey = apiKeyInput ? apiKeyInput.value.trim() : "";
+      
+      // Generate phonetic speech payload for natural Indian pronunciation
+      const phoneticSpeechText = preparePhoneticSpeechText(text);
 
       startOrbAnimation();
 
@@ -3055,7 +3071,7 @@
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              text: text,
+              text: phoneticSpeechText,
               model_id: "eleven_multilingual_v2",
               voice_settings: { stability: 0.5, similarity_boost: 0.8 }
             })
@@ -3083,7 +3099,7 @@
       // Browser-Optimized Neural Fallback (Instant Client-Side Speech Synthesis)
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
+        const utterance = new SpeechSynthesisUtterance(phoneticSpeechText);
         const preset = voicePresets[currentVoiceKey];
         utterance.rate = preset.rate * speed;
         utterance.pitch = preset.pitch;
