@@ -184,8 +184,8 @@
       color: var(--apple-text-dark);
       overflow-x: hidden;
       width: 100%;
-      touch-action: pan-y;
       -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: auto;
     }
 
     /* Apple Ribbon Banner */
@@ -1619,25 +1619,22 @@
     /* ========================================================= */
     html {
       width: 100%;
-      height: -webkit-fill-available;
       overflow-x: hidden;
       scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
       width: 100%;
-      min-height: 100vh;
-      min-height: 100dvh;
-      min-height: -webkit-fill-available;
+      min-height: 100%;
       overflow-x: hidden;
       position: relative;
       padding-top: var(--safe-top);
-      padding-bottom: var(--safe-bottom);
+      padding-bottom: calc(var(--safe-bottom) + 60px);
       padding-left: var(--safe-left);
       padding-right: var(--safe-right);
-      touch-action: pan-y;
       -webkit-overflow-scrolling: touch;
-      overscroll-behavior-y: none;
+      overscroll-behavior-y: auto;
     }
 
     /* Prevent text overflowing on narrow screens */
@@ -1745,6 +1742,68 @@
         width: 124px;
         height: 124px;
       }
+    }
+
+  
+    /* ========================================================= */
+    /* SMARTPHONE WIREFRAME UX QUICK NAVIGATION DOCK            */
+    /* High-Speed Smooth Transitions Between Sections (Mobile)   */
+    /* ========================================================= */
+    .smartphone-wireframe-nav {
+      display: none;
+      position: fixed;
+      bottom: calc(14px + var(--safe-bottom));
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(12, 12, 14, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 9999px;
+      padding: 6px 10px;
+      z-index: 9990;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.1);
+      align-items: center;
+      gap: 4px;
+      max-width: calc(100vw - 24px);
+    }
+    @media (max-width: 768px) {
+      .smartphone-wireframe-nav {
+        display: flex;
+      }
+    }
+    .wireframe-nav-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #8c8c94;
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 7px 11px;
+      border-radius: 9999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      user-select: none;
+    }
+    .wireframe-nav-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .wireframe-nav-btn.active {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+    }
+    .wireframe-icon {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
     }
 
     </style>
@@ -2740,6 +2799,10 @@
 
     function renderFluidFrequencyAnimation() {
       if (!fluidCtx || !fluidCanvas) return;
+      if (!isCanvasVisible && !isVoicePlaying) {
+        requestAnimationFrame(renderFluidFrequencyAnimation);
+        return;
+      }
       const w = fluidCanvas.width;
       const h = fluidCanvas.height;
       const cx = w / 2;
@@ -3016,6 +3079,56 @@
     window.addEventListener("orientationchange", handleSystemRatioLock);
     window.addEventListener("pageshow", handleSystemRatioLock);
 
+
+    // Wireframe Smooth Section Scroll for Smartphone UX
+    function wireframeScrollTo(sectionId, evt) {
+      if (evt) evt.preventDefault();
+      const el = document.getElementById(sectionId);
+      if (!el) return;
+      const navHeight = 52;
+      const targetPos = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({
+        top: Math.max(0, targetPos),
+        behavior: "smooth"
+      });
+      document.querySelectorAll(".wireframe-nav-btn").forEach(b => b.classList.remove("active"));
+      if (evt && evt.currentTarget) evt.currentTarget.classList.add("active");
+    }
+
+    // High-Performance IntersectionObserver for Android Scrolling & Active Wireframe Tracking
+    let isCanvasVisible = true;
+    function initMobileScrollOptimizations() {
+      const voiceSection = document.getElementById("voice-ai");
+      if (voiceSection && "IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            isCanvasVisible = entry.isIntersecting;
+          });
+        }, { threshold: 0.1 });
+        observer.observe(voiceSection);
+      }
+
+      // Active Section Tracker for Wireframe Dock
+      const sections = ["overview", "credentials", "voice-ai", "capabilities", "contact"];
+      window.addEventListener("scroll", () => {
+        let currentSec = "";
+        const scrollPos = window.pageYOffset + 120;
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          if (el && el.offsetTop <= scrollPos) {
+            currentSec = id;
+          }
+        });
+        if (currentSec) {
+          document.querySelectorAll(".wireframe-nav-btn").forEach(btn => {
+            btn.classList.toggle("active", btn.getAttribute("data-section") === currentSec);
+          });
+        }
+      }, { passive: true });
+    }
+
+    window.addEventListener("load", initMobileScrollOptimizations);
+
     function toggleMobileMenu() {
       const drawer = document.getElementById('mobileDrawer');
       if (drawer) {
@@ -3023,6 +3136,25 @@
       }
     }
   </script>
+
+  <!-- Smartphone Wireframe UX Quick Navigation Dock -->
+  <nav class="smartphone-wireframe-nav" id="mobileWireframeDock" aria-label="Quick Mobile Navigation">
+    <a href="#overview" class="wireframe-nav-btn active" data-section="overview" onclick="wireframeScrollTo(overview, event)">
+      <span>Top</span>
+    </a>
+    <a href="#credentials" class="wireframe-nav-btn" data-section="credentials" onclick="wireframeScrollTo(credentials, event)">
+      <span>Verified</span>
+    </a>
+    <a href="#voice-ai" class="wireframe-nav-btn" data-section="voice-ai" onclick="wireframeScrollTo(voice-ai, event)">
+      <span>Voice AI</span>
+    </a>
+    <a href="#capabilities" class="wireframe-nav-btn" data-section="capabilities" onclick="wireframeScrollTo(capabilities, event)">
+      <span>Scale</span>
+    </a>
+    <a href="#contact" class="wireframe-nav-btn" data-section="contact" onclick="wireframeScrollTo(contact, event)">
+      <span>Network</span>
+    </a>
+  </nav>
 
 </body>
 </html>
