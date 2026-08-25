@@ -2730,20 +2730,28 @@
           <div>
             <div class="eleven-label" style="margin-bottom: 10px;">Select ElevenLabs Voice</div>
             <div class="eleven-voices-grid">
-              <div class="eleven-voice-card active" onclick="selectVoiceModel('adam', this)">
+              <div class="eleven-voice-card active" onclick="selectVoiceModel('custom', this)" title="Voice ID: exsUS4vynmxd379XN4yO">
+                <div class="eleven-voice-name">
+                  <span>Studio Master</span>
+                  <span class="eleven-tag-pill" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">Primary</span>
+                </div>
+                <div class="eleven-voice-desc">ID: exsUS4vynmxd379XN4yO</div>
+              </div>
+              
+              <div class="eleven-voice-card" onclick="selectVoiceModel('adam', this)">
                 <div class="eleven-voice-name">
                   <span>Adam</span>
                   <span class="eleven-tag-pill">Narrative</span>
                 </div>
-                <div class="eleven-voice-desc">Deep · Warm · Authority</div>
+                <div class="eleven-voice-desc">Deep · Warm Tone</div>
               </div>
-              
+
               <div class="eleven-voice-card" onclick="selectVoiceModel('rachel', this)">
                 <div class="eleven-voice-name">
                   <span>Rachel</span>
                   <span class="eleven-tag-pill">Calm</span>
                 </div>
-                <div class="eleven-voice-desc">Cinematic · Broadcast</div>
+                <div class="eleven-voice-desc">Cinematic Broadcast</div>
               </div>
 
               <div class="eleven-voice-card" onclick="selectVoiceModel('antoni', this)">
@@ -2751,15 +2759,7 @@
                   <span>Antoni</span>
                   <span class="eleven-tag-pill">Tech</span>
                 </div>
-                <div class="eleven-voice-desc">Keynote · Confident</div>
-              </div>
-
-              <div class="eleven-voice-card" onclick="selectVoiceModel('bella', this)">
-                <div class="eleven-voice-name">
-                  <span>Bella</span>
-                  <span class="eleven-tag-pill">Creator</span>
-                </div>
-                <div class="eleven-voice-desc">Dynamic · Expressive</div>
+                <div class="eleven-voice-desc">Keynote Confident</div>
               </div>
             </div>
           </div>
@@ -2794,7 +2794,7 @@
               <span class="eleven-live-dot"></span>
               <span>ElevenLabs Voice Agent Ready</span>
             </span>
-            <span id="voiceModelInfo" style="color: #71717a;">Latency: 75ms (Flash v2)</span>
+            <span id="voiceModelInfo" style="color: #71717a;">Voice Model: exsUS4vynmxd379XN4yO</span>
           </div>
 
           <!-- Controls -->
@@ -2974,13 +2974,13 @@
     ];
 
     const voicePresets = {
+      custom: { name: "Studio Voice (exsUS4vynmxd379XN4yO)", pitch: 1.0, rate: 1.0, elevenVoiceId: "exsUS4vynmxd379XN4yO" },
       adam: { name: "Adam", pitch: 0.85, rate: 0.95, elevenVoiceId: "pNInz6obpgDQGcFmaJgB" },
       rachel: { name: "Rachel", pitch: 1.05, rate: 1.0, elevenVoiceId: "21m00Tcm4TlvDq8ikWAM" },
-      antoni: { name: "Antoni", pitch: 0.95, rate: 1.05, elevenVoiceId: "ErXwobaYiN019PkySvjV" },
-      bella: { name: "Bella", pitch: 1.15, rate: 1.02, elevenVoiceId: "EXAVITQu4vr4xnSDxMaL" }
+      antoni: { name: "Antoni", pitch: 0.95, rate: 1.05, elevenVoiceId: "ErXwobaYiN019PkySvjV" }
     };
 
-    let currentVoiceKey = "adam";
+    let currentVoiceKey = "custom";
     let isVoicePlaying = false;
     let currentAudioElement = null;
 
@@ -3119,7 +3119,7 @@
     /* ========================================================= */
     const agentPersonas = {
       director: {
-        voice: "adam",
+        voice: "custom",
         scriptIndex: 0,
         gradient: "radial-gradient(circle at 35% 30%, #a7f3d0 0%, #34d399 28%, #38bdf8 60%, #3b82f6 85%, #1d4ed8 100%)",
         glow: "0 0 45px rgba(52, 211, 153, 0.6), 0 0 90px rgba(56, 189, 248, 0.45)",
