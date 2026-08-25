@@ -2668,10 +2668,65 @@
     ];
     let dialogueInterval = null;
 
+    // Humanified Conversational Speech Preprocessor
+    // Removes robotic stuttering, handles social symbols, and inserts natural human pauses
+    function humanifySpeechText(rawText) {
+      return rawText
+        .replace(/@hrlpremiumstudio/gi, "at H R L Premium Studio, ")
+        .replace(/@hrlefx/gi, "at H R L E F X, ")
+        .replace(/@hrlflix/gi, "at H R L Flix, ")
+        .replace(/@hrlstayupdated/gi, "at H R L Stay Updated, ")
+        .replace(/@hrlpavan/gi, "at H R L Pavan, ")
+        .replace(/@([a-zA-Z0-9_]+)/g, "at $1, ")
+        .replace(/Pvt\.\s*Ltd\.?/gi, "Private Limited")
+        .replace(/2\.5\s*million/gi, "two point five million")
+        .replace(/\bVFX\b/g, "visual effects")
+        .replace(/\bAPI\b/g, "A P I")
+        .replace(/\bAPIs\b/g, "A P I's")
+        .replace(/\bAI\b/g, "A I")
+        .replace(/\bHRL\b/g, "H R L")
+        .replace(/—|--/g, ", ")
+        .replace(/&/g, " and ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    // Best Natural Human Voice Picker (Zero robotic artifacts)
+    function pickBestHumanVoice(preferredGender) {
+      if (!("speechSynthesis" in window)) return null;
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices || voices.length === 0) return null;
+
+      const englishVoices = voices.filter(v => v.lang.startsWith("en"));
+      if (englishVoices.length === 0) return voices[0];
+
+      // Ranked High-Fidelity Natural Human Voice Models
+      const premiumMaleNames = [
+        "Daniel (Enhanced)", "Google US English Male", "Google UK English Male",
+        "Microsoft Guy Online (Natural)", "Microsoft Ryan Online (Natural)", "Microsoft David",
+        "Daniel", "Alex", "Fred", "Oliver", "Arthur"
+      ];
+      const premiumFemaleNames = [
+        "Samantha (Enhanced)", "Google US English Female", "Google UK English Female",
+        "Microsoft Jenny Online (Natural)", "Microsoft Aria Online (Natural)", "Microsoft Zira",
+        "Samantha", "Karen (Enhanced)", "Serena", "Victoria", "Ava"
+      ];
+
+      const targetList = preferredGender === "female" ? premiumFemaleNames : premiumMaleNames;
+      for (const targetName of targetList) {
+        const found = englishVoices.find(v => v.name.toLowerCase().includes(targetName.toLowerCase()));
+        if (found) return found;
+      }
+
+      // Fallback to highest quality English voice available
+      const naturalAny = englishVoices.find(v => v.name.toLowerCase().includes("natural") || v.name.toLowerCase().includes("enhanced") || v.name.toLowerCase().includes("premium"));
+      return naturalAny || englishVoices[0];
+    }
+
     // Voice Synthesis Engine
     async function handleGenerateAndPlayVoice() {
-      const text = document.getElementById("voiceTextInput").value.trim();
-      if (!text) return;
+      const rawText = document.getElementById("voiceTextInput").value.trim();
+      if (!rawText) return;
 
       stopVoicePlayback();
 
@@ -2680,9 +2735,13 @@
       const apiKeyInput = document.getElementById("elevenApiKey");
       const customKey = apiKeyInput ? apiKeyInput.value.trim() : "";
 
+      // Convert to clean human conversational phonetics
+      const speechText = humanifySpeechText(rawText);
+
       const stage = document.getElementById("elevenFluidStage");
       const statusText = document.getElementById("voiceStatusText");
       if (stage) stage.classList.add("speaking");
+      
       let stepIdx = 0;
       if (dialogueInterval) clearInterval(dialogueInterval);
       dialogueInterval = setInterval(() => {
@@ -2691,13 +2750,14 @@
         const bR = document.getElementById("bubbleRight");
         if (bL) bL.textContent = storyDialogueSteps[stepIdx].left;
         if (bR) bR.textContent = storyDialogueSteps[stepIdx].right;
-      }, 8000);
+      }, 7000);
+
       if (statusText) {
         statusText.classList.add("active");
         statusText.querySelector("span:last-child").textContent = `Synthesizing ${voicePresets[currentVoiceKey].name}...`;
       }
 
-      // Check if Custom ElevenLabs API Key is provided
+      // 1. Direct ElevenLabs API (Rock-Solid Stability Settings)
       if (customKey && customKey.startsWith("sk_")) {
         try {
           const voiceId = voicePresets[currentVoiceKey].elevenVoiceId;
@@ -2708,9 +2768,14 @@
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              text: text,
+              text: speechText,
               model_id: "eleven_multilingual_v2",
-              voice_settings: { stability: 0.5, similarity_boost: 0.8 }
+              voice_settings: {
+                stability: 0.75,
+                similarity_boost: 0.85,
+                style: 0.0,
+                use_speaker_boost: true
+              }
             })
           });
 
@@ -2722,7 +2787,7 @@
           
           currentAudioElement.onplay = () => {
             isVoicePlaying = true;
-            if (statusText) statusText.querySelector("span:last-child").textContent = `Streaming ${voicePresets[currentVoiceKey].name} (ElevenLabs API)`;
+            if (statusText) statusText.querySelector("span:last-child").textContent = `Streaming ${voicePresets[currentVoiceKey].name} · ElevenLabs High-Fidelity`;
           };
           currentAudioElement.onended = () => stopVoicePlayback();
           currentAudioElement.play();
@@ -2732,29 +2797,26 @@
         }
       }
 
-      // Browser-Optimized Neural Fallback
+      // 2. Browser-Optimized Neural Human Conversational Agent (Zero Jerk, Steady Timbre)
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
+        const utterance = new SpeechSynthesisUtterance(speechText);
         const preset = voicePresets[currentVoiceKey];
-        utterance.rate = preset.rate * speed;
-        utterance.pitch = preset.pitch;
 
-        const voices = window.speechSynthesis.getVoices();
-        const englishVoices = voices.filter(v => v.lang.includes("en"));
-        if (englishVoices.length > 0) {
-          if (currentVoiceKey === "rachel") {
-            const female = englishVoices.find(v => v.name.toLowerCase().includes("female") || v.name.includes("Samantha") || v.name.includes("Victoria"));
-            if (female) utterance.voice = female;
-          } else {
-            const male = englishVoices.find(v => v.name.toLowerCase().includes("male") || v.name.includes("Daniel") || v.name.includes("Alex"));
-            if (male) utterance.voice = male;
-          }
+        // Smooth human conversational pacing & natural resonance
+        utterance.rate = 0.94 * speed;
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
+
+        const preferredGender = (currentVoiceKey === "rachel") ? "female" : "male";
+        const bestVoice = pickBestHumanVoice(preferredGender);
+        if (bestVoice) {
+          utterance.voice = bestVoice;
         }
 
         utterance.onstart = () => {
           isVoicePlaying = true;
-          if (statusText) statusText.querySelector("span:last-child").textContent = `Playing ${preset.name} · ElevenLabs Model`;
+          if (statusText) statusText.querySelector("span:last-child").textContent = `Playing ${preset.name} · Human Neural Voice`;
         };
 
         utterance.onend = () => stopVoicePlayback();
