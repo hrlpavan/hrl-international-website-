@@ -784,28 +784,39 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 30px 16px 14px;
-      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+      padding: 70px 18px 16px;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.78) 32%,
+        rgba(0, 0, 0, 0.45) 65%,
+        rgba(0, 0, 0, 0.15) 85%,
+        transparent 100%
+      );
       color: #fff;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 3px;
       pointer-events: none;
+      z-index: 2;
     }
     .caption-tag {
-      font-size: 10px;
+      font-size: 10.5px;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: #2997ff;
-      font-weight: 600;
+      font-weight: 700;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
     }
     .caption-title {
-      font-size: 13px;
+      font-size: 14.5px;
       font-weight: 600;
       color: #ffffff;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      letter-spacing: -0.01em;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
     }
 
     @media (max-width: 640px) {
@@ -821,8 +832,14 @@
         gap: 14px;
         animation-duration: 32s;
       }
+      .marquee-caption {
+        padding: 55px 14px 12px;
+      }
+      .caption-tag {
+        font-size: 9.5px;
+      }
       .caption-title {
-        font-size: 12px;
+        font-size: 13px;
       }
     }
 
