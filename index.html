@@ -220,23 +220,21 @@
       align-items: center;
     }
     .nav-brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
       text-decoration: none;
-      color: var(--apple-text-dark);
-      font-weight: 600;
-      font-size: 13.5px;
-      letter-spacing: -0.015em;
       transition: opacity 0.2s ease;
+      opacity: 0.92;
+      padding: 4px 0;
     }
     .nav-brand:hover {
-      opacity: 0.75;
+      opacity: 0.65;
     }
     .nav-logo-img {
-      height: 16px;
+      height: 18px;
       width: auto;
-      max-width: 54px;
+      max-width: 60px;
       object-fit: contain;
       display: block;
     }
@@ -821,7 +819,6 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
-      .nav-brand span { font-size: 13px; }
       .apple-btn-primary.nav-cta { display: none; }
       .apple-cta-group .apple-btn-primary,
       .apple-cta-group .apple-btn-secondary {
@@ -841,9 +838,8 @@
   <!-- Apple Global Navigation -->
   <nav class="apple-nav">
     <div class="nav-container">
-      <a href="#" class="nav-brand">
+      <a href="#" class="nav-brand" aria-label="HRL International">
         <img src="assets/logo.png" alt="HRL Logo" class="nav-logo-img" />
-        <span>HRL International</span>
       </a>
       
       <!-- Desktop Links -->
