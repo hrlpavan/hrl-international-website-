@@ -731,7 +731,7 @@
       display: flex;
       gap: 20px;
       width: max-content;
-      animation: marqueeScrollRightToLeft 26s linear infinite;
+      animation: marqueeScrollRightToLeft 44s linear infinite;
       will-change: transform;
       transform: translateZ(0);
     }
@@ -813,7 +813,7 @@
       }
       .marquee-track {
         gap: 14px;
-        animation-duration: 20s;
+        animation-duration: 32s;
       }
       .caption-title {
         font-size: 12px;
@@ -1062,12 +1062,44 @@
 
     <div class="marquee-viewport">
       <div class="marquee-track">
-        <!-- Set 1 -->
+        <!-- Set 1 (8 Unique Cards) -->
+        <div class="marquee-card">
+          <img src="assets/events/crowd-7.jpg" alt="Live Concert Stage & Artist Performance" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Stage Broadcast</span>
+            <span class="caption-title">Live Concerts & Artists</span>
+          </div>
+        </div>
+
+        <div class="marquee-card">
+          <img src="assets/events/crowd-6.jpg" alt="Traditional & Stage Performing Arts" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Cultural Arts</span>
+            <span class="caption-title">Cinematic Stage Performances</span>
+          </div>
+        </div>
+
         <div class="marquee-card">
           <img src="assets/events/crowd-1.jpg" alt="Live Event Audience & Fest Energy" class="marquee-img" loading="lazy" />
           <div class="marquee-caption">
             <span class="caption-tag">Live Production</span>
             <span class="caption-title">Campus & Festival Energy</span>
+          </div>
+        </div>
+
+        <div class="marquee-card">
+          <img src="assets/events/crowd-8.jpg" alt="Neon Concert Night Atmosphere" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Concert Pulse</span>
+            <span class="caption-title">High-Energy Stage Lighting</span>
+          </div>
+        </div>
+
+        <div class="marquee-card">
+          <img src="assets/events/crowd-5.jpg" alt="Audience & VIP Lounge Joy" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Audience Joy</span>
+            <span class="caption-title">Unfiltered Event Reactions</span>
           </div>
         </div>
 
@@ -1097,10 +1129,42 @@
 
         <!-- Set 2 (Seamless Infinite Clone for Continuous Right-to-Left Motion) -->
         <div class="marquee-card" aria-hidden="true">
+          <img src="assets/events/crowd-7.jpg" alt="Live Concert Stage & Artist Performance" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Stage Broadcast</span>
+            <span class="caption-title">Live Concerts & Artists</span>
+          </div>
+        </div>
+
+        <div class="marquee-card" aria-hidden="true">
+          <img src="assets/events/crowd-6.jpg" alt="Traditional & Stage Performing Arts" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Cultural Arts</span>
+            <span class="caption-title">Cinematic Stage Performances</span>
+          </div>
+        </div>
+
+        <div class="marquee-card" aria-hidden="true">
           <img src="assets/events/crowd-1.jpg" alt="Live Event Audience & Fest Energy" class="marquee-img" loading="lazy" />
           <div class="marquee-caption">
             <span class="caption-tag">Live Production</span>
             <span class="caption-title">Campus & Festival Energy</span>
+          </div>
+        </div>
+
+        <div class="marquee-card" aria-hidden="true">
+          <img src="assets/events/crowd-8.jpg" alt="Neon Concert Night Atmosphere" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Concert Pulse</span>
+            <span class="caption-title">High-Energy Stage Lighting</span>
+          </div>
+        </div>
+
+        <div class="marquee-card" aria-hidden="true">
+          <img src="assets/events/crowd-5.jpg" alt="Audience & VIP Lounge Joy" class="marquee-img" loading="lazy" />
+          <div class="marquee-caption">
+            <span class="caption-tag">Audience Joy</span>
+            <span class="caption-title">Unfiltered Event Reactions</span>
           </div>
         </div>
 
