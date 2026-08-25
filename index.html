@@ -151,6 +151,10 @@
       --apple-border: rgba(0, 0, 0, 0.08);
       --apple-border-dark: rgba(255, 255, 255, 0.12);
       --apple-nav-height: 52px;
+      
+      /* === 1-LINE TOGGLE: MARQUEE SIDE GLOW / FADE === */
+      /* OFF: none  |  ON: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%) */
+      --marquee-edge-glow: none;
     }
 
     * {
@@ -724,8 +728,9 @@
       overflow: hidden;
       position: relative;
       padding: 12px 0 20px;
-      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      /* Controlled via --marquee-edge-glow in :root */
+      mask-image: var(--marquee-edge-glow);
+      -webkit-mask-image: var(--marquee-edge-glow);
     }
     .marquee-track {
       display: flex;
