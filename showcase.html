@@ -238,7 +238,50 @@
     }
 
 
+
+    .vid-switcher-bar {
+      display: inline-flex;
+      background: #121216;
+      padding: 4px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      gap: 6px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+      max-width: 100%;
+      box-sizing: border-box;
+    }
     .vid-tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #a1a1aa;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+    .vid-tab-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .vid-tab-btn.active {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    @media (max-width: 480px) {
+      .vid-tab-btn {
+        font-size: 11.5px;
+        padding: 6.5px 12px;
+      }
+    }
+
+    .vid-tab-btn-old {
       background: transparent;
       border: 1px solid transparent;
       color: #a1a1aa;
@@ -749,12 +792,12 @@
     </header>
 
     <!-- Video Switcher Selector Tabs (Single-Row Segmented Bar) -->
-    <div style="display: flex; justify-content: center; margin-bottom: 18px;">
-      <div style="display: inline-flex; background: #121216; padding: 4px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.12); gap: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-        <button id="tabVid1" class="vid-tab-btn active" onclick="switchFeaturedVideo('t5zvuoZHjP8', '4K 60FPS Ultra HD Master', 'Master Reel · 4K 60FPS · DaVinci 21', this)">
+    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+      <div class="vid-switcher-bar">
+        <button id="tabVid1" type="button" class="vid-tab-btn active" onclick="switchFeaturedVideo('t5zvuoZHjP8', '4K 60FPS Ultra HD Master', this)">
           4K 60 FPS Master (Featured)
         </button>
-        <button id="tabVid2" class="vid-tab-btn" onclick="switchFeaturedVideo('RxiJXNTGFzY', 'Cinema & VFX Showcase II', 'Production Reel II · Hollywood Color Grade', this)">
+        <button id="tabVid2" type="button" class="vid-tab-btn" onclick="switchFeaturedVideo('RxiJXNTGFzY', 'Cinema & VFX Showcase II', this)">
           Cinema Reel II
         </button>
       </div>
@@ -940,17 +983,65 @@
     </div>
   </footer>
 
-  <!-- Interactive Comparison Slider Script -->
+  <!-- Interactive Cinema Switcher & Comparison Slider Script -->
   <script>
+    let currentVideoId = "t5zvuoZHjP8";
+
+    function switchFeaturedVideo(vidId, title, btnElement) {
+      currentVideoId = vidId;
+
+      // Update button active state
+      document.querySelectorAll(".vid-tab-btn").forEach(b => b.classList.remove("active"));
+      if (btnElement) {
+        btnElement.classList.add("active");
+      } else if (vidId === "t5zvuoZHjP8") {
+        const b1 = document.getElementById("tabVid1");
+        if (b1) b1.classList.add("active");
+      } else {
+        const b2 = document.getElementById("tabVid2");
+        if (b2) b2.classList.add("active");
+      }
+
+      // Update Meta titles and direct links
+      const metaTitle = document.getElementById("videoMetaTitle");
+      const directLink = document.getElementById("videoDirectLink");
+      const posterImg = document.getElementById("posterImg");
+      const iframe = document.getElementById("featuredCinemaIframe");
+      const cover = document.getElementById("posterCover");
+
+      if (metaTitle) metaTitle.textContent = title;
+      if (directLink) {
+        directLink.href = "https://youtu.be/" + vidId;
+        directLink.innerHTML = "Open Direct on YouTube &nearr;";
+      }
+      if (posterImg) {
+        posterImg.src = "https://img.youtube.com/vi/" + vidId + "/maxresdefault.jpg";
+      }
+      if (cover) {
+        cover.classList.remove("hidden");
+      }
+      if (iframe) {
+        iframe.src = "https://www.youtube-nocookie.com/embed/" + vidId + "?enablejsapi=1&rel=0&playsinline=1";
+      }
+    }
 
     function startCinemaVideo() {
       const cover = document.getElementById("posterCover");
       const iframe = document.getElementById("featuredCinemaIframe");
       if (cover) cover.classList.add("hidden");
       if (iframe) {
-        iframe.src = "https://www.youtube-nocookie.com/embed/t5zvuoZHjP8?autoplay=1&enablejsapi=1&rel=0&playsinline=1";
+        iframe.src = "https://www.youtube-nocookie.com/embed/" + currentVideoId + "?autoplay=1&enablejsapi=1&rel=0&playsinline=1";
       }
     }
+
+    // Attach DOM Event Listeners after page load
+    document.addEventListener("DOMContentLoaded", () => {
+      const b1 = document.getElementById("tabVid1");
+      const b2 = document.getElementById("tabVid2");
+      if (b1) b1.addEventListener("click", () => switchFeaturedVideo("t5zvuoZHjP8", "4K 60FPS Ultra HD Master", b1));
+      if (b2) b2.addEventListener("click", () => switchFeaturedVideo("RxiJXNTGFzY", "Cinema & VFX Showcase II", b2));
+    });
+
 
     const container = document.getElementById("compareContainer");
     const flatOverlay = document.getElementById("flatOverlay");
