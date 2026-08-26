@@ -16,7 +16,7 @@ What differentiates HRL International from traditional creator agencies is its d
 
 ### A Multi-Channel Verified Network
 
-With active community channels across Instagram (@hrlpremiumstudio, @hrlefx, @hrlflix, @hrlstayupdated) and open-source contributions on GitHub (@hrlpavan), HRL International demonstrates how modern brand collaboration and software architecture can coalesce into a unified global media ecosystem.
+With active community channels across Instagram (@hrlpremiumstudio, @hrlefx, @hrlflix (Hollywood Splatter Movie Promotions), @hrlstayupdated) and open-source contributions on GitHub (@hrlpavan), HRL International demonstrates how modern brand collaboration and software architecture can coalesce into a unified global media ecosystem.
 
 ---
 **Author Bio**:  
