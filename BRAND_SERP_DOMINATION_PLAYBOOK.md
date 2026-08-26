@@ -1,10 +1,10 @@
-# 🚀 HRL International Pvt. Ltd. — Brand SERP & Entity SEO Playbook
+#  HRL International Pvt. Ltd. — Brand SERP & Entity SEO Playbook
 
 This document contains the exact step-by-step instructions to make **"HRL International Pvt. Ltd."** rank #1 on Google and trigger a dedicated **Google Knowledge Panel**.
 
 ---
 
-## 📌 STEP 1: Deploy Root Domain Assets (Completed ✅)
+##  STEP 1: Deploy Root Domain Assets (Completed [VERIFIED])
 
 All foundational web code has been created in this folder:
 - [`index.html`](file:///Users/pavankumars/.gemini/antigravity/scratch/hrl-brand-seo/index.html) — Pre-configured with Corporation & Person JSON-LD Schema markup.
@@ -16,7 +16,7 @@ Deploy these 3 files to your web hosting (e.g. Vercel, Netlify, Cloudflare Pages
 
 ---
 
-## 📌 STEP 2: Google Search Console (GSC) & Forced Indexing
+##  STEP 2: Google Search Console (GSC) & Forced Indexing
 
 1. Go to [Google Search Console](https://search.google.com/search-console).
 2. Add your domain property using **DNS Verification** (add the TXT record to your domain registrar / Cloudflare).
@@ -27,7 +27,7 @@ Deploy these 3 files to your web hosting (e.g. Vercel, Netlify, Cloudflare Pages
 
 ---
 
-## 📌 STEP 3: Build the "Entity Ring" (High-DA Authority Profiles)
+##  STEP 3: Build the "Entity Ring" (High-DA Authority Profiles)
 
 To guarantee that Google's RankBrain & Knowledge Vault algorithms recognize **HRL International Pvt. Ltd.** as an undisputed real-world entity, create these exact profiles with identical **NAP+W (Name, Address, Phone, Website)** data:
 
@@ -61,7 +61,7 @@ To guarantee that Google's RankBrain & Knowledge Vault algorithms recognize **HR
 
 ---
 
-## 📌 STEP 4: Indian Corporate Registries Indexing (ZaubaCorp & Tofler)
+##  STEP 4: Indian Corporate Registries Indexing (ZaubaCorp & Tofler)
 
 Because your company is a registered Private Limited in India:
 - Google automatically scrapes official MCA (Ministry of Corporate Affairs) records.
@@ -69,7 +69,7 @@ Because your company is a registered Private Limited in India:
 
 ---
 
-## 📌 STEP 5: Algorithmic Feedback & Co-occurrence Strategy
+##  STEP 5: Algorithmic Feedback & Co-occurrence Strategy
 
 Google's NLP models use **Entity Co-occurrence** to associate your company with your industry:
 1. **Press Releases & Medium/Substack Articles**: Publish an article titled *"How Pavan Kumar S Founded HRL International Pvt. Ltd. to Drive Creator Growth"*.
@@ -77,7 +77,7 @@ Google's NLP models use **Entity Co-occurrence** to associate your company with 
 
 ---
 
-## 📌 STEP 6: Schema Verification
+##  STEP 6: Schema Verification
 
 Run the local validator anytime:
 ```bash

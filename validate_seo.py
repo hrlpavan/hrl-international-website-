@@ -8,25 +8,25 @@ def validate_seo_assets():
         html = f.read()
 
     print("==================================================")
-    print("🔍 HRL INTERNATIONAL - TECHNICAL SEO AUDIT REPORT")
+    print("[AUDIT] HRL INTERNATIONAL - TECHNICAL SEO AUDIT REPORT")
     print("==================================================")
 
     # 1. Check Title & Meta
     title_match = re.search(r"<title>(.*?)</title>", html)
-    print(f"✅ Title Tag: {title_match.group(1) if title_match else 'MISSING'}")
+    print(f"[OK] Title Tag: {title_match.group(1) if title_match else 'MISSING'}")
 
     meta_desc = re.search(r'<meta name="description" content="(.*?)"', html)
-    print(f"✅ Meta Description: {meta_desc.group(1) if meta_desc else 'MISSING'}")
+    print(f"[OK] Meta Description: {meta_desc.group(1) if meta_desc else 'MISSING'}")
 
     canonical = re.search(r'<link rel="canonical" href="(.*?)"', html)
-    print(f"✅ Canonical URL: {canonical.group(1) if canonical else 'MISSING'}")
+    print(f"[OK] Canonical URL: {canonical.group(1) if canonical else 'MISSING'}")
 
     # 2. Extract and Validate JSON-LD
     json_ld_match = re.search(r'<script type="application/ld\+json">(.*?)</script>', html, re.DOTALL)
     if json_ld_match:
         try:
             data = json.loads(json_ld_match.group(1).strip())
-            print("\n📊 JSON-LD Schema Validation: SUCCESS (Valid JSON)")
+            print("\n[SCHEMA] JSON-LD Schema Validation: SUCCESS (Valid JSON)")
             print(f"   Context: {data.get('@context')}")
             graph = data.get("@graph", [])
             print(f"   Graph Nodes Count: {len(graph)}")
@@ -39,14 +39,14 @@ def validate_seo_assets():
                     for link in node["sameAs"]:
                         print(f"       • {link}")
         except json.JSONDecodeError as e:
-            print(f"\n❌ JSON-LD Error: {e}")
+            print(f"\n[ERROR] JSON-LD Error: {e}")
             return False
     else:
-        print("\n❌ JSON-LD Schema missing!")
+        print("\n[ERROR] JSON-LD Schema missing!")
         return False
 
     print("\n==================================================")
-    print("🎯 ENTITY STATUS: READY FOR GOOGLE KNOWLEDGE VAULT")
+    print("[TARGET] ENTITY STATUS: READY FOR GOOGLE KNOWLEDGE VAULT")
     print("==================================================")
     return True
 

@@ -1,6 +1,6 @@
 # GUEST POST SUBMISSION PACKAGE & PUBLISHER INSTRUCTIONS
 
-### 🎯 Primary Target Websites Selected from Your Sheet:
+###  Primary Target Websites Selected from Your Sheet:
 1. **Analytics Insight** (`https://www.analyticsinsight.net/`) | DA: 69 | Traffic: 2.11M | Focus: AI & Tech
    - **Assigned Article**: `article_1_voice_ai_tech.md`
    - **Target Anchor**: `HRL International Pvt. Ltd.` -> `https://hrl-brand-seo.vercel.app/`
@@ -18,7 +18,7 @@
 
 ---
 
-### 📋 Copy-Paste Message to Send to Your Guest Post Provider:
+###  Copy-Paste Message to Send to Your Guest Post Provider:
 
 "Hi,
 
