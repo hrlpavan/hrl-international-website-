@@ -1285,33 +1285,43 @@
       font-weight: 600;
     }
     .eleven-preset-group {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+      width: 100%;
+      background: #121215;
+      padding: 4px;
+      border-radius: 9999px;
+      border: 1px solid #232326;
+      box-sizing: border-box;
     }
     .eleven-preset-btn {
       font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #141417;
-      border: 1px solid #232326;
-      color: #a1a1aa;
+      background: transparent;
+      border: 1px solid transparent;
+      color: #8c8c94;
       font-size: 12px;
-      font-weight: 500;
-      padding: 6px 14px;
+      font-weight: 600;
+      padding: 7px 4px;
       border-radius: 9999px;
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       user-select: none;
+      text-align: center;
+      white-space: nowrap;
+      width: 100%;
+      box-sizing: border-box;
     }
     .eleven-preset-btn:hover {
-      background: #232326;
+      background: rgba(255, 255, 255, 0.08);
       color: #ffffff;
-      border-color: #3f3f46;
     }
     .eleven-preset-btn.active {
       background: #ffffff;
       color: #000000;
       border-color: #ffffff;
       font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
         /* Verified Socials HUD in ElevenLabs Studio */
     .eleven-socials-hud {
@@ -1903,15 +1913,16 @@
       }
       .eleven-preset-group {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 6px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+        padding: 3px;
         width: 100%;
       }
       .eleven-preset-btn {
         width: 100%;
         text-align: center;
-        padding: 8px 4px;
-        font-size: 11.5px;
+        padding: 6.5px 2px;
+        font-size: 11px;
         font-weight: 600;
         white-space: nowrap;
       }
@@ -2608,10 +2619,10 @@
             <span class="eleven-mode-pill">45s Story Mode</span>
           </div>
           <div class="eleven-preset-group">
-            <button class="eleven-preset-btn active" onclick="loadVoiceScript(0)">Company Story</button>
+            <button class="eleven-preset-btn active" onclick="loadVoiceScript(0)">Story</button>
             <button class="eleven-preset-btn" onclick="loadVoiceScript(1)">Overview</button>
-            <button class="eleven-preset-btn" onclick="loadVoiceScript(2)">Media & VFX</button>
-            <button class="eleven-preset-btn" onclick="loadVoiceScript(3)">Enterprise Tech</button>
+            <button class="eleven-preset-btn" onclick="loadVoiceScript(2)">VFX</button>
+            <button class="eleven-preset-btn" onclick="loadVoiceScript(3)">Tech</button>
           </div>
 
           <textarea id="voiceTextInput" class="eleven-textarea" placeholder="Type or paste any text to synthesize studio speech...">Welcome to HRL International Private Limited. Founded in Mangaluru by Pavan Kumar Sadashiv, our company bridges two powerful disciplines: high-impact creator media and enterprise software engineering. In creative production, we combine Hollywood-grade DaVinci Resolve color science with high-retention video formats, generating over 2.5 million organic views across our creator network. In technology, we engineer distributed cloud infrastructure and secure API systems verified by JPMorgan Chase and Deloitte qualifications. Connect with our creative studio at @hrlpremiumstudio and @hrlefx, experience Hollywood splatter movie promotions on @hrlflix, or explore our software engineering on GitHub at @hrlpavan.</textarea>
