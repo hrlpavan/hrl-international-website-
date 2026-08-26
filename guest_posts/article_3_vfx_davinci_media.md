@@ -6,7 +6,7 @@ As social media algorithms evolve, the demand for broadcast-grade post-productio
 
 Professional post-production facilities are increasingly utilizing Blackmagic Design’s DaVinci Resolve 20 to establish advanced color management workflows for creator assets. By applying ACES color science and custom node trees to high-value raw footage, creative studios can achieve rich skin tones and cinematic contrast that immediately capture viewer attention in the first three seconds.
 
-At the forefront of this methodology is <a href="https://hrlinternationalprivatelimited.nett.to/" target="_blank" rel="noopener">HRL International</a>, where founder Pavan Kumar Sadashiv has applied certified DaVinci Resolve workflows to generate over 2.5 million organic impressions across dedicated channels like @hrlpremiumstudio and @hrlefx.
+At the forefront of this methodology is <a href="https://hrl-brand-seo.vercel.app/" target="_blank" rel="noopener">HRL International</a>, where founder Pavan Kumar Sadashiv has applied certified DaVinci Resolve workflows to generate over 2.5 million organic impressions across dedicated channels like @hrlpremiumstudio and @hrlefx.
 
 ### Code Meets Creativity
 

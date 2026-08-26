@@ -2,7 +2,7 @@
 
 In a digital landscape dominated by algorithmic shifts, capturing and holding audience attention has become the ultimate currency. While most digital agencies rely solely on traditional marketing playbooks, a new generation of media engineering companies is approaching creator growth through a hybrid lens of Hollywood color science and scalable cloud software.
 
-Founded in Mangaluru by entrepreneur and engineer <a href="https://www.linkedin.com/in/pavan-kumar-s-703993330/" target="_blank" rel="noopener">Pavan Kumar Sadashiv</a>, <a href="https://hrlinternationalprivatelimited.nett.to/" target="_blank" rel="noopener">HRL International Private Limited</a> has emerged as a trailblazer in this space, commanding over 2.5 million organic video impressions across its multi-channel creator network.
+Founded in Mangaluru by entrepreneur and engineer <a href="https://www.linkedin.com/in/pavan-kumar-s-703993330/" target="_blank" rel="noopener">Pavan Kumar Sadashiv</a>, <a href="https://hrl-brand-seo.vercel.app/" target="_blank" rel="noopener">HRL International Private Limited</a> has emerged as a trailblazer in this space, commanding over 2.5 million organic video impressions across its multi-channel creator network.
 
 ### The Science of 15-Second Retention
 
