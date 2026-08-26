@@ -1845,6 +1845,124 @@
       display: inline-block;
     }
 
+  
+    /* ========================================================= */
+    /* ELEVENLABS EXECUTIVE MOBILE UI POLISH (Decluttered)       */
+    /* ========================================================= */
+    .eleven-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2px;
+    }
+    .eleven-mode-pill {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #d4d4d8;
+      background: #18181b;
+      border: 1px solid #27272a;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+      .elevenlabs-brand-section {
+        padding: 48px 14px 60px;
+      }
+      .elevenlabs-brand-badge {
+        font-size: 10.5px;
+        padding: 4px 12px;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .elevenlabs-badge-logo {
+        height: 9px;
+      }
+      .elevenlabs-headline {
+        font-size: 26px;
+        line-height: 1.12;
+        letter-spacing: -0.03em;
+        margin-bottom: 10px;
+      }
+      .elevenlabs-subhead {
+        font-size: 13.5px;
+        line-height: 1.45;
+        color: #8c8c94;
+        max-width: 320px;
+        margin: 0 auto 22px;
+      }
+      .elevenlabs-studio-card {
+        padding: 18px 14px;
+        border-radius: 16px;
+        gap: 18px;
+      }
+      .eleven-col-left {
+        gap: 12px;
+      }
+      .eleven-preset-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        width: 100%;
+      }
+      .eleven-preset-btn {
+        width: 100%;
+        text-align: center;
+        padding: 8px 4px;
+        font-size: 11.5px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .eleven-textarea {
+        height: 130px;
+        font-size: 13px;
+        line-height: 1.5;
+        padding: 12px;
+        border-radius: 12px;
+      }
+      .eleven-socials-hud {
+        padding: 8px 10px;
+        border-radius: 10px;
+      }
+      .eleven-social-chip {
+        font-size: 10px;
+        padding: 4px 7px;
+      }
+      .eleven-col-right {
+        padding: 14px 12px;
+        gap: 14px;
+        border-radius: 14px;
+      }
+      .eleven-voices-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+      .eleven-voice-card {
+        padding: 8px 8px;
+        border-radius: 10px;
+      }
+      .eleven-voice-name {
+        font-size: 11.5px;
+      }
+      .eleven-voice-desc {
+        font-size: 9.5px;
+      }
+      .eleven-fluid-stage {
+        height: 160px;
+      }
+      .eleven-dialogue-bubble {
+        font-size: 9.5px;
+        padding: 4px 8px;
+        max-width: 125px;
+      }
+      .eleven-play-btn {
+        padding: 10px 14px;
+        font-size: 12px;
+      }
+    }
+
     </style>
 </head>
 <body>
@@ -2474,7 +2592,7 @@
         <div class="elevenlabs-brand-badge">
           <img src="assets/brands/brand-elevenlabs-white.png" alt="ElevenLabs" class="elevenlabs-badge-logo" />
           <span class="elevenlabs-badge-divider"></span>
-          <span>Conversational Voice Agent · ElevenLabs</span>
+          <span>Official Voice Agent</span>
         </div>
         <h2 class="elevenlabs-headline">Conversational Voice AI.<br/>Engineered with ElevenLabs.</h2>
         <p class="elevenlabs-subhead">Listen to how HRL International combines viral creator media with enterprise software engineering in under 45 seconds.</p>
@@ -2485,15 +2603,15 @@
         
         <!-- Left Column -->
         <div class="eleven-col-left">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div class="eleven-label">Select Script Preset or Enter Prompt</div>
-            <span style="font-size: 10px; color: #a1a1aa; background: #1c1c1f; padding: 2px 8px; border-radius: 9999px; border: 1px solid #27272a;">45s Retention Mode</span>
+          <div class="eleven-header-row">
+            <div class="eleven-label">Script Presets</div>
+            <span class="eleven-mode-pill">45s Story Mode</span>
           </div>
           <div class="eleven-preset-group">
-            <button class="eleven-preset-btn active" onclick="loadVoiceScript(0)" style="border-color: #ffffff;">45s Company Story & Handles</button>
+            <button class="eleven-preset-btn active" onclick="loadVoiceScript(0)">Company Story</button>
             <button class="eleven-preset-btn" onclick="loadVoiceScript(1)">Overview</button>
-            <button class="eleven-preset-btn" onclick="loadVoiceScript(2)">Cinematic VFX</button>
-            <button class="eleven-preset-btn" onclick="loadVoiceScript(3)">Enterprise Cloud</button>
+            <button class="eleven-preset-btn" onclick="loadVoiceScript(2)">Media & VFX</button>
+            <button class="eleven-preset-btn" onclick="loadVoiceScript(3)">Enterprise Tech</button>
           </div>
 
           <textarea id="voiceTextInput" class="eleven-textarea" placeholder="Type or paste any text to synthesize studio speech...">Welcome to HRL International Private Limited. Founded in Mangaluru by Pavan Kumar Sadashiv, our company bridges two powerful disciplines: high-impact creator media and enterprise software engineering. In creative production, we combine Hollywood-grade DaVinci Resolve color science with high-retention video formats, generating over 2.5 million organic views across our creator network. In technology, we engineer distributed cloud infrastructure and secure API systems verified by JPMorgan Chase and Deloitte qualifications. Connect with our creative studio at @hrlpremiumstudio and @hrlefx, follow our media updates on @hrlflix, or explore our software engineering on GitHub at @hrlpavan.</textarea>
