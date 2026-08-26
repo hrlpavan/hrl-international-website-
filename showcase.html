@@ -301,36 +301,36 @@
       height: 100%;
       background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
     }
-    .theater-play-btn-circle {
+    .theater-play-btn-glass {
       position: relative;
       z-index: 3;
-      width: 76px;
-      height: 76px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
-      background: var(--brand-red);
+      background: rgba(18, 18, 22, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.28);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 35px var(--brand-red-glow), 0 8px 25px rgba(0,0,0,0.8);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .theater-poster-cover:hover .theater-play-btn-circle {
-      transform: scale(1.12);
-      box-shadow: 0 0 50px rgba(209, 0, 45, 0.7);
+    .theater-play-btn-glass svg {
+      margin-left: 3px;
+      opacity: 0.95;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
-    .theater-poster-badge {
-      position: relative;
-      z-index: 3;
-      margin-top: 14px;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 9999px;
-      letter-spacing: 0.02em;
+    .theater-poster-cover:hover .theater-play-btn-glass {
+      transform: scale(1.08);
+      background: rgba(255, 255, 255, 0.95);
+      border-color: #ffffff;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.4);
+    }
+    .theater-poster-cover:hover .theater-play-btn-glass svg {
+      fill: #000000;
+      transform: scale(1.05);
     }
 
     .video-aspect-container iframe {
@@ -762,17 +762,16 @@
       <div class="theater-glow"></div>
       <div class="theater-card">
         <div class="video-aspect-container" id="videoAspectBox">
-          <!-- Dynamic High-Res 4K Poster Overlay -->
-          <div class="theater-poster-cover" id="posterCover" onclick="startCinemaVideo()">
+          <!-- Dynamic High-Res 4K Poster Overlay (Apple Pro Frosted Glass Aesthetic) -->
+          <div class="theater-poster-cover" id="posterCover" onclick="startCinemaVideo()" aria-label="Play 4K Master Video">
             <img id="posterImg" src="https://img.youtube.com/vi/t5zvuoZHjP8/maxresdefault.jpg" alt="4K 60FPS Video Showcase Poster" class="theater-poster-img" onerror="this.src='assets/events/event-synergia-hall.jpg'" />
             <div class="theater-poster-backdrop"></div>
             
-            <div class="theater-play-btn-circle">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="#ffffff">
+            <div class="theater-play-btn-glass">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </div>
-            <div class="theater-poster-badge" id="posterBadge">Stream in 4K 60 FPS Ultra HD</div>
           </div>
 
           <!-- YouTube-NoCookie Strict Origin Embedded Player (Error 153 Immune) -->
