@@ -3130,69 +3130,67 @@
       return naturalAny || englishVoices[0];
     }
 
-    // Humanified Conversational Sentence Queue Controller
-    // Speaks sentence-by-sentence with natural human breath pauses (180ms) for warm, human inflection
-    let speechQueue = [];
-    let currentQueueIdx = 0;
-    let isQueueActive = false;
+    // Persistent Global Utterance Reference to prevent iOS Safari Garbage Collection Bug
+    window.activeSpeechUtterance = null;
+    let cachedVoices = [];
 
-    function playNextSentenceInQueue(preset, speed, statusText) {
-      if (!isQueueActive || currentQueueIdx >= speechQueue.length) {
-        stopVoicePlayback();
-        return;
+    // Pre-load and cache voices on both Desktop and Mobile (iOS / Android)
+    function preloadBrowserVoices() {
+      if ("speechSynthesis" in window) {
+        cachedVoices = window.speechSynthesis.getVoices();
+        if (window.speechSynthesis.onvoiceschanged !== undefined) {
+          window.speechSynthesis.onvoiceschanged = () => {
+            cachedVoices = window.speechSynthesis.getVoices();
+          };
+        }
+      }
+    }
+    preloadBrowserVoices();
+
+    // Best Natural Human Voice Picker (Zero robotic artifacts)
+    function pickBestHumanVoice(preferredGender) {
+      if (!("speechSynthesis" in window)) return null;
+      const voices = cachedVoices.length ? cachedVoices : window.speechSynthesis.getVoices();
+      if (!voices || voices.length === 0) return null;
+
+      const englishVoices = voices.filter(v => v.lang && v.lang.startsWith("en"));
+      const voicePool = englishVoices.length > 0 ? englishVoices : voices;
+
+      // Ranked High-Fidelity Natural Human Voice Models
+      const premiumMaleNames = [
+        "Daniel (Enhanced)", "Google US English Male", "Google UK English Male",
+        "Microsoft Guy Online (Natural)", "Microsoft Ryan Online (Natural)", "Microsoft David",
+        "Daniel", "Alex", "Arthur", "Fred", "Aaron"
+      ];
+      const premiumFemaleNames = [
+        "Samantha (Enhanced)", "Google US English Female", "Google UK English Female",
+        "Microsoft Jenny Online (Natural)", "Microsoft Aria Online (Natural)", "Microsoft Zira",
+        "Samantha", "Karen (Enhanced)", "Serena", "Victoria", "Ava"
+      ];
+
+      const targetList = preferredGender === "female" ? premiumFemaleNames : premiumMaleNames;
+      for (const targetName of targetList) {
+        const found = voicePool.find(v => v.name && v.name.toLowerCase().includes(targetName.toLowerCase()));
+        if (found) return found;
       }
 
-      const sentenceText = speechQueue[currentQueueIdx].trim();
-      if (!sentenceText) {
-        currentQueueIdx++;
-        playNextSentenceInQueue(preset, speed, statusText);
-        return;
-      }
-
-      const utterance = new SpeechSynthesisUtterance(sentenceText);
-      utterance.rate = 0.92 * speed;
-      utterance.pitch = 1.0;
-      utterance.volume = 1.0;
-
-      const preferredGender = (currentVoiceKey === "rachel") ? "female" : "male";
-      const bestVoice = pickBestHumanVoice(preferredGender);
-      if (bestVoice) utterance.voice = bestVoice;
-
-      utterance.onstart = () => {
-        isVoicePlaying = true;
-        if (statusText) statusText.querySelector("span:last-child").textContent = `Playing ${preset.name} · Conversational Voice Agent`;
-      };
-
-      utterance.onend = () => {
-        currentQueueIdx++;
-        if (currentQueueIdx < speechQueue.length) {
-          // Natural 180ms human conversational breath pause between sentences
-          setTimeout(() => {
-            if (isQueueActive) playNextSentenceInQueue(preset, speed, statusText);
-          }, 180);
-        } else {
-          stopVoicePlayback();
-        }
-      };
-
-      utterance.onerror = () => {
-        currentQueueIdx++;
-        if (currentQueueIdx < speechQueue.length && isQueueActive) {
-          playNextSentenceInQueue(preset, speed, statusText);
-        } else {
-          stopVoicePlayback();
-        }
-      };
-
-      window.speechSynthesis.speak(utterance);
+      // Fallback to highest quality English voice available
+      const naturalAny = voicePool.find(v => v.name && (v.name.toLowerCase().includes("natural") || v.name.toLowerCase().includes("enhanced") || v.name.toLowerCase().includes("premium")));
+      return naturalAny || voicePool[0];
     }
 
-    // Voice Synthesis Engine
+    // Voice Synthesis Engine (Mobile-Proof with iOS WebKit & Android Autoplay Unlock)
     async function handleGenerateAndPlayVoice() {
       const rawText = document.getElementById("voiceTextInput").value.trim();
       if (!rawText) return;
 
       stopVoicePlayback();
+
+      // Mobile Touch Gesture Audio Unlock
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.resume();
+      }
 
       const speedSelect = document.getElementById("voiceSpeedSelect");
       const speed = parseFloat(speedSelect ? speedSelect.value : 1.0);
@@ -3214,14 +3212,14 @@
         const bR = document.getElementById("bubbleRight");
         if (bL) bL.textContent = storyDialogueSteps[stepIdx].left;
         if (bR) bR.textContent = storyDialogueSteps[stepIdx].right;
-      }, 7000);
+      }, 6000);
 
       if (statusText) {
         statusText.classList.add("active");
-        statusText.querySelector("span:last-child").textContent = `Synthesizing ${voicePresets[currentVoiceKey].name}...`;
+        statusText.querySelector("span:last-child").textContent = `Playing ${voicePresets[currentVoiceKey].name}...`;
       }
 
-      // 1. Direct ElevenLabs API (Warm Natural Human Settings)
+      // 1. Direct ElevenLabs API (If Custom Key Provided)
       if (customKey && customKey.startsWith("sk_")) {
         try {
           const voiceId = voicePresets[currentVoiceKey].elevenVoiceId;
@@ -3257,21 +3255,56 @@
           currentAudioElement.play();
           return;
         } catch (err) {
-          console.warn("ElevenLabs direct API call fallback:", err);
+          console.warn("ElevenLabs direct API fallback:", err);
         }
       }
 
-      // 2. Browser-Optimized Neural Human Conversational Agent (Natural Sentence-by-Sentence Flow)
+      // 2. Mobile-Proof Neural Conversational Agent (iOS Safari & Android HIG Compliant)
       if ("speechSynthesis" in window) {
-        window.speechSynthesis.cancel();
-        
-        // Split speechText into natural sentences for human breathing pauses
-        speechQueue = speechText.match(/[^.!?]+[.!?]+|\s*[^.!?]+$/g) || [speechText];
-        currentQueueIdx = 0;
-        isQueueActive = true;
-        
+        // Immediate synchronous invocation to preserve mobile touch gesture
+        const utterance = new SpeechSynthesisUtterance(speechText);
+        window.activeSpeechUtterance = utterance; // Prevent iOS garbage collection bug
+
         const preset = voicePresets[currentVoiceKey];
-        playNextSentenceInQueue(preset, speed, statusText);
+        utterance.rate = (preset.rate || 0.94) * speed;
+        utterance.pitch = preset.pitch || 1.0;
+        utterance.volume = 1.0;
+
+        const preferredGender = (currentVoiceKey === "rachel") ? "female" : "male";
+        const bestVoice = pickBestHumanVoice(preferredGender);
+        if (bestVoice) {
+          utterance.voice = bestVoice;
+          utterance.lang = bestVoice.lang || "en-US";
+        } else {
+          utterance.lang = "en-US";
+        }
+
+        utterance.onstart = () => {
+          isVoicePlaying = true;
+          if (statusText) statusText.querySelector("span:last-child").textContent = `Playing ${preset.name} · Conversational Voice Agent`;
+        };
+
+        utterance.onend = () => {
+          stopVoicePlayback();
+        };
+
+        utterance.onerror = (e) => {
+          console.warn("SpeechSynthesis error:", e);
+          stopVoicePlayback();
+        };
+
+        // Wake up speech engine and speak synchronously on user gesture
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
+        
+        // iOS Safari keep-alive timer
+        const keepAliveInterval = setInterval(() => {
+          if (!isVoicePlaying) {
+            clearInterval(keepAliveInterval);
+          } else if (window.speechSynthesis.paused) {
+            window.speechSynthesis.resume();
+          }
+        }, 3000);
       }
     }
 
