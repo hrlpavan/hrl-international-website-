@@ -2916,10 +2916,10 @@
     ];
 
     const voicePresets = {
-      custom: { name: "Studio Master", pitch: 1.0, rate: 1.0, gender: "male", elevenVoiceId: "exsUS4vynmxd379XN4yO" },
-      adam: { name: "Adam", pitch: 0.85, rate: 0.95, gender: "male", elevenVoiceId: "pNInz6obpgDQGcFmaJgB" },
-      rachel: { name: "Rachel", pitch: 1.05, rate: 1.0, gender: "female", elevenVoiceId: "21m00Tcm4TlvDq8ikWAM" },
-      priyanka: { name: "Priyanka", pitch: 1.02, rate: 0.94, gender: "female", elevenVoiceId: "Zlb1dXrM653N07WRdFW3" }
+      custom: { name: "Studio Master", pitch: 1.0, rate: 0.98, gender: "male", elevenVoiceId: "exsUS4vynmxd379XN4yO" },
+      adam: { name: "Adam", pitch: 0.78, rate: 0.90, gender: "male", elevenVoiceId: "pNInz6obpgDQGcFmaJgB" },
+      rachel: { name: "Rachel", pitch: 1.10, rate: 1.02, gender: "female", elevenVoiceId: "21m00Tcm4TlvDq8ikWAM" },
+      priyanka: { name: "Priyanka", pitch: 0.90, rate: 0.88, gender: "female", elevenVoiceId: "Zlb1dXrM653N07WRdFW3" }
     };
 
     let currentVoiceKey = "custom";
@@ -3181,8 +3181,8 @@
     }
     preloadBrowserVoices();
 
-    // Best Natural Human Voice Picker (Zero robotic artifacts)
-    function pickBestHumanVoice(preferredGender) {
+    // Best Natural Human Voice Picker (Distinct Character Modeling)
+    function pickBestHumanVoice(characterKey) {
       if (!("speechSynthesis" in window)) return null;
       const voices = cachedVoices.length ? cachedVoices : window.speechSynthesis.getVoices();
       if (!voices || voices.length === 0) return null;
@@ -3190,25 +3190,44 @@
       const englishVoices = voices.filter(v => v.lang && v.lang.startsWith("en"));
       const voicePool = englishVoices.length > 0 ? englishVoices : voices;
 
-      // Ranked High-Fidelity Natural Human Voice Models
-      const premiumMaleNames = [
-        "Daniel (Enhanced)", "Google US English Male", "Google UK English Male",
-        "Microsoft Guy Online (Natural)", "Microsoft Ryan Online (Natural)", "Microsoft David",
-        "Daniel", "Alex", "Arthur", "Fred", "Aaron"
-      ];
-      const premiumFemaleNames = [
-        "Priyanka", "Serena (Enhanced)", "Victoria", "Google UK English Female", "Samantha (Enhanced)", "Google US English Female",
-        "Microsoft Jenny Online (Natural)", "Microsoft Aria Online (Natural)", "Microsoft Zira",
-        "Samantha", "Karen (Enhanced)", "Serena", "Victoria", "Ava"
-      ];
+      // Dedicated Character-Specific Voice Maps
+      const characterVoiceMaps = {
+        priyanka: [
+          // Calm, Neutral, Velvety British / Global Female Narration
+          "Google UK English Female", "Victoria", "Microsoft Sonia Online (Natural)",
+          "Microsoft Hazel", "Google en-IN Female", "Serena (Enhanced)", "Serena", 
+          "Karen (Enhanced)", "Karen", "Fiona", "Moira"
+        ],
+        rachel: [
+          // Dynamic, Crisp American Broadcast Female
+          "Google US English Female", "Samantha (Enhanced)", "Microsoft Jenny Online (Natural)",
+          "Microsoft Aria Online (Natural)", "Samantha", "Ava", "Allison", "Zira"
+        ],
+        adam: [
+          // Deep, Resonant Warm Storyteller Male
+          "Google US English Male", "Microsoft Guy Online (Natural)", "Daniel (Enhanced)", 
+          "Microsoft David", "Alex", "Fred", "Tom"
+        ],
+        custom: [
+          // Studio Master: Signature British/Executive Global Male
+          "Daniel (Enhanced)", "Daniel", "Google UK English Male", "Microsoft Ryan Online (Natural)", 
+          "Arthur", "Aaron"
+        ]
+      };
 
-      const targetList = preferredGender === "female" ? premiumFemaleNames : premiumMaleNames;
-      for (const targetName of targetList) {
+      const priorityList = characterVoiceMaps[characterKey] || characterVoiceMaps.custom;
+      for (const targetName of priorityList) {
         const found = voicePool.find(v => v.name && v.name.toLowerCase().includes(targetName.toLowerCase()));
         if (found) return found;
       }
 
-      // Fallback to highest quality English voice available
+      // Smart Fallback by Gender
+      const isFemaleChar = (characterKey === "priyanka" || characterKey === "rachel");
+      if (isFemaleChar) {
+        const anyFemale = voicePool.find(v => v.name && (v.name.toLowerCase().includes("female") || v.name.toLowerCase().includes("samantha") || v.name.toLowerCase().includes("victoria") || v.name.toLowerCase().includes("serena")));
+        if (anyFemale) return anyFemale;
+      }
+
       const naturalAny = voicePool.find(v => v.name && (v.name.toLowerCase().includes("natural") || v.name.toLowerCase().includes("enhanced") || v.name.toLowerCase().includes("premium")));
       return naturalAny || voicePool[0];
     }
@@ -3305,8 +3324,7 @@
         utterance.pitch = preset.pitch || 1.0;
         utterance.volume = 1.0;
 
-        const preferredGender = (currentVoiceKey === "rachel" || currentVoiceKey === "priyanka" || (voicePresets[currentVoiceKey] && voicePresets[currentVoiceKey].gender === "female")) ? "female" : "male";
-        const bestVoice = pickBestHumanVoice(preferredGender);
+        const bestVoice = pickBestHumanVoice(currentVoiceKey);
         if (bestVoice) {
           utterance.voice = bestVoice;
           utterance.lang = bestVoice.lang || "en-US";
