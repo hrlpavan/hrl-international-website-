@@ -2435,10 +2435,10 @@
         <div class="elevenlabs-brand-badge">
           <img src="assets/brands/brand-elevenlabs-white.png" alt="ElevenLabs" class="elevenlabs-badge-logo" />
           <span class="elevenlabs-badge-divider"></span>
-          <span>Acoustic Wave & Voice Studio</span>
+          <span>Conversational Voice Agent · ElevenLabs</span>
         </div>
-        <h2 class="elevenlabs-headline">Neural Speech Synthesis.<br/>Engineered with ElevenLabs.</h2>
-        <p class="elevenlabs-subhead">Liquified frequency-reactive fluid mechanics, Chladni acoustic resonance wave patterns, and enterprise multimodal audio generation.</p>
+        <h2 class="elevenlabs-headline">Conversational Voice AI.<br/>Engineered with ElevenLabs.</h2>
+        <p class="elevenlabs-subhead">Listen to how HRL International combines viral creator media with enterprise software engineering in under 45 seconds.</p>
       </div>
 
       <!-- Studio Console Card -->
@@ -2457,7 +2457,7 @@
             <button class="eleven-preset-btn" onclick="loadVoiceScript(3)">Enterprise Cloud</button>
           </div>
 
-          <textarea id="voiceTextInput" class="eleven-textarea" placeholder="Type or paste any text to synthesize studio speech...">Stop scrolling. Here is how one visionary built an empire commanding over 2.5 million organic views. Founded in Mangaluru by Pavan Kumar Sadashiv, HRL International began by engineering Hollywood-grade DaVinci Resolve color science into viral short-form media. Today, that creative engine is fused with enterprise cloud architecture verified by JPMorgan Chase and Deloitte. From high-retention media on @hrlpremiumstudio and cinematic VFX on @hrlefx, to global stream updates on @hrlflix and open-source software on GitHub @hrlpavan—HRL International is engineering the future of digital media. Follow all official channels below and join the network.</textarea>
+          <textarea id="voiceTextInput" class="eleven-textarea" placeholder="Type or paste any text to synthesize studio speech...">Welcome to HRL International Private Limited. Founded in Mangaluru by Pavan Kumar Sadashiv, our company bridges two powerful disciplines: high-impact creator media and enterprise software engineering. In creative production, we combine Hollywood-grade DaVinci Resolve color science with high-retention video formats, generating over 2.5 million organic views across our creator network. In technology, we engineer distributed cloud infrastructure and secure API systems verified by JPMorgan Chase and Deloitte qualifications. Connect with our creative studio at @hrlpremiumstudio and @hrlefx, follow our media updates on @hrlflix, or explore our software engineering on GitHub at @hrlpavan.</textarea>
           
           <!-- Verified Social Media Handles HUD (High Retention Clickable Bar) -->
           <div class="eleven-socials-hud">
@@ -2724,10 +2724,10 @@
     /* Real-Time Acoustic Harmonic Synthesis Simulation         */
     /* ========================================================= */
     const voiceScripts = [
-      "Stop scrolling. Here is how one visionary built an empire commanding over 2.5 million organic views. Founded in Mangaluru by Pavan Kumar Sadashiv, HRL International began by engineering Hollywood-grade DaVinci Resolve color science into viral short-form media. Today, that creative engine is fused with enterprise cloud architecture verified by JPMorgan Chase and Deloitte. From high-retention media on @hrlpremiumstudio and cinematic VFX on @hrlefx, to global stream updates on @hrlflix and open-source software on GitHub @hrlpavan—HRL International is engineering the future of digital media. Follow all official channels below and join the network.",
-      "Welcome to HRL International Private Limited. Founded by Pavan Kumar Sadashiv, we engineer next-generation digital media distribution, high-retention creator formats, and enterprise software architecture.",
-      "By combining Hollywood-grade DaVinci Resolve color science with cinematic short-form storytelling, HRL International has driven over 2.5 million organic video impressions across social platforms.",
-      "Our software engineering infrastructure is built on verified qualifications from JPMorgan Chase and Deloitte, delivering distributed stream computing, high-velocity APIs, and cyber security governance."
+      "Welcome to HRL International Private Limited. Founded in Mangaluru by Pavan Kumar Sadashiv, our company bridges two powerful disciplines: high-impact creator media and enterprise software engineering. In creative production, we combine Hollywood-grade DaVinci Resolve color science with high-retention video formats, generating over 2.5 million organic views across our creator network. In technology, we engineer distributed cloud infrastructure and secure API systems verified by JPMorgan Chase and Deloitte qualifications. Connect with our creative studio at @hrlpremiumstudio and @hrlefx, follow our media updates on @hrlflix, or explore our software engineering on GitHub at @hrlpavan.",
+      "HRL International Private Limited is a corporate media and software engineering firm founded by Pavan Kumar Sadashiv. We help international creator brands scale organic reach while developing enterprise-grade digital infrastructure.",
+      "Our creative studio combines DaVinci Resolve Studio color grading with cinematic visual effects, producing high-retention short-form content that consistently outperforms social platform baselines.",
+      "Our engineering standards are built on verified qualifications from JPMorgan Chase and Deloitte, delivering high-performance backend systems, distributed stream computing, and cyber security governance."
     ];
 
     const voicePresets = {
@@ -2884,9 +2884,9 @@
 
     // Dynamic Dialogue Bubble Script Lines for 45s Story
     const storyDialogueSteps = [
-      { left: "“Stop scrolling: Over 2.5M+ organic impressions.”", right: "“Pavan Kumar Sadashiv · Founder & MD”" },
-      { left: "“Hollywood DaVinci Resolve Color Science.”", right: "“JPMorgan & Deloitte Infrastructure.”" },
-      { left: "“Creator Network: @hrlpremiumstudio & @hrlefx”", right: "“GitHub Code: @hrlpavan”" }
+      { left: "“HRL International: Media & Enterprise Tech.”", right: "“Pavan Kumar Sadashiv · Founder & MD”" },
+      { left: "“2.5M+ Organic Impressions · DaVinci VFX”", right: "“JPMorgan & Deloitte Verified Systems”" },
+      { left: "“Creator Studio: @hrlpremiumstudio & @hrlefx”", right: "“Engineering Code: @hrlpavan”" }
     ];
     let dialogueInterval = null;
 
@@ -2945,6 +2945,63 @@
       return naturalAny || englishVoices[0];
     }
 
+    // Humanified Conversational Sentence Queue Controller
+    // Speaks sentence-by-sentence with natural human breath pauses (180ms) for warm, human inflection
+    let speechQueue = [];
+    let currentQueueIdx = 0;
+    let isQueueActive = false;
+
+    function playNextSentenceInQueue(preset, speed, statusText) {
+      if (!isQueueActive || currentQueueIdx >= speechQueue.length) {
+        stopVoicePlayback();
+        return;
+      }
+
+      const sentenceText = speechQueue[currentQueueIdx].trim();
+      if (!sentenceText) {
+        currentQueueIdx++;
+        playNextSentenceInQueue(preset, speed, statusText);
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(sentenceText);
+      utterance.rate = 0.92 * speed;
+      utterance.pitch = 1.0;
+      utterance.volume = 1.0;
+
+      const preferredGender = (currentVoiceKey === "rachel") ? "female" : "male";
+      const bestVoice = pickBestHumanVoice(preferredGender);
+      if (bestVoice) utterance.voice = bestVoice;
+
+      utterance.onstart = () => {
+        isVoicePlaying = true;
+        if (statusText) statusText.querySelector("span:last-child").textContent = `Playing ${preset.name} · Conversational Voice Agent`;
+      };
+
+      utterance.onend = () => {
+        currentQueueIdx++;
+        if (currentQueueIdx < speechQueue.length) {
+          // Natural 180ms human conversational breath pause between sentences
+          setTimeout(() => {
+            if (isQueueActive) playNextSentenceInQueue(preset, speed, statusText);
+          }, 180);
+        } else {
+          stopVoicePlayback();
+        }
+      };
+
+      utterance.onerror = () => {
+        currentQueueIdx++;
+        if (currentQueueIdx < speechQueue.length && isQueueActive) {
+          playNextSentenceInQueue(preset, speed, statusText);
+        } else {
+          stopVoicePlayback();
+        }
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
     // Voice Synthesis Engine
     async function handleGenerateAndPlayVoice() {
       const rawText = document.getElementById("voiceTextInput").value.trim();
@@ -2979,7 +3036,7 @@
         statusText.querySelector("span:last-child").textContent = `Synthesizing ${voicePresets[currentVoiceKey].name}...`;
       }
 
-      // 1. Direct ElevenLabs API (Rock-Solid Stability Settings)
+      // 1. Direct ElevenLabs API (Warm Natural Human Settings)
       if (customKey && customKey.startsWith("sk_")) {
         try {
           const voiceId = voicePresets[currentVoiceKey].elevenVoiceId;
@@ -2993,9 +3050,9 @@
               text: speechText,
               model_id: "eleven_multilingual_v2",
               voice_settings: {
-                stability: 0.75,
+                stability: 0.70,
                 similarity_boost: 0.85,
-                style: 0.0,
+                style: 0.10,
                 use_speaker_boost: true
               }
             })
@@ -3019,37 +3076,25 @@
         }
       }
 
-      // 2. Browser-Optimized Neural Human Conversational Agent (Zero Jerk, Steady Timbre)
+      // 2. Browser-Optimized Neural Human Conversational Agent (Natural Sentence-by-Sentence Flow)
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(speechText);
+        
+        // Split speechText into natural sentences for human breathing pauses
+        speechQueue = speechText.match(/[^.!?]+[.!?]+|\s*[^.!?]+$/g) || [speechText];
+        currentQueueIdx = 0;
+        isQueueActive = true;
+        
         const preset = voicePresets[currentVoiceKey];
-
-        // Smooth human conversational pacing & natural resonance
-        utterance.rate = 0.94 * speed;
-        utterance.pitch = 1.0;
-        utterance.volume = 1.0;
-
-        const preferredGender = (currentVoiceKey === "rachel") ? "female" : "male";
-        const bestVoice = pickBestHumanVoice(preferredGender);
-        if (bestVoice) {
-          utterance.voice = bestVoice;
-        }
-
-        utterance.onstart = () => {
-          isVoicePlaying = true;
-          if (statusText) statusText.querySelector("span:last-child").textContent = `Playing ${preset.name} · Human Neural Voice`;
-        };
-
-        utterance.onend = () => stopVoicePlayback();
-        utterance.onerror = () => stopVoicePlayback();
-
-        window.speechSynthesis.speak(utterance);
+        playNextSentenceInQueue(preset, speed, statusText);
       }
     }
 
     function stopVoicePlayback() {
       isVoicePlaying = false;
+      isQueueActive = false;
+      speechQueue = [];
+      currentQueueIdx = 0;
       if ("speechSynthesis" in window) window.speechSynthesis.cancel();
       if (currentAudioElement) {
         currentAudioElement.pause();
