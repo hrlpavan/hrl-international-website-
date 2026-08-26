@@ -14,7 +14,7 @@
   <meta property="og:title" content="Cinema & VFX Showcase | HRL International Pvt. Ltd." />
   <meta property="og:description" content="High-impact Hollywood movie promotions, DaVinci Resolve ACES color grading, and broadcast visual effects." />
   <meta property="og:url" content="https://hrlpavan.github.io/hrl-international-website-/showcase.html" />
-  <meta property="og:image" content="https://img.youtube.com/vi/RxiJXNTGFzY/maxresdefault.jpg" />
+  <meta property="og:image" content="https://img.youtube.com/vi/t5zvuoZHjP8/maxresdefault.jpg" />
 
   <!-- Google Knowledge Graph Schema -->
   <script type="application/ld+json">
@@ -26,9 +26,9 @@
         "@id": "https://hrlpavan.github.io/hrl-international-website-/showcase.html#video-featured",
         "name": "HRL International Premier Cinema & VFX Showcase",
         "description": "Featured high-impact video production and visual effects engineered with Hollywood DaVinci Resolve color science and cinematic sound design.",
-        "thumbnailUrl": "https://img.youtube.com/vi/RxiJXNTGFzY/maxresdefault.jpg",
+        "thumbnailUrl": "https://img.youtube.com/vi/t5zvuoZHjP8/maxresdefault.jpg",
         "uploadDate": "2026-08-26T00:00:00+05:30",
-        "embedUrl": "https://www.youtube.com/embed/RxiJXNTGFzY",
+        "embedUrl": "https://www.youtube.com/embed/t5zvuoZHjP8",
         "publisher": {
           "@type": "Organization",
           "name": "HRL International Pvt. Ltd.",
@@ -232,6 +232,31 @@
       width: 100%;
       padding-top: 56.25%; /* 16:9 Aspect Ratio */
       background: #000000;
+    }
+
+
+    .vid-tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #a1a1aa;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 7px 18px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+      white-space: nowrap;
+    }
+    .vid-tab-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .vid-tab-btn.active {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .theater-poster-cover {
@@ -720,6 +745,18 @@
       </p>
     </header>
 
+    <!-- Video Switcher Selector Tabs (Single-Row Segmented Bar) -->
+    <div style="display: flex; justify-content: center; margin-bottom: 18px;">
+      <div style="display: inline-flex; background: #121216; padding: 4px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.12); gap: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+        <button id="tabVid1" class="vid-tab-btn active" onclick="switchFeaturedVideo('t5zvuoZHjP8', '4K 60FPS Ultra HD Master', 'Master Reel · 4K 60FPS · DaVinci 21', this)">
+          ★ 4K 60 FPS Master (Featured)
+        </button>
+        <button id="tabVid2" class="vid-tab-btn" onclick="switchFeaturedVideo('RxiJXNTGFzY', 'Cinema & VFX Showcase II', 'Production Reel II · Hollywood Color Grade', this)">
+          🎬 Cinema Reel II
+        </button>
+      </div>
+    </div>
+
     <!-- 4K Cinema Theater Player -->
     <section class="theater-wrapper" id="theater">
       <div class="theater-glow"></div>
@@ -727,22 +764,22 @@
         <div class="video-aspect-container" id="videoAspectBox">
           <!-- Dynamic High-Res 4K Poster Overlay -->
           <div class="theater-poster-cover" id="posterCover" onclick="startCinemaVideo()">
-            <img src="https://img.youtube.com/vi/RxiJXNTGFzY/maxresdefault.jpg" alt="Video Showcase Poster" class="theater-poster-img" onerror="this.src='assets/events/event-synergia-hall.jpg'" />
+            <img id="posterImg" src="https://img.youtube.com/vi/t5zvuoZHjP8/maxresdefault.jpg" alt="4K 60FPS Video Showcase Poster" class="theater-poster-img" onerror="this.src='assets/events/event-synergia-hall.jpg'" />
             <div class="theater-poster-backdrop"></div>
             
             <div class="theater-play-btn-circle">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="#ffffff">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#ffffff">
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </div>
-            <div class="theater-poster-badge">▶ Click to Watch 4K Master Video</div>
+            <div class="theater-poster-badge" id="posterBadge">▶ Stream in 4K 60 FPS Ultra HD</div>
           </div>
 
           <!-- YouTube-NoCookie Strict Origin Embedded Player (Error 153 Immune) -->
           <iframe 
             id="featuredCinemaIframe"
-            src="https://www.youtube-nocookie.com/embed/RxiJXNTGFzY?enablejsapi=1&rel=0&playsinline=1" 
-            title="HRL International Premier Video Showcase" 
+            src="https://www.youtube-nocookie.com/embed/t5zvuoZHjP8?enablejsapi=1&rel=0&playsinline=1" 
+            title="HRL International 4K 60FPS Video Showcase" 
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             referrerpolicy="strict-origin-when-cross-origin"
@@ -753,12 +790,12 @@
         <!-- Metadata Spec Bar -->
         <div class="theater-info-bar">
           <div class="theater-video-meta">
-            <h3>Featured Master Production</h3>
-            <p>Direct Cinema Stream · Engineered by Pavan Kumar Sadashiv · <a href="https://youtu.be/RxiJXNTGFzY" target="_blank" rel="noopener noreferrer" style="color: #ff4d6d; text-decoration: underline; font-weight: 600;">Open Direct on YouTube &nearr;</a></p>
+            <h3 id="videoMetaTitle">4K 60FPS Ultra HD Master</h3>
+            <p id="videoMetaSubtitle">Direct Cinema Stream · Engineered by Pavan Kumar Sadashiv · <a id="videoDirectLink" href="https://youtu.be/t5zvuoZHjP8" target="_blank" rel="noopener noreferrer" style="color: #ff4d6d; text-decoration: underline; font-weight: 600;">Open Direct on YouTube &nearr;</a></p>
           </div>
           <div class="spec-pills-group">
-            <span class="spec-badge red">★ Hollywood Master</span>
-            <span class="spec-badge">4K Ultra HD</span>
+            <span class="spec-badge red">★ 4K 60 FPS MASTER</span>
+            <span class="spec-badge">Ultra HD Cinema</span>
             <span class="spec-badge">DaVinci Resolve 21</span>
             <span class="spec-badge">ACES Color Science</span>
             <span class="spec-badge">24-Bit 48kHz Audio</span>
@@ -909,7 +946,7 @@
       const iframe = document.getElementById("featuredCinemaIframe");
       if (cover) cover.classList.add("hidden");
       if (iframe) {
-        iframe.src = "https://www.youtube-nocookie.com/embed/RxiJXNTGFzY?autoplay=1&enablejsapi=1&rel=0&playsinline=1";
+        iframe.src = "https://www.youtube-nocookie.com/embed/t5zvuoZHjP8?autoplay=1&enablejsapi=1&rel=0&playsinline=1";
       }
     }
 
