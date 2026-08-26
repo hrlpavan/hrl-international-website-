@@ -1,0 +1,6 @@
+# Vercel Ignore for High-Speed Deployments
+.git
+.github
+guest_posts
+*.md
+.system_generated
