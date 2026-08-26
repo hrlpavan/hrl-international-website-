@@ -233,6 +233,81 @@
       padding-top: 56.25%; /* 16:9 Aspect Ratio */
       background: #000000;
     }
+
+    .theater-poster-cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      background: #000000;
+    }
+    .theater-poster-cover.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .theater-poster-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .theater-poster-cover:hover .theater-poster-img {
+      transform: scale(1.03);
+      opacity: 0.95;
+    }
+    .theater-poster-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+    }
+    .theater-play-btn-circle {
+      position: relative;
+      z-index: 3;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: var(--brand-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 35px var(--brand-red-glow), 0 8px 25px rgba(0,0,0,0.8);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+    .theater-poster-cover:hover .theater-play-btn-circle {
+      transform: scale(1.12);
+      box-shadow: 0 0 50px rgba(209, 0, 45, 0.7);
+    }
+    .theater-poster-badge {
+      position: relative;
+      z-index: 3;
+      margin-top: 14px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      letter-spacing: 0.02em;
+    }
+
     .video-aspect-container iframe {
       position: absolute;
       top: 0;
@@ -649,11 +724,28 @@
     <section class="theater-wrapper" id="theater">
       <div class="theater-glow"></div>
       <div class="theater-card">
-        <div class="video-aspect-container">
+        <div class="video-aspect-container" id="videoAspectBox">
+          <!-- Dynamic High-Res 4K Poster Overlay -->
+          <div class="theater-poster-cover" id="posterCover" onclick="startCinemaVideo()">
+            <img src="https://img.youtube.com/vi/RxiJXNTGFzY/maxresdefault.jpg" alt="Video Showcase Poster" class="theater-poster-img" onerror="this.src='assets/events/event-synergia-hall.jpg'" />
+            <div class="theater-poster-backdrop"></div>
+            
+            <div class="theater-play-btn-circle">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="#ffffff">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <div class="theater-poster-badge">▶ Click to Watch 4K Master Video</div>
+          </div>
+
+          <!-- YouTube-NoCookie Strict Origin Embedded Player (Error 153 Immune) -->
           <iframe 
-            src="https://www.youtube.com/embed/RxiJXNTGFzY?autoplay=0&rel=0&modestbranding=1&controls=1&showinfo=0" 
+            id="featuredCinemaIframe"
+            src="https://www.youtube-nocookie.com/embed/RxiJXNTGFzY?enablejsapi=1&rel=0&playsinline=1" 
             title="HRL International Premier Video Showcase" 
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
           </iframe>
         </div>
@@ -662,7 +754,7 @@
         <div class="theater-info-bar">
           <div class="theater-video-meta">
             <h3>Featured Master Production</h3>
-            <p>Direct Cinema Stream · Engineered by Pavan Kumar Sadashiv</p>
+            <p>Direct Cinema Stream · Engineered by Pavan Kumar Sadashiv · <a href="https://youtu.be/RxiJXNTGFzY" target="_blank" rel="noopener noreferrer" style="color: #ff4d6d; text-decoration: underline; font-weight: 600;">Open Direct on YouTube &nearr;</a></p>
           </div>
           <div class="spec-pills-group">
             <span class="spec-badge red">★ Hollywood Master</span>
@@ -811,6 +903,16 @@
 
   <!-- Interactive Comparison Slider Script -->
   <script>
+
+    function startCinemaVideo() {
+      const cover = document.getElementById("posterCover");
+      const iframe = document.getElementById("featuredCinemaIframe");
+      if (cover) cover.classList.add("hidden");
+      if (iframe) {
+        iframe.src = "https://www.youtube-nocookie.com/embed/RxiJXNTGFzY?autoplay=1&enablejsapi=1&rel=0&playsinline=1";
+      }
+    }
+
     const container = document.getElementById("compareContainer");
     const flatOverlay = document.getElementById("flatOverlay");
     const divider = document.getElementById("compareDivider");
