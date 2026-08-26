@@ -2706,12 +2706,12 @@
                 <div class="eleven-voice-desc">Cinematic Broadcast</div>
               </div>
 
-              <div class="eleven-voice-card" onclick="selectVoiceModel('antoni', this)">
+              <div class="eleven-voice-card" onclick="selectVoiceModel('priyanka', this)">
                 <div class="eleven-voice-name">
-                  <span>Antoni</span>
-                  <span class="eleven-tag-pill">Tech</span>
+                  <span>Priyanka</span>
+                  <span class="eleven-tag-pill">Relaxed</span>
                 </div>
-                <div class="eleven-voice-desc">Keynote Confident</div>
+                <div class="eleven-voice-desc">Calm · Neutral & Velvety</div>
               </div>
             </div>
           </div>
@@ -2916,10 +2916,10 @@
     ];
 
     const voicePresets = {
-      custom: { name: "Studio Master", pitch: 1.0, rate: 1.0, elevenVoiceId: "exsUS4vynmxd379XN4yO" },
-      adam: { name: "Adam", pitch: 0.85, rate: 0.95, elevenVoiceId: "pNInz6obpgDQGcFmaJgB" },
-      rachel: { name: "Rachel", pitch: 1.05, rate: 1.0, elevenVoiceId: "21m00Tcm4TlvDq8ikWAM" },
-      antoni: { name: "Antoni", pitch: 0.95, rate: 1.05, elevenVoiceId: "ErXwobaYiN019PkySvjV" }
+      custom: { name: "Studio Master", pitch: 1.0, rate: 1.0, gender: "male", elevenVoiceId: "exsUS4vynmxd379XN4yO" },
+      adam: { name: "Adam", pitch: 0.85, rate: 0.95, gender: "male", elevenVoiceId: "pNInz6obpgDQGcFmaJgB" },
+      rachel: { name: "Rachel", pitch: 1.05, rate: 1.0, gender: "female", elevenVoiceId: "21m00Tcm4TlvDq8ikWAM" },
+      priyanka: { name: "Priyanka", pitch: 1.02, rate: 0.94, gender: "female", elevenVoiceId: "Zlb1dXrM653N07WRdFW3" }
     };
 
     let currentVoiceKey = "custom";
@@ -3148,7 +3148,7 @@
         "Daniel", "Alex", "Fred", "Oliver", "Arthur"
       ];
       const premiumFemaleNames = [
-        "Samantha (Enhanced)", "Google US English Female", "Google UK English Female",
+        "Priyanka", "Serena (Enhanced)", "Victoria", "Google UK English Female", "Samantha (Enhanced)", "Google US English Female",
         "Microsoft Jenny Online (Natural)", "Microsoft Aria Online (Natural)", "Microsoft Zira",
         "Samantha", "Karen (Enhanced)", "Serena", "Victoria", "Ava"
       ];
@@ -3197,7 +3197,7 @@
         "Daniel", "Alex", "Arthur", "Fred", "Aaron"
       ];
       const premiumFemaleNames = [
-        "Samantha (Enhanced)", "Google US English Female", "Google UK English Female",
+        "Priyanka", "Serena (Enhanced)", "Victoria", "Google UK English Female", "Samantha (Enhanced)", "Google US English Female",
         "Microsoft Jenny Online (Natural)", "Microsoft Aria Online (Natural)", "Microsoft Zira",
         "Samantha", "Karen (Enhanced)", "Serena", "Victoria", "Ava"
       ];
@@ -3305,7 +3305,7 @@
         utterance.pitch = preset.pitch || 1.0;
         utterance.volume = 1.0;
 
-        const preferredGender = (currentVoiceKey === "rachel") ? "female" : "male";
+        const preferredGender = (currentVoiceKey === "rachel" || currentVoiceKey === "priyanka" || (voicePresets[currentVoiceKey] && voicePresets[currentVoiceKey].gender === "female")) ? "female" : "male";
         const bestVoice = pickBestHumanVoice(preferredGender);
         if (bestVoice) {
           utterance.voice = bestVoice;
