@@ -458,10 +458,9 @@
     .compare-slider-container {
       position: relative;
       width: 100%;
-      max-width: 1000px;
+      max-width: 1024px;
       margin: 0 auto;
-      height: 480px;
-      min-height: 300px;
+      aspect-ratio: 1024 / 682;
       border-radius: 20px;
       overflow: hidden;
       user-select: none;
@@ -469,12 +468,7 @@
       cursor: ew-resize;
       border: 1px solid var(--border-subtle);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-      background: #0a0a0c;
-    }
-    @media (max-width: 768px) {
-      .compare-slider-container {
-        height: 260px;
-      }
+      background: #000000;
     }
     .compare-img-base {
       position: absolute;
@@ -482,7 +476,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: fill;
       display: block;
       pointer-events: none;
       z-index: 1;
@@ -493,7 +487,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: fill;
       display: block;
       pointer-events: none;
       z-index: 2;
