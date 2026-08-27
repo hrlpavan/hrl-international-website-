@@ -2,61 +2,49 @@
 **Company**: HRL International Pvt. Ltd. (Corporate Entity)  
 **Founder & Managing Director**: Pavan Kumar Sadashiv (B.E. AI, SCEM, Mangaluru, Karnataka, India)  
 **Public GitHub Repository**: [https://github.com/hrlpavan/hrl-international-website-](https://github.com/hrlpavan/hrl-international-website-)  
-**Live Production Website**: [https://hrlpavan.github.io/hrl-international-website-/](https://hrlpavan.github.io/hrl-international-website-/) | [https://hrl-brand-seo.vercel.app/](https://hrl-brand-seo.vercel.app/)  
-**Last Updated**: August 27, 2026
+**Live Production Website**: [https://hrlpavan.github.io/hrl-international-website-/](https://hrlpavan.github.io/hrl-international-website-/)  
+**Live 4K 60FPS Cinema Showcase**: [https://hrlpavan.github.io/hrl-international-website-/showcase.html](https://hrlpavan.github.io/hrl-international-website-/showcase.html)  
+**Release Version**: v2.6.0 Enterprise Production  
+**Last Updated**: August 28, 2026  
 
 ---
 
-##  Key Accomplishments & Deliverables
+## Key Accomplishments & Deliverables
 
-### 1.  Mobile-Proof Voice AI & Audio Unlocking Engine
-* **iOS WebKit Garbage Collection Fix**: Fixed the Mobile Safari bug where speech synthesis was abruptly terminated after 3–5 seconds by maintaining a persistent global memory reference (`window.activeSpeechUtterance`).
-* **Synchronous Touch Activation**: Unlocks browser audio context directly on the user touch event to comply with iOS and Android autoplay security policies.
-* **Keepalive Pulse**: Automated background keepalive mechanism preventing mobile OS sleep cycles from pausing narration mid-sentence.
-* **Pre-warmed Voice Pool**: Pre-loads browser speech voices on page initialization for instant 0ms latency playback.
+### 1. 4K 60FPS Cinema & VFX Video Showcase (`showcase.html`)
+* **Featured 4K 60FPS Master**: Embedded direct master stream `https://youtu.be/t5zvuoZHjP8` with 60fps high framerate, Hollywood DaVinci Resolve color grading, and spatial audio mastering.
+* **Dual-Cinema Switcher Tabs**: Segmented tab control allowing instant 1-tap switching between:
+  1. `4K 60 FPS Master (Featured)` (`t5zvuoZHjP8`)
+  2. `Cinema Reel II` (`RxiJXNTGFzY`)
+* **YouTube Error 153 Resolution**: Modernized iframe endpoints to `youtube-nocookie.com` with `enablejsapi=1`, `playsinline=1`, and `referrerpolicy="strict-origin-when-cross-origin"`.
+* **Apple Pro Frosted Glass Play Button**: Minimalist optical glass play button (`backdrop-filter: blur(20px)`), maintaining 100% visibility of the video thumbnail composition.
+* **Subpixel Hover Stability**: Fixed image scaling shifts on hover for a rock-solid stationary cinema frame with zero edge seams.
 
-### 2.  Single-Line Mobile Preset Bar (`[ Story ] [ Overview ] [ VFX ] [ Tech ]`)
-* **Symmetrical 4-Column Bar**: Refactored the preset selector into a single, clean Apple-style segmented control (`grid-template-columns: repeat(4, 1fr)`) with zero multi-line wrapping on mobile screens.
-* **Crisp Executive Labels**:
-  1. **`Story`**: 45s corporate narrative & verified network handles.
-  2. **`Overview`**: Corporate entity background & focus.
-  3. **`VFX`**: Hollywood splatter movie promotions & DaVinci Resolve color science.
-  4. **`Tech`**: JPMorgan Chase & Deloitte software architecture.
+### 2. Real DaVinci Resolve DPX Frame Comparison Slider
+* **Authentic DPX Sourcing**: Sourced from live stage production project `HRL'S VERSION1 12Bit 4K CC_1.50.1.dpx`.
+* **Zero-Fail Inlined Base64 Streams**: Inlined both **Master Hollywood ACES Color Grade** and **Raw Flat LOG Sensor Data (`hrl.dpx`)** directly inside the document.
+* **Pixel-Perfect Aspect Ratio**: Fixed container dimensions to exact native `1024x682` aspect ratio with hardware-accelerated `clip-path` splitting (0 pixel crop bugs).
 
-### 3.  `@hrlflix` Specialization in Hollywood Splatter Movie Promotions
-* Integrated `@hrlflix` as the official channel for **Hollywood splatter movie promotions**, cinematic trailer grading, and viral movie previews across:
-  * Voice AI 45s story script (`voiceScripts[0]` and `voiceScripts[2]`).
-  * JSON-LD Schema `Organization` / `Corporation` metadata.
-  * Verified Socials HUD and Ecosystem Bento cards.
+### 3. Official Brand Network Specialization
+* **@hrlflix**: Hollywood Splatter Movie Promotions (Trailer marketing, horror/thriller recuts, theatrical previews).
+* **@hrlefx**: Film Edits & DaVinci Resolve 21 VFX (Cinematic pacing, ACES color grading, custom OFX plugins).
+* **@hrlpremiumstudio**: Creative Studio & Viral Creator Media (15–30s retention formats, 2.5M+ views).
+* **@hrlstayupdated**: News & Industry Updates.
+* **@hrlpavan**: Founder & Software Architecture (JPMorgan Chase & Deloitte verified engineering).
 
-### 4.  SCEM "Eureka! Pitching 2026" (E-Cell Sahyadri × IIT Bombay) Submission
-* **Complete Form Answers**: Tailored all 5 competition fields with exact word limits (<150 words).
-* **Disruptive Problem/Solution**: Highlights the democratization of post-production software plugins for **Blackmagic DaVinci Resolve 20/21** and **Adobe After Effects**, disrupting legacy **₹30,000+** bloated effect packages with lightweight, studio-grade OFX tools.
-* **Executive Summary Document**: Published [`HRL_International_Eureka_Pitch_Summary.md`](./HRL_International_Eureka_Pitch_Summary.md) for direct competition upload.
+### 4. 100% Zero-Emoji Executive Design & Unified Color `#d1002d`
+* **Zero-Emoji Standard**: Complete regex audit across all HTML, CSS, JavaScript, and Markdown files with 0 decorative emojis remaining.
+* **Unified Brand Red `#d1002d`**: All buttons, badges, eyebrow headlines, links, and active glow rings standardized to exact Crimson Red `#d1002d`.
 
-### 5.  Official Brand Accent `#D1002D`
-* Updated the primary hero eyebrow headline **"HRL International Private Limited"** to brand color code `#D1002D` (Crimson Red).
+### 5. Voice AI Studio Optimization (Priyanka & Rachel Models)
+* **Priyanka Voice Character**: Added dedicated British/global velvety, calm narration model (Pitch: 0.90, Rate: 0.88x), clearly differentiated from Rachel (American dynamic broadcast, Pitch: 1.10, Rate: 1.02x).
+* **Mobile Audio Stability**: Implemented synchronous touch unlock and `window.activeSpeechUtterance` to prevent iOS WebKit garbage collection audio dropouts.
+* **Liquid Acoustic Canvas (`/liquid-v2`)**: 6-core fluid plasma frequency resonators with unified smart toggle pill (`Play Voice` / `Stop Voice`).
 
-### 6.  Enriched Bento Cards & Clean Architecture
-* Removed redundant inline blue links from inside the three Bento cards.
-* Enriched each card with deep, technical capability data (DaVinci Resolve 21 OFX plugins, multi-channel monetization across 2.5M+ views, Kafka stream computing, REST APIs).
+### 6. SCEM "Eureka! Pitching 2026" (E-Cell Sahyadri × IIT Bombay)
+* Competition application documentation incorporating DaVinci Resolve 21 plugin democratization (disrupting ₹30,000 cost barrier) published in [`HRL_International_Eureka_Pitch_Summary.md`](./HRL_International_Eureka_Pitch_Summary.md).
 
-### 7.  `/liquid-v2` Physics Engine & Unified Smart Play/Pause Button
-* **`/liquid-v2` Canvas Engine**: Upgraded fluid frequencies with 6 harmonic plasma metablobs, chromatic dispersion flares, 24 orbital sound-wave spectrum bars, and smooth cubic Chladni nodal curves.
-* **Unified Smart Action Pill**: Replaced separate play and stop buttons with a single smart toggle button (` Play Voice`  ` Stop Voice` with active pulsing crimson aura).
-
-### 8.  Voice Character: "Priyanka - Calm, Neutral and Relaxed"
-* Replaced Antoni with **Priyanka** in the Voice AI Studio.
-* Implemented **character-specific acoustic mapping** so Priyanka and Rachel are distinctly different:
-  * **Priyanka**: Pitch `0.90`, Rate `0.88x`, British/Global velvety, calm narration.
-  * **Rachel**: Pitch `1.10`, Rate `1.02x`, American bright, dynamic broadcaster.
-
-### 9.  ElevenLabs MCP Server & Antigravity MCP Health (100% Fixed)
-* Created standalone native JSON-RPC Python MCP server at `~/.gemini/config/elevenlabs_mcp_server.py`.
-* Resolved `context` socket `ENOENT` error by removing stale socket proxy and routing context through `data-agent-kit`.
-* Fixed `datacloud_dataproc_remote` region security violation.
-* Created backwards-compatibility symlink `googlecloudtools.datacloud-0.7.2-universal -> 0.9.1-universal`.
-
-### 10.  Continuous Deployment CI/CD Pipeline
-* Configured automated GitHub Actions workflow (`.github/workflows/deploy.yml`) for instant worldwide deployment on every `git push`.
-* Synced across `main` and `gh-pages` branches.
+### 7. Verified GitHub Author & CI/CD Deployment
+* Configured git author globally to `hrlpavan <pavankcet@gmail.com>`.
+* Automated continuous deployment via GitHub Actions (`.github/workflows/deploy.yml`) across `main` and `gh-pages`.
+\n<!-- Build Check: 2026-08-28 01:10:00 +0530 -->\n
