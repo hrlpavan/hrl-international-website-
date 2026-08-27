@@ -1,6 +1,6 @@
 # HRL International Private Limited — Comprehensive Project Status & Architecture
 **Company**: HRL International Pvt. Ltd. (Corporate Entity)  
-**Founder & Managing Director**: Pavan Kumar Sadashiv (B.E. AI, SCEM, Mangaluru, Karnataka, India)  
+**Founder & Managing Director**: Pavan Kumar Sadashiv (B.E. CSE AIML, SCEM, Mangaluru, Karnataka, India)  
 **Public GitHub Repository**: [https://github.com/hrlpavan/hrl-international-website-](https://github.com/hrlpavan/hrl-international-website-)  
 **Live Production Website**: [https://hrlpavan.github.io/hrl-international-website-/](https://hrlpavan.github.io/hrl-international-website-/)  
 **Live 4K 60FPS Cinema Showcase**: [https://hrlpavan.github.io/hrl-international-website-/showcase.html](https://hrlpavan.github.io/hrl-international-website-/showcase.html)  
