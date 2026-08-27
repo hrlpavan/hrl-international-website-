@@ -1,6 +1,7 @@
 # EUREKA! PITCHING 2026 — EXECUTIVE SUMMARY
 ### E-Cell Sahyadri × NEC, E-Cell IIT Bombay
 **Company**: HRL International Pvt. Ltd.  
+**Company Motto**: *"We Can Do Everything Related To Software Sector Without Any Excuses!"*  
 **Founder & Managing Director**: Pavan Kumar Sadashiv (B.E. CSE AIML, SCEM)  
 **Website**: https://hrl-brand-seo.vercel.app  
 
