@@ -2,6 +2,7 @@
 **Document**: Daily Executive & Technical Milestone Summary  
 **Date**: August 27–28, 2026  
 **Company**: HRL International Pvt. Ltd. (Corporate Entity)  
+**Company Motto**: *"We Can Do Everything Related To Software Sector Without Any Excuses!"*  
 **Founder & Managing Director**: Pavan Kumar Sadashiv (B.E. CSE AIML, SCEM, Mangaluru, Karnataka, India)  
 **GitHub Repository**: [https://github.com/hrlpavan/hrl-international-website-](https://github.com/hrlpavan/hrl-international-website-)  
 **Live Production Website**: [https://hrlpavan.github.io/hrl-international-website-/](https://hrlpavan.github.io/hrl-international-website-/)  
