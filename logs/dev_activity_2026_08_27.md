@@ -1,0 +1,1 @@
+\n## [2026-08-27 10:15:00 +0530] docs: update technical specifications for DaVinci Resolve 21 ACES color pipeline\n- Milestone verified and recorded for HRL International repository.\n
