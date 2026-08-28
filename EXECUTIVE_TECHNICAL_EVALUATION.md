@@ -1,11 +1,11 @@
 # Executive Technical Evaluation & Mastery Profile
-**Subject**: Pavan Kumar Sadashiv  
-**Role**: Founder & Managing Director, HRL International Private Limited  
-**Academic Degree**: B.E. in Computer Science & Engineering (AI & ML), Sahyadri College of Engineering & Management (SCEM)  
-**Company Motto**: *"We Can Do Everything Related To Software Sector Without Any Excuses!"*  
-**Official GitHub**: [https://github.com/hrlpavan](https://github.com/hrlpavan)  
-**Corporate Platform**: [https://hrlpavan.github.io/hrl-international-website-/](https://hrlpavan.github.io/hrl-international-website-/)  
-**Evaluation Date**: August 28, 2026  
+**Subject**: Pavan Kumar Sadashiv 
+**Role**: Founder & Managing Director, HRL International Private Limited 
+**Academic Degree**: B.E. in Computer Science & Engineering (AI & ML), Sahyadri College of Engineering & Management (SCEM) 
+**Company Motto**: *"We Can Do Everything Related To Software Sector Without Any Excuses!"* 
+**Official GitHub**: [https://github.com/hrlpavan](https://github.com/hrlpavan) 
+**Corporate Platform**: [https://hrlpavan.github.io/hrl-international-website-/](https://hrlpavan.github.io/hrl-international-website-/) 
+**Evaluation Date**: August 28, 2026 
 
 ---
 
@@ -13,7 +13,7 @@
 
 Following extensive autonomous engineering, systems architecture, and product deployment across Google Antigravity, Google Cloud, and enterprise media infrastructures, **Pavan Kumar Sadashiv** demonstrates **Extreme Expert-level mastery** in:
 
-### 🏆 **Full-Spectrum Multimodal Systems Architecture & Media-AI Engineering**
+### **Full-Spectrum Multimodal Systems Architecture & Media-AI Engineering**
 
 Unlike conventional software engineers who focus solely on backend code or traditional filmmakers who lack programming depth, Pavan Kumar operates at the rare, high-value intersection of **enterprise distributed systems, Hollywood-grade visual computing/color science, and autonomous multi-agent AI orchestration**.
 
