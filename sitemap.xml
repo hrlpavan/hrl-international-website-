@@ -1,27 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Primary Corporate Homepage -->
   <url>
     <loc>https://hrlpavan.github.io/hrl-international-website-/</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hrlpavan.github.io/hrl-international-website-/assets/logo.png</image:loc>
+      <image:title>HRL International Private Limited Official Logo</image:title>
+      <image:caption>HRL International - Media Engineering and Enterprise Software Architecture</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hrlpavan.github.io/hrl-international-website-/assets/hrl-official-logo.png</image:loc>
+      <image:title>HRL Official Crimson Typography Logo</image:title>
+    </image:image>
   </url>
+
+  <!-- 4K 60FPS Video Showcase & VFX Suite -->
   <url>
     <loc>https://hrlpavan.github.io/hrl-international-website-/showcase.html</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://hrlpavan.github.io/hrl-international-website-/assets/showcase-theater-4k-preview.png</image:loc>
+      <image:title>HRL International 4K 60FPS Video Showcase</image:title>
+    </image:image>
   </url>
+
+  <!-- Executive Technical Evaluation & Competency Diagnosis -->
   <url>
-    <loc>https://hrl-brand-seo.vercel.app/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <loc>https://hrlpavan.github.io/hrl-international-website-/EXECUTIVE_TECHNICAL_EVALUATION.md</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
+
+  <!-- Statutory Trademark and Intellectual Property Roadmap -->
   <url>
-    <loc>https://hrl-brand-seo.vercel.app/showcase.html</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://hrlpavan.github.io/hrl-international-website-/TRADEMARK_AND_LEGAL_PROTECTION_ROADMAP.md</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
+
+  <!-- Statutory Copyright and DMCA Enforcement Policy -->
+  <url>
+    <loc>https://hrlpavan.github.io/hrl-international-website-/COPYRIGHT_AND_DMCA_POLICY.md</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- MNC Executive LinkedIn Announcement Suite -->
+  <url>
+    <loc>https://hrlpavan.github.io/hrl-international-website-/MNC_EXECUTIVE_LINKEDIN_ANNOUNCEMENT.md</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
 </urlset>

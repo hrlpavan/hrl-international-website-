@@ -1,5 +1,12 @@
+# Robots.txt for HRL International Private Limited
+# Optimized for Googlebot, Bingbot, Applebot, and AI Search Crawlers
+
 User-agent: *
 Allow: /
+Allow: /assets/
+Allow: /showcase.html
+Allow: /*.md
+Allow: /sitemap.xml
 
-# Sitemap Location
-Sitemap: https://hrl-brand-seo.vercel.app/sitemap.xml
+# Explicit XML Sitemap Declaration for Search Engines
+Sitemap: https://hrlpavan.github.io/hrl-international-website-/sitemap.xml
