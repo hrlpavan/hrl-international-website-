@@ -7,7 +7,7 @@
 **Academic Qualification**: B.E. in Computer Science & Engineering (AI & ML), Sahyadri College of Engineering & Management  
 **Location & Category**: Beyond Bengaluru / Mangaluru (Dakshina Kannada), Karnataka  
 **Core Sector**: AVGC (Animation, Visual Effects & Media-Tech) / Artificial Intelligence & Enterprise Software  
-**Official Portal**: [https://elevate.karnataka.gov.in](https://elevate.karnataka.gov.in) / [https://startup.karnataka.gov.in](https://startup.karnataka.gov.in)  
+**Official Portal**: [https://eitbt.karnataka.gov.in/en](https://eitbt.karnataka.gov.in/en) / [https://startup.karnataka.gov.in](https://startup.karnataka.gov.in)  
 
 ---
 
@@ -16,14 +16,22 @@
 1. **Step 1: Startup Karnataka Registration**:
    * Visit **[startup.karnataka.gov.in](https://startup.karnataka.gov.in)** &rarr; Register under Startup Karnataka.
 2. **Step 2: Access the ELEVATE Portal**:
-   * Navigate to **[elevate.karnataka.gov.in](https://elevate.karnataka.gov.in)** &rarr; Login with your Startup Karnataka credentials.
+   * Navigate to **[elevate.karnataka.gov.in](https://eitbt.karnataka.gov.in/en)** &rarr; Login with your Startup Karnataka credentials.
 3. **Step 3: Choose Application Track**:
    * Select **"ELEVATE Standard / Beyond Bengaluru (Mangaluru Hub)"**.
 4. **Step 4: Copy & Paste the Ready-to-Submit Application Form** below.
 
 ---
 
-## 2. Pre-Filled Official Application Answers (Copy & Submit)
+
+---
+
+## 2. Dual Funding Pathway: Startup India Seed Fund Scheme (SISFS)
+* **Direct Active Central Govt Portal**: [https://seedfund.startupindia.gov.in](https://seedfund.startupindia.gov.in)
+* **Grant Amount**: Up to **₹20 Lakhs** (PoC/Validation grant) + Up to **₹50 Lakhs** (Commercial scale).
+* **How to Apply**: Log in with your DPIIT Startup India account at `seedfund.startupindia.gov.in` and select your local incubator (SCEM / NITK Surathkal / IIT Hubs).
+
+## 3. Pre-Filled Official Application Answers (Copy & Submit)
 
 ### A. Company & Promoter Details
 * **Registered Company Name**: HRL International Private Limited
@@ -90,7 +98,7 @@
 
 ---
 
-## 3. Mandatory Documents Checklist for Upload
+## 4. Mandatory Documents Checklist for Upload
 
 1. **Certificate of Incorporation / Registration Proof** (HRL International Private Limited).
 2. **Director / Founder ID & Educational Proof** (Pavan Kumar Sadashiv - B.E. CSE AIML, SCEM Mangaluru).
