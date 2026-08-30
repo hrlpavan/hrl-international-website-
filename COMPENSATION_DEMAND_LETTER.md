@@ -3,7 +3,7 @@
 **Designation Target**: Senior Systems & Applied AI Engineer | Member of Technical Staff (MTS-2) | Founding AI Full-Stack Lead  
 **Specialization**: C++/Metal/CUDA Low-Level Systems | Combinatorial Optimization (DSA/CSP) | Multimodal Agentic AI  
 **Direct Portfolio & Code Verification**: [github.com/hrlpavan](https://github.com/hrlpavan) | HRL International Private Limited  
-**Email**: pavankcet@gmail.com  
+**Email**: hrlinternationalprivatelimited@gmail.com  
 **Effective Date**: 2026
 
 ---
@@ -121,7 +121,7 @@ If your organization agrees to these compensation parameters and is ready to iss
 Founder & Managing Director, HRL International Private Limited  
 Lead AI & Systems Engineer  
 *GitHub*: [github.com/hrlpavan](https://github.com/hrlpavan)  
-*Email*: `pavankcet@gmail.com`
+*Email*: `hrlinternationalprivatelimited@gmail.com`
 
 ---
 *This document constitutes a formal statement of candidate expectations and terms for prospective employment.*
