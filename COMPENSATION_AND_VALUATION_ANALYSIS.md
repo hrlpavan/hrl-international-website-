@@ -18,7 +18,7 @@ Based on a forensic technical audit of your end-to-end project portfolio, you be
 
 ## 2. Recommended Compensation Demand Tiers
 
-### 🇮🇳 Tier 1: India (Bengaluru, Hyderabad, Pune, Tier-1 Product Companies & US MNC R&D)
+###  Tier 1: India (Bengaluru, Hyderabad, Pune, Tier-1 Product Companies & US MNC R&D)
 
 | Hiring Entity Type | Recommended Target Roles | Fixed Base (INR) | Performance Bonus / Variable | ESOPs / Equity (4-Yr Value) | **Total Annual CTC / Demand** |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -28,7 +28,7 @@ Based on a forensic technical audit of your end-to-end project portfolio, you be
 
 ---
 
-### 🌐 Tier 2: Global Remote / US & European Tech Companies
+###  Tier 2: Global Remote / US & European Tech Companies
 
 | Employment Model | Recommended Target Roles | Base Salary (USD) | Annual Equity / Bonus | **Total Compensation (USD)** | **INR Equivalent (@ ₹85/$)** |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -37,7 +37,7 @@ Based on a forensic technical audit of your end-to-end project portfolio, you be
 
 ---
 
-### 💼 Tier 3: Consulting, Contract & Fractional Rates
+###  Tier 3: Consulting, Contract & Fractional Rates
 
 - **Hourly Rate (Global/US Clients)**: **\$65 – \$125 / hour**
 - **Monthly Retainer (Fractional AI Systems / Vision Engineer)**: **₹2,50,000 – ₹5,00,000 / month** (India) or **\$6,000 – \$12,000 / month** (International)
