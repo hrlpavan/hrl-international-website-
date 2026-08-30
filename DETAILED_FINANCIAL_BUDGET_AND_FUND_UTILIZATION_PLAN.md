@@ -87,10 +87,10 @@ This financial schedule details the complete capital allocation for both the **�
 The grant capital will be drawn down in **4 Quarterly Tranches (Q1–Q4)** linked directly to technical milestone delivery:
 
 ```
-[ Tranche 1: 30% ] ──> Core Architecture, C++/CUDA Plugin Alpha, and Trademark Filings (Month 1-3)
-[ Tranche 2: 30% ] ──> GPU Infrastructure Deployment, 12-Bit DPX Engine & Patent Drafting (Month 4-6)
-[ Tranche 3: 25% ] ──> Creator Beta Onboarding, 50-Skill AI Integration & Security Shield (Month 7-9)
-[ Tranche 4: 15% ] ──> Commercial Rollout, Final CA Audit & Utilization Certificate Submission (Month 10-12)
+[ Tranche 1: 30% ] > Core Architecture, C++/CUDA Plugin Alpha, and Trademark Filings (Month 1-3)
+[ Tranche 2: 30% ] > GPU Infrastructure Deployment, 12-Bit DPX Engine & Patent Drafting (Month 4-6)
+[ Tranche 3: 25% ] > Creator Beta Onboarding, 50-Skill AI Integration & Security Shield (Month 7-9)
+[ Tranche 4: 15% ] > Commercial Rollout, Final CA Audit & Utilization Certificate Submission (Month 10-12)
 ```
 
 ---

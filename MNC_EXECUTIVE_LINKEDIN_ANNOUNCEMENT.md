@@ -28,7 +28,7 @@ At HRL International, our operating standard is non-negotiable:
 "We Can Do Everything Related To Software Sector Without Any Excuses."
 
 Experience the live 4K showcase and technical platform:
-👉 https://hrlpavan.github.io/hrl-international-website-/showcase.html
+ https://hrlpavan.github.io/hrl-international-website-/showcase.html
 
 Open to strategic dialogues with technology executives, creative directors, and global enterprise leaders.
 
@@ -77,7 +77,7 @@ Our founding doctrine:
 "We Can Do Everything Related To Software Sector Without Any Excuses."
 
 Full Interactive 4K Suite Live Worldwide:
-👉 https://hrlpavan.github.io/hrl-international-website-/showcase.html
+ https://hrlpavan.github.io/hrl-international-website-/showcase.html
 
 #HRLInternational #Engineering #MediaTechnology #Startups #GlobalTech #AI
 ```

@@ -13,7 +13,7 @@
 Every software, web, and media project created under **HRL International** must strictly comply with these foundational rules:
 
 1. **Strict 100% Zero-Emoji Policy**:
-   * Decorative emojis (such as 🚀, 🔥, 🏆, 💡) are strictly prohibited in all production HTML, CSS, JavaScript, and corporate documentation.
+   * Decorative emojis (such as , , , ) are strictly prohibited in all production HTML, CSS, JavaScript, and corporate documentation.
    * Visual icons must solely be rendered as clean SVG vector icons (Lucide/Heroicons standard) or high-resolution brand assets.
 2. **Apple-Caliber Executive Minimalist Aesthetic**:
    * High contrast, generous whitespace, subtle 1px translucent borders, and soft shadows.

@@ -62,32 +62,32 @@ Depending on your company's hiring structure (Domestic India entity vs. Global R
 Your investment guarantees immediate technical execution backed by verified open-source and commercial codebases:
 
 ```
-┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                               TECHNICAL LEVERAGE MATRIX                                │
-├──────────────────────────────┬─────────────────────────────────────────────────────────┤
-│ Domain                       │ Proven Production Deliverables                          │
-├──────────────────────────────┼─────────────────────────────────────────────────────────┤
-│ 1. Low-Level Systems & GPU   │ • Custom DaVinci Resolve OpenFX C++ Plugin              │
-│    Computing                 │ • Apple Metal Shading Language (MSL) & CUDA Kernels     │
-│                              │ • Depth Anything AI Neural Integration & Color Science  │
-│                              │ • Native macOS DMG Installer Packaging                  │
-├──────────────────────────────┼─────────────────────────────────────────────────────────┤
-│ 2. Combinatorial Algorithms  │ • NP-Hard Constraint Satisfaction Problem (CSP) Solver  │
-│    & Optimization            │ • K-Means Dynamic Clustering (k=3) Engine               │
-│                              │ • DCET Naive Bayes Lateral-Entry Classifier             │
-├──────────────────────────────┼─────────────────────────────────────────────────────────┤
-│ 3. Zero-Bloat Backend        │ • Zero-framework native Node.js REST HTTP server        │
-│    & Database Architecture   │ • SQLite with strict ACID transactions & prepared stmts │
-│                              │ • Custom Sliding Window Token Bucket Rate Limiter       │
-├──────────────────────────────┼─────────────────────────────────────────────────────────┤
-│ 4. Autonomous Agentic AI     │ • 50+ Autonomous Antigravity domain skills orchestration│
-│    & Cloud Infrastructure    │ • Google Cloud Composer (Airflow), BigQuery, Dataflow   │
-│                              │ • ElevenLabs Voice DSP & Acoustic Waveform visualizers  │
-├──────────────────────────────┼─────────────────────────────────────────────────────────┤
-│ 5. Product & Venture Rigor   │ • Founder & MD, HRL International Private Limited       │
-│                              │ • Startup India & Karnataka ELEVATE grant applications  │
-│                              │ • JPMorgan Chase (Streaming) & Deloitte (Cyber) Certs   │
-└──────────────────────────────┴─────────────────────────────────────────────────────────┘
+
+                               TECHNICAL LEVERAGE MATRIX                                
+
+ Domain                        Proven Production Deliverables                          
+
+ 1. Low-Level Systems & GPU    • Custom DaVinci Resolve OpenFX C++ Plugin              
+    Computing                  • Apple Metal Shading Language (MSL) & CUDA Kernels     
+                               • Depth Anything AI Neural Integration & Color Science  
+                               • Native macOS DMG Installer Packaging                  
+
+ 2. Combinatorial Algorithms   • NP-Hard Constraint Satisfaction Problem (CSP) Solver  
+    & Optimization             • K-Means Dynamic Clustering (k=3) Engine               
+                               • DCET Naive Bayes Lateral-Entry Classifier             
+
+ 3. Zero-Bloat Backend         • Zero-framework native Node.js REST HTTP server        
+    & Database Architecture    • SQLite with strict ACID transactions & prepared stmts 
+                               • Custom Sliding Window Token Bucket Rate Limiter       
+
+ 4. Autonomous Agentic AI      • 50+ Autonomous Antigravity domain skills orchestration
+    & Cloud Infrastructure     • Google Cloud Composer (Airflow), BigQuery, Dataflow   
+                               • ElevenLabs Voice DSP & Acoustic Waveform visualizers  
+
+ 5. Product & Venture Rigor    • Founder & MD, HRL International Private Limited       
+                               • Startup India & Karnataka ELEVATE grant applications  
+                               • JPMorgan Chase (Streaming) & Deloitte (Cyber) Certs   
+
 ```
 
 ---
