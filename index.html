@@ -2937,67 +2937,77 @@
         </div>
 
         <!-- Main Content Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; align-items: center;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 36px; align-items: stretch;">
           
-          <!-- Left: Book Cover / Minimalist Card -->
-          <div style="background: #0b0f19; border: 2px solid #d1002d; border-radius: 16px; padding: 32px 24px; text-align: center; box-shadow: 0 16px 36px rgba(209, 0, 45, 0.15); display: flex; flex-direction: column; justify-content: space-between; min-height: 300px; color: #ffffff;">
+          <!-- Left: Apple-Caliber Tactile Book Card -->
+          <div style="background: linear-gradient(165deg, #ffffff 0%, #f9f9fb 100%); border: 1px solid rgba(0, 0, 0, 0.08); border-left: 5px solid #d1002d; border-radius: 20px; padding: 32px 28px; text-align: left; box-shadow: 0 16px 36px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02); display: flex; flex-direction: column; justify-content: space-between; min-height: 320px; position: relative; overflow: hidden;">
+            
+            <!-- Watermark / Subtle Brand Identity -->
+            <div style="position: absolute; right: -15px; bottom: -15px; font-size: 80px; font-weight: 900; color: rgba(209, 0, 45, 0.03); pointer-events: none; user-select: none; line-height: 1; font-family: -apple-system, BlinkMacSystemFont, sans-serif;">HRL</div>
+
             <div>
-              <div style="font-size: 10px; font-weight: 700; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">The 100x AI Chief Architect Manifesto</div>
-              <h3 style="font-size: clamp(28px, 4.5vw, 36px); font-weight: 900; color: #ffffff; letter-spacing: -0.02em; margin: 0; line-height: 1.1;">RULE BREAKING</h3>
-              <div style="font-size: 11px; font-weight: 700; color: #ef4444; margin-top: 6px; letter-spacing: 0.08em; text-transform: uppercase;">Volume 3.0 • Master Patent Edition</div>
-              <div style="font-size: 12px; color: #cbd5e1; font-weight: 400; margin-top: 10px; line-height: 1.45;">Deconstructing Engineering Dogma, Orchestrating Autonomous Fleets, and Dominating the Post-Syntax Era</div>
+              <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(209, 0, 45, 0.06); border: 1px solid rgba(209, 0, 45, 0.12); padding: 4px 10px; border-radius: 9999px; margin-bottom: 16px;">
+                <span style="width: 5px; height: 5px; border-radius: 50%; background: #d1002d;"></span>
+                <span style="font-size: 10.5px; font-weight: 700; color: #d1002d; text-transform: uppercase; letter-spacing: 0.08em;">The 100x AI Chief Architect Manifesto</span>
+              </div>
+              <h3 style="font-size: clamp(26px, 4vw, 32px); font-weight: 800; color: #1d1d1f; letter-spacing: -0.025em; margin: 0; line-height: 1.15;">RULE BREAKING</h3>
+              <div style="font-size: 11.5px; font-weight: 700; color: #d1002d; margin-top: 6px; letter-spacing: 0.05em; text-transform: uppercase;">Volume 3.0 · Master Patent Edition</div>
+              <p style="font-size: 13px; color: #515154; font-weight: 400; margin: 12px 0 0 0; line-height: 1.5;">Deconstructing Engineering Dogma, Orchestrating Autonomous Fleets, and Dominating the Post-Syntax Era.</p>
             </div>
             
-            <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.15);">
-              <div style="font-size: 13px; font-weight: 800; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.06em;">PAVAN KUMAR SADASHIV (HRL)</div>
-              <div style="font-size: 11px; color: #94a3b8; margin-top: 3px;">Sole Patent Inventor & Managing Director, HRL International Pvt. Ltd.</div>
+            <div style="margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(0, 0, 0, 0.06);">
+              <div style="font-size: 12.5px; font-weight: 700; color: #1d1d1f; text-transform: uppercase; letter-spacing: 0.04em;">Pavan Kumar Sadashiv (HRL)</div>
+              <div style="font-size: 11px; color: #86868b; margin-top: 3px; font-weight: 500;">Sole Patent Inventor & Managing Director, HRL International Pvt. Ltd.</div>
             </div>
           </div>
 
           <!-- Right: Book Overview, Chapters & Direct Download -->
-          <div>
-            <div style="font-size: 11px; font-weight: 600; color: #d1002d; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Official Patent-Protected Sovereign Intellectual Property</div>
-            <h3 style="font-size: 22px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.015em; margin: 0 0 12px 0;">Rule Breaking (Volume 3.0): The 100x AI Chief Architect Manifesto</h3>
-            <p style="font-size: 13.5px; color: #515154; line-height: 1.55; margin: 0 0 16px 0;">
-              Authored and patented by <strong>Pavan Kumar Sadashiv (HRL)</strong>, <em>Rule Breaking (Volume 3.0)</em> is the complete 33-page master engineering manifesto and patent disclosure covering C++ Metal/CUDA DaVinci Resolve OpenFX volumetric compute engines, NP-hard CSP Backtracking solvers, dynamic K-Means bench anti-cheating dispersion, and autonomous multi-agent fleet orchestration.
-            </p>
+          <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 11px; font-weight: 600; color: #d1002d; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Official Patent-Protected Sovereign Intellectual Property</div>
+              <h3 style="font-size: 22px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.015em; margin: 0 0 12px 0;">Rule Breaking (Volume 3.0): The 100x AI Chief Architect Manifesto</h3>
+              <p style="font-size: 13.5px; color: #515154; line-height: 1.55; margin: 0 0 18px 0;">
+                Authored and patented by <strong>Pavan Kumar Sadashiv (HRL)</strong>, <em>Rule Breaking (Volume 3.0)</em> is the complete 33-page master engineering manifesto and patent disclosure covering C++ Metal/CUDA DaVinci Resolve OpenFX volumetric compute engines, NP-hard CSP Backtracking solvers, dynamic K-Means bench anti-cheating dispersion, and autonomous multi-agent fleet orchestration.
+              </p>
 
-            <!-- Key Chapters Bullet Grid -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px; font-size: 12px; color: #1d1d1f;">
-              <div style="display: flex; align-items: center; gap: 6px;">
-                <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d;"></span>
-                <span>The 100x Velocity Equation</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 6px;">
-                <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d;"></span>
-                <span>Zero-Bloat Native Architecture</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 6px;">
-                <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d;"></span>
-                <span>GPU Metal/CUDA Compute Shaders</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 6px;">
-                <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d;"></span>
-                <span>NP-Hard CSP & K-Means Solvers</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 6px;">
-                <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d;"></span>
-                <span>Autonomous Antigravity SDK Swarms</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 6px;">
-                <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d;"></span>
-                <span>Global Patent Claims (1–20)</span>
+              <!-- Key Chapters Bullet Grid -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; font-size: 12.5px; color: #1d1d1f;">
+                <div style="display: flex; align-items: center; gap: 8px; background: #f5f5f7; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.03);">
+                  <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d; flex-shrink: 0;"></span>
+                  <span>The 100x Velocity Equation</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; background: #f5f5f7; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.03);">
+                  <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d; flex-shrink: 0;"></span>
+                  <span>Zero-Bloat Architecture</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; background: #f5f5f7; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.03);">
+                  <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d; flex-shrink: 0;"></span>
+                  <span>GPU Metal/CUDA Shaders</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; background: #f5f5f7; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.03);">
+                  <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d; flex-shrink: 0;"></span>
+                  <span>NP-Hard CSP & K-Means</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; background: #f5f5f7; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.03);">
+                  <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d; flex-shrink: 0;"></span>
+                  <span>Antigravity Multi-Agent SDK</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; background: #f5f5f7; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.03);">
+                  <span style="width: 6px; height: 6px; border-radius: 50%; background: #d1002d; flex-shrink: 0;"></span>
+                  <span>Global Patent Claims (1–20)</span>
+                </div>
               </div>
             </div>
 
             <!-- Action Buttons -->
-            <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-              <a href="RULE_BREAKING_BY_HRL_V3.pdf" download="RULE_BREAKING_VOL_3_BY_PAVAN_KUMAR_SADASHIV_HRL.pdf" class="apple-btn-primary" style="background: #d1002d; box-shadow: 0 4px 14px rgba(209,0,45,0.25); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; font-size: 13.5px; font-weight: 700; border-radius: 9999px; color: #ffffff;">
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 8px;">
+              <a href="RULE_BREAKING_BY_HRL_V3.pdf" download="RULE_BREAKING_VOL_3_BY_PAVAN_KUMAR_SADASHIV_HRL.pdf" class="apple-btn-primary" style="background: #d1002d; box-shadow: 0 4px 14px rgba(209,0,45,0.22); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; font-size: 13.5px; font-weight: 700; border-radius: 9999px; color: #ffffff; transition: transform 0.2s ease, background 0.2s ease;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 <span>Download Volume 3.0 (Master PDF)</span>
               </a>
-              <a href="https://github.com/hrlpavan/rule-breaking-v2-book" target="_blank" rel="noopener noreferrer" style="font-size: 13px; font-weight: 600; color: #0071e3; text-decoration: none; padding: 8px 12px; display: inline-flex; align-items: center; gap: 4px;">
-                View on GitHub Repository &rarr;
+              <a href="https://github.com/hrlpavan/rule-breaking-v2-book" target="_blank" rel="noopener noreferrer" style="background: #ffffff; border: 1px solid rgba(0,0,0,0.12); color: #1d1d1f; font-size: 13px; font-weight: 600; text-decoration: none; padding: 10px 18px; border-radius: 9999px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repository</span>
               </a>
             </div>
 
