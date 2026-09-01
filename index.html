@@ -1054,13 +1054,13 @@
     .brand-marquee-track:hover {
       animation-play-state: paused;
     }
-    /* Seamless end-to-end infinite flow */
+    /* Seamless Left to Right flow (Opposite Direction to Event Marquee) */
     @keyframes brandMarqueeScroll {
       0% {
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(calc(-50% - 9px), 0, 0);
       }
       100% {
-        transform: translate3d(calc(-50% - 9px), 0, 0);
+        transform: translate3d(0, 0, 0);
       }
     }
     .brand-logo-pill {
