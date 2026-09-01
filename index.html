@@ -250,195 +250,20 @@
 
     /* Apple Ribbon Banner */
     .apple-ribbon {
-      background: #000000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      background-color: #f5f5f7;
+      border-bottom: 1px solid var(--apple-border);
       text-align: center;
-      padding: 10px 16px;
-      font-size: 12.5px;
+      padding: 10px 14px;
+      font-size: 12px;
       line-height: 1.4;
-      color: #ffffff;
+      color: var(--apple-text-dark);
       letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
     }
     .apple-ribbon a {
-      color: #2997ff;
+      color: var(--apple-blue);
       text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .apple-ribbon a:hover {
-      text-decoration: underline;
-    }
-
-    /* Apple Keynote Showcase: HRL Project Extreme */
-    .apple-extreme-showcase-section {
-      background: #000000;
-      color: #ffffff;
-      padding: 72px 16px;
-      position: relative;
-      overflow: hidden;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .extreme-container {
-      max-width: 1024px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-    .extreme-badge-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-    .extreme-pill-tag {
-      background: rgba(41, 151, 255, 0.15);
-      color: #2997ff;
-      border: 1px solid rgba(41, 151, 255, 0.35);
-      padding: 4px 12px;
-      border-radius: 9999px;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .extreme-pill-tag.glow {
-      box-shadow: 0 0 16px rgba(41, 151, 255, 0.4);
-    }
-    .extreme-headline {
-      font-size: 44px;
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.08;
-      margin-bottom: 16px;
-      background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    @media (max-width: 768px) {
-      .extreme-headline { font-size: 30px; }
-    }
-    .extreme-subhead {
-      font-size: 17px;
-      line-height: 1.45;
-      color: #a1a1a6;
-      max-width: 840px;
-      margin-bottom: 32px;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-    }
-    .extreme-metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-bottom: 36px;
-    }
-    @media (min-width: 768px) {
-      .extreme-metrics-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-    .extreme-metric-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 20px 16px;
-      backdrop-filter: blur(20px);
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .extreme-metric-card:hover {
-      border-color: rgba(41, 151, 255, 0.4);
-      transform: translateY(-2px);
-    }
-    .extreme-metric-val {
-      font-size: 24px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
-      font-family: var(--font-sans);
-    }
-    .extreme-metric-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #86868b;
-      font-weight: 600;
-    }
-    .extreme-cta-box {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .extreme-btn-primary {
-      background: #0071e3;
-      color: #ffffff;
-      padding: 12px 24px;
-      border-radius: 9999px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 20px rgba(0, 113, 227, 0.4);
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    }
-    .extreme-btn-primary:hover {
-      background: #0077ed;
-      transform: scale(1.02);
-      box-shadow: 0 6px 26px rgba(0, 113, 227, 0.6);
-    }
-    .extreme-btn-secondary {
-      background: rgba(255, 255, 255, 0.08);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      padding: 12px 22px;
-      border-radius: 9999px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .extreme-btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.14);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-    .extreme-status-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: #34c759;
-      font-weight: 600;
-      margin-left: 6px;
-    }
-    .status-dot-pulse {
-      width: 7px;
-      height: 7px;
-      background: #34c759;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #34c759;
-      animation: pulseGreen 2s infinite ease-in-out;
-    }
-    @keyframes pulseGreen {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.6; }
+      font-weight: 500;
+      display: inline-block;
     }
 
     /* Apple Global Navigation Bar (GPU Accelerated) */
@@ -552,11 +377,62 @@
     .apple-hero {
       background: var(--apple-white);
       text-align: center;
-      padding: 48px 16px 56px;
+      padding: 40px 16px 56px;
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
+    }
+    /* Apple Executive High-Attention Announcement Pill */
+    .apple-announcement-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 18px 6px 8px;
+      background: rgba(0, 113, 227, 0.06);
+      border: 1px solid rgba(0, 113, 227, 0.28);
+      border-radius: 9999px;
+      text-decoration: none;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 113, 227, 0.12);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      max-width: 90vw;
+    }
+    .apple-announcement-pill:hover {
+      background: rgba(0, 113, 227, 0.12);
+      border-color: #0071e3;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 113, 227, 0.22);
+    }
+    .pill-badge-tag {
+      background: #0071e3;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+    .pill-badge-text {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--apple-text-dark);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pill-badge-arrow {
+      color: #0071e3;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.2s ease;
+    }
+    .apple-announcement-pill:hover .pill-badge-arrow {
+      transform: translateX(4px);
     }
     .hero-eyebrow {
       font-size: 14px;
@@ -2268,12 +2144,8 @@
 
   <!-- Top Announcement Ribbon -->
   <div class="apple-ribbon">
-    <span class="extreme-pill-tag glow" style="font-size: 10px; padding: 2px 8px;">World-First Keynote</span>
-    <span>Introducing <strong>HRL Project Extreme</strong> &mdash; The Frontier of Autonomous Hierarchical Policy Networks &amp; Spatial Physics.</span>
-    <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer">
-      <span>Launch Live Experience</span>
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-    </a>
+    HRL International Pvt. Ltd., Mangaluru, India · 
+    <a href="#contact">Contact for enterprise media collaborations &rarr;</a>
   </div>
 
   <!-- Apple Global Navigation -->
@@ -2286,7 +2158,6 @@
       <!-- Desktop Links -->
       <ul class="nav-links">
         <li><a href="#overview">Overview</a></li>
-        <li><a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" style="color: #0071e3; font-weight: 600;">HRL Extreme RL &nearr;</a></li>
         <li><a href="showcase.html" style="color: #d1002d; font-weight: 600;">Video Showcase</a></li>
         <li><a href="#production-energy">Live Production</a></li>
         <li><a href="#partners">Ecosystem</a></li>
@@ -2298,7 +2169,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       
-      <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" class="apple-btn-primary nav-cta" style="background: #0071e3; border-color: #0071e3; padding: 6px 14px; font-size: 12px; min-height: unset;">HRL Extreme AI &nearr;</a>
+      <a href="#contact" class="apple-btn-primary nav-cta" style="padding: 6px 14px; font-size: 12px; min-height: unset;">Get in Touch</a>
 
       <!-- Mobile Hamburger Toggle -->
       <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
@@ -2312,7 +2183,7 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
     <a href="#overview" onclick="toggleMobileMenu()">Overview</a>
-    <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" style="color: #0071e3; font-weight: 700;">HRL Project Extreme (Hierarchical Policy Engine) &nearr;</a>
+    <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" style="color: #0071e3; font-weight: 700;">HRL Project Extreme (AI Engine) &rarr;</a>
     <a href="showcase.html" style="color: #d1002d; font-weight: 700;">Video Showcase &rarr;</a>
     <a href="#production-energy" onclick="toggleMobileMenu()">Live Production</a>
     <a href="#partners" onclick="toggleMobileMenu()">Ecosystem & Brands</a>
@@ -2335,17 +2206,27 @@
 
   <!-- Apple Hero Section -->
   <section class="apple-hero" id="overview">
+
+    <!-- Magnetic Apple Announcement Pill -->
+    <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" class="apple-announcement-pill">
+      <span class="pill-badge-tag">New Release</span>
+      <span class="pill-badge-text">HRL Project Extreme &mdash; Autonomous Hierarchical Policy Engine</span>
+      <span class="pill-badge-arrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
+
     <span class="hero-eyebrow">HRL International Private Limited</span>
     <h1 class="hero-headline">Media engineering.<br/>Supercharged by AI.</h1>
     <h2 class="hero-subhead">High-velocity viral growth, creator ecosystems, and enterprise software foundations.</h2>
     <p class="hero-description">Founded by Pavan Kumar Sadashiv to engineer next-generation media distribution, high-retention storytelling, and algorithm-driven brand acceleration.</p>
     
     <div class="apple-cta-group">
-      <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" class="apple-btn-primary" style="background: #0071e3; border-color: #0071e3;">
+      <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" class="apple-btn-primary" style="background: #0071e3; border-color: #0071e3; display: inline-flex; align-items: center; gap: 6px;">
         <span>Launch HRL Project Extreme</span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
-      <a href="showcase.html" class="apple-btn-secondary" style="color: #D1002D; border-color: rgba(209, 0, 45, 0.3);">Watch Video Showcase &rarr;</a>
+      <a href="showcase.html" class="apple-btn-secondary" style="color: #D1002D; border-color: rgba(209, 0, 45, 0.25);">Watch Video Showcase &rarr;</a>
       <a href="#voice-ai" class="apple-btn-secondary">Test Voice AI</a>
     </div>
 
@@ -2369,66 +2250,6 @@
           <div class="stat-label">Verified Entity & Indexing</div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ========================================================= -->
-  <!-- Apple Master Keynote Showcase: HRL Project Extreme        -->
-  <!-- ========================================================= -->
-  <section class="apple-extreme-showcase-section" id="hrl-extreme-keynote">
-    <div class="extreme-container">
-      
-      <div class="extreme-badge-row">
-        <span class="extreme-pill-tag glow">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
-          <span>World-First Frontier AI Release</span>
-        </span>
-        <span class="extreme-pill-tag">Spatial Reinforcement Learning</span>
-        <span class="extreme-pill-tag">FeUdal Networks (FuN)</span>
-      </div>
-
-      <h2 class="extreme-headline">Autonomous Spatial Intelligence.<br>Engineered for the Entire Universe.</h2>
-      
-      <p class="extreme-subhead">
-        A monumental leap beyond traditional flat reinforcement learning. <strong>HRL Project Extreme</strong> introduces dual-timescale macro/micro policy decomposition with continuous sub-goal projection <i>g<sub>t</sub></i>, zero-shaped intrinsic cosine motivation, and formal GARA/STAR reachability safety envelopes &mdash; operating at 1,160+ FPS parallel rollout throughput.
-      </p>
-
-      <!-- 4-Card Apple Titanium Metric Grid -->
-      <div class="extreme-metrics-grid">
-        <div class="extreme-metric-card">
-          <div class="extreme-metric-val" style="color: #2997ff;">1,160+ FPS</div>
-          <div class="extreme-metric-label">Parallel Vector Rollouts</div>
-        </div>
-        <div class="extreme-metric-card">
-          <div class="extreme-metric-val" style="color: #af52de;"><i>C</i> = 8 Dilation</div>
-          <div class="extreme-metric-label">Macro Manager Horizon</div>
-        </div>
-        <div class="extreme-metric-card">
-          <div class="extreme-metric-val" style="color: #34c759;">GARA / STAR</div>
-          <div class="extreme-metric-label">Reachability Analysis</div>
-        </div>
-        <div class="extreme-metric-card">
-          <div class="extreme-metric-val" style="color: #ff9f0a;">4K OLED</div>
-          <div class="extreme-metric-label">Real-time Policy Theater</div>
-        </div>
-      </div>
-
-      <!-- Call to Action Buttons & Live Indicator -->
-      <div class="extreme-cta-box">
-        <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" class="extreme-btn-primary">
-          <span>Launch HRL Project Extreme Live</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        </a>
-        <a href="https://github.com/hrlpavan/hrl-project-extreme" target="_blank" rel="noopener noreferrer" class="extreme-btn-secondary">
-          <span>Explore GitHub Architecture</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        </a>
-        <div class="extreme-status-indicator">
-          <span class="status-dot-pulse"></span>
-          <span>Online &middot; Pure WebGPU / Canvas 60 FPS Engine</span>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -3161,21 +2982,6 @@
           <p style="margin-top: 10px; font-size: 13px; color: var(--apple-text-muted); line-height: 1.5;">Developing high-throughput Kafka streaming pipelines, financial-grade REST API controllers, and automated content distribution engines certified under JPMorgan Chase & Co. and Deloitte standards.</p>
         </div>
       </div>
-
-      <div class="bento-card" style="border: 1px solid rgba(0, 113, 227, 0.25); background: linear-gradient(145deg, #ffffff 0%, #f4f8ff 100%);">
-        <div>
-          <div class="bento-tag" style="background: rgba(0, 113, 227, 0.1); color: #0071e3;">Hierarchical AI &amp; Robotics</div>
-          <h3>HRL Project Extreme &mdash; FeUdal Policy Engine</h3>
-          <p>Dual-timescale spatial reinforcement learning engine with high-level manager sub-goal projection and low-level worker motor primitives.</p>
-          <p style="margin-top: 10px; font-size: 13px; color: var(--apple-text-muted); line-height: 1.5;">Features GARA/STAR reachability analysis, continuous 2D spatial physics, 1,160+ FPS parallel rollout throughput, and interactive 4K policy theater.</p>
-          <div style="margin-top: 18px;">
-            <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" class="apple-btn-primary" style="background: #0071e3; border-color: #0071e3; font-size: 13px; padding: 8px 18px; display: inline-flex; align-items: center; gap: 6px;">
-              <span>Launch HRL Project Extreme</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -3357,7 +3163,6 @@
       <div class="footer-bottom">
         <div>Copyright &copy; 2026 Pavan Kumar Sadashiv. HRL International&trade; and HRL International Private Limited&trade; are asserted trademarks of Pavan Kumar Sadashiv. All rights reserved.</div>
         <div class="footer-links">
-          <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" style="color: #0071e3; font-weight: 600;">HRL Project Extreme &nearr;</a>
           <a href="https://www.linkedin.com/in/pavan-kumar-s-703993330/" target="_blank" rel="noopener noreferrer" style="color: #0077b5; font-weight: 500;">LinkedIn</a>
           <a href="https://github.com/hrlpavan" target="_blank" rel="noopener noreferrer" style="color: #515154; font-weight: 500;">GitHub</a>
           <a href="https://www.instagram.com/hrlpremiumstudio/" target="_blank" rel="noopener noreferrer" style="color: #d1002d; font-weight: 500;">@hrlpremiumstudio</a>
