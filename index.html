@@ -1046,7 +1046,7 @@
       display: flex;
       gap: 18px;
       width: max-content;
-      animation: brandMarqueeScroll 50s linear infinite;
+      animation: brandMarqueeScrollOpposite 36s linear infinite;
       will-change: transform;
       transform: translateZ(0);
       align-items: center;
@@ -1055,7 +1055,7 @@
       animation-play-state: paused;
     }
     /* Seamless Left to Right flow (Opposite Direction to Event Marquee) */
-    @keyframes brandMarqueeScroll {
+    @keyframes brandMarqueeScrollOpposite {
       0% {
         transform: translate3d(calc(-50% - 9px), 0, 0);
       }
