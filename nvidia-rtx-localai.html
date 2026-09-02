@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRL International | NVIDIA RTX-LocalAI Systems Architecture & On-Device Engine</title>
+    <!-- SF Pro Display & SF Pro Text Official Web Fonts CDN -->
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hrl: {
+                            crimson: '#D1002D',
+                            crimsonDark: '#A50024',
+                            crimsonTint: 'rgba(209, 0, 45, 0.06)',
+                            blue: '#0071E3',
+                            blueDark: '#005BB5',
+                            blueTint: 'rgba(0, 113, 227, 0.08)',
+                            bgLight: '#FFFFFF',
+                            surface: '#F5F5F7',
+                            surfaceElevated: '#FFFFFF',
+                            borderLight: 'rgba(0, 0, 0, 0.08)',
+                            borderHover: 'rgba(0, 0, 0, 0.16)',
+                            textDark: '#1D1D1F',
+                            textSecondary: '#6E6E73',
+                            textMuted: '#86868B'
+                        },
+                        nvgreen: {
+                            DEFAULT: '#76B900',
+                            dark: '#5c9100',
+                            tint: 'rgba(118, 185, 0, 0.12)',
+                            glow: 'rgba(118, 185, 0, 0.25)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ["'SF Pro Text'", "'SF Pro Display'", '-apple-system', 'BlinkMacSystemFont', "'SF Pro'", 'sans-serif'],
+                        display: ["'SF Pro Display'", "'SF Pro Text'", '-apple-system', 'sans-serif'],
+                        mono: ["'SF Mono'", 'ui-monospace', "'JetBrains Mono'", 'Menlo', 'Monaco', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+        * {
+            font-family: 'SF Pro Text', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'SF Pro', 'Segoe UI', Roboto, sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif;
+            letter-spacing: -0.025em;
+        }
+
+        .font-mono, pre, code, .code-font {
+            font-family: 'SF Mono', ui-monospace, 'JetBrains Mono', Menlo, Monaco, monospace !important;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: #1D1D1F;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: -0.011em;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #F5F5F7; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #D2D2D7; border-radius: 2px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #5c9100; }
+
+        .apple-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .apple-card:hover {
+            border-color: rgba(92, 145, 0, 0.25);
+            box-shadow: 0 6px 24px rgba(92, 145, 0, 0.06);
+        }
+
+        .nv-badge {
+            border: 1px solid rgba(118, 185, 0, 0.3);
+            background: rgba(118, 185, 0, 0.12);
+            color: #5c9100;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-nvgreen selection:text-white">
+
+    <!-- Top Universal Announcement Bar -->
+    <div class="bg-[#F5F5F7] border-b border-black/[0.06] py-2 px-4 text-center text-xs font-medium text-hrl-textSecondary">
+        <span>NVIDIA GeForce RTX &bull; High-Performance On-Device AI Systems Architecture &bull; </span>
+        <a href="index.html" class="text-nvgreen-dark hover:underline font-semibold inline-flex items-center gap-0.5">
+            &larr; Back to Corporate Portal
+        </a>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="bg-white/90 border-b border-black/[0.08] px-6 sm:px-10 py-3 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
+            
+            <!-- Left: Corporate Logo -->
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2.5 transition hover:opacity-85">
+                    <img src="assets/logo.png" alt="HRL Logo" class="h-5 w-auto object-contain">
+                    <span class="text-xs font-semibold text-hrl-textDark tracking-tight hidden sm:inline">
+                        HRL International<span class="text-[10px] text-hrl-textMuted font-normal">&trade;</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Middle Navigation Links -->
+            <nav class="hidden lg:flex items-center space-x-7 text-xs font-medium text-hrl-textDark">
+                <a href="#overview" class="hover:text-nvgreen-dark transition">Overview</a>
+                <a href="#paged-kv" class="text-nvgreen-dark font-semibold hover:underline">Paged KV-Cache</a>
+                <a href="#cuda-graphs" class="hover:text-nvgreen-dark transition">CUDA Graphs</a>
+                <a href="#speculative" class="hover:text-nvgreen-dark transition">Speculative Policy</a>
+                <a href="#integration" class="hover:text-nvgreen-dark transition">Integration</a>
+                <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" class="bg-nvgreen-tint text-nvgreen-dark border border-nvgreen/30 px-3 py-1 rounded-full font-bold hover:bg-nvgreen hover:text-white transition">
+                    Live Engine Studio ↗
+                </a>
+            </nav>
+
+            <!-- Right Buttons -->
+            <div class="flex items-center space-x-3">
+                <div class="hidden sm:flex items-center space-x-1.5 bg-nvgreen-tint px-2.5 py-1 rounded-full border border-nvgreen/30 text-xs">
+                    <span class="w-2 h-2 rounded-full bg-nvgreen animate-pulse"></span>
+                    <span class="text-[11px] font-bold text-nvgreen-dark font-mono">RTX 4090 OPTIMIZED</span>
+                </div>
+                <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" class="bg-[#5c9100] hover:bg-[#4d7a00] text-white text-xs font-semibold px-4 py-2 rounded-full transition shadow-sm">
+                    Launch Platform ↗
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 w-full max-w-[1440px] mx-auto px-6 sm:px-12 py-12 space-y-24">
+
+        <!-- ==================== HERO HEADER ==================== -->
+        <section id="overview" class="text-center max-w-4xl mx-auto space-y-6 pt-4">
+            
+            <div class="inline-flex items-center space-x-2 bg-nvgreen-tint border border-nvgreen/30 px-3.5 py-1.5 rounded-full text-xs text-nvgreen-dark font-semibold">
+                <span class="bg-[#5c9100] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">NVIDIA Platform</span>
+                <span>On-Device Systems Software Engineering &bull; RTX &amp; DGX Client Workstations</span>
+            </div>
+
+            <div class="text-xs font-bold text-hrl-crimson tracking-wider uppercase font-mono">
+                HRL International Private Limited
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-hrl-textDark tracking-tight leading-[1.1]">
+                NVIDIA RTX-LocalAI Runtime.<br>Supercharged by Ada Lovelace &amp; Blackwell.
+            </h1>
+
+            <p class="text-lg sm:text-xl font-medium text-hrl-textSecondary max-w-2xl mx-auto leading-relaxed">
+                A production-grade C++20 and CUDA runtime delivering sub-millisecond local generative AI inference, zero-fragmentation Paged KV-Cache, and sub-5µs CUDA Graph replay.
+            </p>
+
+            <p class="text-xs text-hrl-textMuted max-w-xl mx-auto">
+                Architected by Pavan Kumar Sadashiv to bring sovereign, low-latency, and zero-egress generative AI directly to client-side workstations.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+                <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" class="bg-[#5c9100] hover:bg-[#4d7a00] text-white text-xs font-semibold px-6 py-3 rounded-full transition shadow-sm flex items-center space-x-1.5">
+                    <span>Launch Live Interactive Engine</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
+                <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/implementation.html" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-hrl-surface text-nvgreen-dark border border-nvgreen/30 hover:border-nvgreen text-xs font-semibold px-6 py-3 rounded-full transition flex items-center space-x-1.5">
+                    <span>Read Architecture Manual &rarr;</span>
+                </a>
+                <a href="https://github.com/hrlpavan/nvedia-project-by-hrl" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-hrl-surface text-hrl-textDark border border-black/[0.08] text-xs font-semibold px-6 py-3 rounded-full transition flex items-center space-x-1.5">
+                    <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                    <span>View GitHub Repository</span>
+                </a>
+            </div>
+
+            <!-- 4 Symmetrical Metrics -->
+            <div class="pt-8">
+                <div class="bg-[#F5F5F7] border border-black/[0.06] rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="space-y-1">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-hrl-textDark tracking-tight font-mono">0.17 µs</div>
+                        <div class="text-xs text-hrl-textSecondary font-medium">KV Alloc Latency / Req</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-nvgreen-dark tracking-tight font-mono">0.00%</div>
+                        <div class="text-xs text-hrl-textSecondary font-medium">Memory Fragmentation</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-hrl-textDark tracking-tight font-mono">1,538+</div>
+                        <div class="text-xs text-hrl-textSecondary font-medium">Tokens / Sec Throughput</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-hrl-crimson tracking-tight font-mono">&lt; 5 µs</div>
+                        <div class="text-xs text-hrl-textSecondary font-medium">CPU Driver Launch Delay</div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ==================== PILLARS OF ARCHITECTURE ==================== -->
+        <section id="paged-kv" class="space-y-8 pt-8 border-t border-black/[0.06]">
+            
+            <div class="space-y-2">
+                <div class="text-xs font-bold text-nvgreen-dark tracking-wider uppercase font-mono">Subsystem 01 &bull; Memory Virtualization</div>
+                <h2 class="text-3xl font-bold text-hrl-textDark tracking-tight">Paged KV-Cache Virtual Memory Architecture</h2>
+                <p class="text-sm text-hrl-textSecondary max-w-3xl">
+                    Eliminating up to 70% VRAM waste by managing virtual-to-physical discrete 16-token memory blocks with radix prefix caching.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="apple-card p-6 rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-nvgreen-tint flex items-center justify-center text-nvgreen-dark">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-hrl-textDark">Zero-Fragmentation Virtual Tables</h3>
+                    <p class="text-xs text-hrl-textSecondary leading-relaxed">
+                        Dynamic virtual block table mapping allows sequences to occupy non-contiguous blocks in VRAM, achieving 0.00% memory fragmentation.
+                    </p>
+                </div>
+
+                <div class="apple-card p-6 rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-nvgreen-tint flex items-center justify-center text-nvgreen-dark">
+                        <i data-lucide="copy" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-hrl-textDark">Immutable Prefix Caching</h3>
+                    <p class="text-xs text-hrl-textSecondary leading-relaxed">
+                        Hash-based prefix caching identifies shared system prompts and conversation history, sharing physical memory blocks with zero redundant compute.
+                    </p>
+                </div>
+
+                <div class="apple-card p-6 rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-nvgreen-tint flex items-center justify-center text-nvgreen-dark">
+                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-hrl-textDark">Ultra-Fast 0.17µs Allocations</h3>
+                    <p class="text-xs text-hrl-textSecondary leading-relaxed">
+                        Pre-allocated VRAM pools and atomic bitmask allocation routines achieve sequence allocation speeds of 0.17 microseconds per request.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ==================== CUDA GRAPHS & SPECULATIVE DECODING ==================== -->
+        <section id="cuda-graphs" class="space-y-8 pt-8 border-t border-black/[0.06]">
+            
+            <div class="space-y-2">
+                <div class="text-xs font-bold text-nvgreen-dark tracking-wider uppercase font-mono">Subsystem 02 &bull; Compute &amp; Dispatch</div>
+                <h2 class="text-3xl font-bold text-hrl-textDark tracking-tight">CUDA Graph Replay &amp; Speculative Policy Loop</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="apple-card p-8 rounded-3xl space-y-4">
+                    <div class="text-xs font-bold text-nvgreen-dark uppercase font-mono">CUDA Graph Replay Mode</div>
+                    <h3 class="text-xl font-bold text-hrl-textDark">Sub-5µs CPU Driver Launch Latency</h3>
+                    <p class="text-sm text-hrl-textSecondary leading-relaxed">
+                        By pre-capturing entire layer GEMMs, attention kernels, and activation functions into static execution graphs, kernel launch overhead is bypassed, ensuring maximum Tensor Core utilization.
+                    </p>
+                </div>
+
+                <div class="apple-card p-8 rounded-3xl space-y-4">
+                    <div class="text-xs font-bold text-nvgreen-dark uppercase font-mono">Speculative Decoding Loop (&gamma; = 4)</div>
+                    <h3 class="text-xl font-bold text-hrl-textDark">Up to 2.2x Acceleration (0.65 ms/tok)</h3>
+                    <p class="text-sm text-hrl-textSecondary leading-relaxed">
+                        A lightweight 1B draft model drafts 4 candidate tokens in parallel, evaluated simultaneously by the 8B target model in a single step with an 88.4% speculative acceptance rate.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ==================== DIRECT ACCESS & PLATFORM BANNER ==================== -->
+        <section class="bg-[#F5F5F7] border border-black/[0.06] rounded-3xl p-10 text-center space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-nvgreen/30 bg-white text-xs font-mono text-nvgreen-dark font-semibold">
+                <span>Enterprise Local Deployment Ready</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-hrl-textDark tracking-tight">
+                Experience NVIDIA RTX-LocalAI in Real Time
+            </h2>
+            <p class="text-sm text-hrl-textSecondary max-w-2xl mx-auto">
+                Access the live interactive workbench, test token generation with custom prompts, view the physical 256-block memory map, and listen to the ElevenLabs voice briefing.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" class="bg-[#5c9100] hover:bg-[#4d7a00] text-white text-xs font-semibold px-6 py-3 rounded-full transition shadow-md flex items-center space-x-1.5">
+                    <span>Open Live Platform ↗</span>
+                </a>
+                <a href="index.html" class="bg-white hover:bg-gray-100 text-hrl-textDark border border-black/[0.08] text-xs font-semibold px-6 py-3 rounded-full transition">
+                    &larr; Return to Company Home
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Master Brand Footer -->
+    <footer class="bg-[#F5F5F7] border-t border-black/[0.06] py-10 px-8 mt-20">
+        <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-hrl-textSecondary">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                <img src="assets/logo.png" alt="HRL Logo" class="h-5 w-auto object-contain">
+                <span class="text-hrl-textDark font-semibold">HRL International Private Limited&trade;</span>
+                <span class="hidden sm:inline text-hrl-textMuted">&bull;</span>
+                <span>Founder &amp; MD: Pavan Kumar Sadashiv</span>
+                <span class="hidden sm:inline text-hrl-textMuted">&bull;</span>
+                <span>Mangaluru, Karnataka, India</span>
+            </div>
+            <div class="flex items-center space-x-6 text-[12px]">
+                <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" class="text-nvgreen-dark font-semibold hover:underline">NVIDIA RTX Live Platform</a>
+                <a href="https://www.linkedin.com/in/pavan-kumar-s-703993330/" target="_blank" class="text-hrl-textDark hover:text-hrl-blue transition">LinkedIn</a>
+                <a href="https://github.com/hrlpavan/nvedia-project-by-hrl" target="_blank" class="text-hrl-textDark hover:text-hrl-blue transition">GitHub</a>
+                <a href="index.html" class="text-hrl-crimson font-semibold hover:underline">Official Portal</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
