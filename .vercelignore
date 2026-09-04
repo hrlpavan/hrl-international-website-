@@ -4,3 +4,12 @@
 guest_posts
 *.md
 .system_generated
+pdfs
+HRL_International_*.pdf
+HRL_International_*.pptx
+Police_Complaint_*.pdf
+RULE_BREAKING_BY_HRL.pdf
+RULE_BREAKING_BY_HRL_V2.pdf
+RULE_BREAKING_BY_HRL_V3.pdf
+RULE_BREAKING_VOL_2.pdf
+assets/RULE_BREAKING_BY_HRL.pdf
