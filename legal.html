@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal Doctrine, Trademark, Copyright & DMCA Policy | HRL International</title>
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display" />
+  <style>
+    :root {
+      --bg: #0B0F19;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent-blue: #0071E3;
+      --accent-purple: #8B5CF6;
+      --accent-red: #EF4444;
+      --accent-green: #10B981;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .back-btn {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-hero {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .brand-badge {
+      display: inline-block;
+      background: rgba(0, 113, 227, 0.15);
+      border: 1px solid rgba(0, 113, 227, 0.3);
+      color: #60A5FA;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .brand-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+
+    .brand-motto {
+      font-size: 15px;
+      font-style: italic;
+      color: #A5B4FC;
+      margin-bottom: 15px;
+    }
+
+    .pdf-download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-blue);
+      color: #FFF;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    .pdf-download-btn:hover {
+      background: #0077ED;
+      transform: translateY(-1px);
+    }
+
+    /* TABS */
+    .tabs-bar {
+      display: flex;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      padding: 6px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFF;
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 30px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0 8px 0;
+      color: #E2E8F0;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 16px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    li strong {
+      color: #F8FAFC;
+    }
+
+    .statute-box {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-left: 4px solid var(--accent-red);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .statute-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #FCA5A5;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .statute-desc {
+      font-size: 13px;
+      color: #FECACA;
+    }
+
+    .table-custom {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 13px;
+    }
+    .table-custom th, .table-custom td {
+      border: 1px solid var(--card-border);
+      padding: 10px 14px;
+      text-align: left;
+    }
+    .table-custom th {
+      background: rgba(255, 255, 255, 0.05);
+      color: #FFF;
+      font-weight: 600;
+    }
+    .table-custom td {
+      color: var(--text-muted);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--card-border);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header-nav">
+    <a href="index.html" class="back-btn">← Back to HRL International</a>
+    <div style="font-size: 13px; color: var(--text-muted);">Official Legal & IP Portal</div>
+  </div>
+
+  <div class="brand-hero">
+    <div class="brand-badge">Corporate Governance & Statutory Rights</div>
+    <div class="brand-title">HRL INTERNATIONAL PRIVATE LIMITED</div>
+    <div class="brand-motto">"We Can Do Everything Related To Software Sector Without Any Excuses!"</div>
+    <a href="HRL_International_IP_Trademark_DMCA_Charter.pdf" target="_blank" class="pdf-download-btn">
+      📄 Download Official IP & DMCA Charter (PDF)
+    </a>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs-bar">
+    <button class="tab-btn active" onclick="showTab('trademark')">🛡️ Trademark Policy</button>
+    <button class="tab-btn" onclick="showTab('copyright')">©️ Copyright & Licensing</button>
+    <button class="tab-btn" onclick="showTab('dmca')">⚖️ DMCA Takedown Notice</button>
+    <button class="tab-btn" onclick="showTab('penalties')">🚨 Statutory Penalties & FIR Notice</button>
+  </div>
+
+  <!-- TAB 1: TRADEMARK -->
+  <div id="tab-trademark" class="tab-content active">
+    <h2>🛡️ Master Trademark Policy & Brand Assets Guidelines</h2>
+    <p>The brand names, acronyms, and product marks of <strong>HRL International Private Limited</strong> are protected under the <em>Trade Marks Act, 1999</em> and the <em>WIPO Madrid Protocol</em> across 130+ nations.</p>
+
+    <h3>1. Proprietary Protected Marks</h3>
+    <ul>
+      <li><strong>HRL™ / HRL INTERNATIONAL™</strong> — Core Enterprise & Software Umbrella</li>
+      <li><strong>HRL FLIX™</strong> — High-Performance Video Post-Production & Creator Suite</li>
+      <li><strong>HRL EFX™ / HRL PREMIUM STUDIO™</strong> — Visual Computing, Shaders & Film VFX</li>
+      <li><strong>AI CINEMATIC HAZE™</strong> — OpenFX DaVinci Resolve Neural Depth Shader</li>
+      <li><strong>INVIGIMATRIX™</strong> — Combinatorial NP-Hard CSP Examination Optimization Platform</li>
+      <li><strong>OMNITRANSFORM AI™</strong> — Intelligent Process Automation & Neural Voice Studio</li>
+      <li><strong>LOCALAI RUNTIME™</strong> — Low-Latency C++20/CUDA Tensor Inference Engine</li>
+    </ul>
+
+    <h3>2. NICE Classifications</h3>
+    <ul>
+      <li><strong>Class 9:</strong> Computer software, GPU shaders, video editing plugins, AI models, and downloadable tools.</li>
+      <li><strong>Class 38:</strong> Telecommunications, streaming media, and data transmission.</li>
+      <li><strong>Class 41:</strong> Entertainment services, post-production media, and education.</li>
+      <li><strong>Class 42:</strong> Software as a Service (SaaS), cloud architectures, and industrial AI R&D.</li>
+    </ul>
+
+    <div class="statute-box">
+      <div class="statute-title">Passing Off & Trademark Counterfeiting Prohibition</div>
+      <div class="statute-desc">Using identical or deceptively similar brand names to confuse creators or consumers is a cognizable criminal offense under Sections 103/104 of the Trade Marks Act 1999, punishable with up to 3 years imprisonment.</div>
+    </div>
+  </div>
+
+  <!-- TAB 2: COPYRIGHT -->
+  <div id="tab-copyright" class="tab-content">
+    <h2>©️ Copyright Policy & Software Licensing Framework</h2>
+    <p>All source code, shader kernels (Apple Metal MSL, NVIDIA CUDA, C++17/20), Python AST compilers, ONNX neural graph structures, and UI assets are Copyright © 2026 HRL International Private Limited.</p>
+
+    <h3>1. Closed-Source Commercial Licensing</h3>
+    <ul>
+      <li><strong>Anti-Decompilation:</strong> Reverse engineering, decompiling, or extracting model weights from binary modules (.ofx, .dylib, .so, .dll) is strictly prohibited.</li>
+      <li><strong>Anti-Bypass:</strong> Circumventing license checks is punishable under Section 65A of the Indian Copyright Act 1957.</li>
+    </ul>
+
+    <h3>2. On-Device Execution & Privacy Guarantee</h3>
+    <p>All video frame processing and neural depth inferences are computed 100% locally on user GPU hardware (Apple Silicon / NVIDIA RTX) with zero cloud telemetry. Creators retain 100% copyright ownership of their rendered footage.</p>
+  </div>
+
+  <!-- TAB 3: DMCA -->
+  <div id="tab-dmca" class="tab-content">
+    <h2>⚖️ Statutory DMCA Takedown Policy (17 U.S.C. § 512)</h2>
+    <p>HRL International complies with Title 17, United States Code, Section 512 (Digital Millennium Copyright Act) and the Information Technology (Intermediary Guidelines) Rules 2021.</p>
+
+    <h3>1. Designated DMCA Agent</h3>
+    <ul>
+      <li><strong>Entity:</strong> HRL International Private Limited (Legal & Compliance Directorate)</li>
+      <li><strong>Address:</strong> Mangaluru, Dakshina Kannada, Karnataka, India - 575007</li>
+      <li><strong>Designated Email:</strong> <a href="mailto:hrlinternationalprivatelimited@gmail.com" style="color: var(--accent-blue);">hrlinternationalprivatelimited@gmail.com</a></li>
+    </ul>
+
+    <h3>2. Mandatory Elements of Infringement Notice</h3>
+    <ol>
+      <li>Physical or electronic signature of the copyright owner or authorized representative.</li>
+      <li>Clear identification of the copyrighted work claimed to have been infringed.</li>
+      <li>Exact URLs or repository links of the infringing material.</li>
+      <li>Full contact details (legal name, address, phone number, email).</li>
+      <li>A good faith statement under penalty of perjury.</li>
+    </ol>
+  </div>
+
+  <!-- TAB 4: STATUTORY PENALTIES -->
+  <div id="tab-penalties" class="tab-content">
+    <h2>🚨 Statutory Penalties, Liabilities & Legal Consequences</h2>
+    <p>Any individual, organization, or academic peer who engages in software piracy, code scraping, trademark passing-off, corporate defamation, or academic cyber-ragging will face immediate prosecution across six statutory regimes:</p>
+
+    <table class="table-custom">
+      <thead>
+        <tr>
+          <th>Offense Category</th>
+          <th>Applicable Indian & Global Statute</th>
+          <th>Statutory Consequences for Violator</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Software Piracy & Code Theft</strong></td>
+          <td>Sec 63/64 Copyright Act 1957</td>
+          <td>6 months to 3 years imprisonment, fines up to ₹2,00,000, and warrantless police device seizure.</td>
+        </tr>
+        <tr>
+          <td><strong>Trademark Counterfeiting</strong></td>
+          <td>Sec 103/104 Trade Marks Act 1999</td>
+          <td>6 months to 3 years imprisonment, asset forfeiture, and nationwide injunctions.</td>
+        </tr>
+        <tr>
+          <td><strong>Unauthorized Scraping & Hacking</strong></td>
+          <td>Sec 43, 66, 66C IT Act 2000</td>
+          <td>Up to 3 years imprisonment, criminal fines, and civil damages up to ₹1 Crore.</td>
+        </tr>
+        <tr>
+          <td><strong>Academic Cyber-Ragging & Mockery</strong></td>
+          <td>Karnataka Prohibition of Ragging Act 1998</td>
+          <td>Non-bailable arrest, mandatory 1-year jail, and immediate institutional expulsion.</td>
+        </tr>
+        <tr>
+          <td><strong>Criminal Defamation & Insult</strong></td>
+          <td>Sec 351, 352, 356 BNS 2023 / IPC</td>
+          <td>Immediate Criminal FIR, police summons, and criminal trial.</td>
+        </tr>
+        <tr>
+          <td><strong>Commercial Tort & Civil Damages</strong></td>
+          <td>Commercial Courts Act</td>
+          <td>Ex-parte asset freezes and multi-crore exemplary financial compensation claims.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <p>© 2026 HRL International Private Limited. All Rights Reserved. • Mangaluru, Karnataka, India</p>
+    <p>Corporate Inquiries: hrlinternationalprivatelimited@gmail.com</p>
+  </footer>
+</div>
+
+<script>
+  function showTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    
+    event.currentTarget.classList.add('active');
+    document.getElementById('tab-' + tabId).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
