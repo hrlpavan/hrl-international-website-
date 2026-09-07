@@ -30,3 +30,15 @@ All source codes, visual computing shaders, neural models, brand names, logos, t
 
 ## ⚠️ Mandatory Statutory Warning to Potential Infringers & Bad Actors
 Unauthorized reproduction of our software, brand passing-off, scraping of proprietary algorithms, or public harassment/defamation regarding our Central Government grant initiatives will result in **immediate First Information Report (FIR) criminal proceedings, forensic digital evidence seizure under Section 65B Indian Evidence Act, and multi-crore civil damage suits**.
+
+---
+
+## 📋 Changelog — September 2026
+
+### v2.7.0 — September 7, 2026
+- **Footer Legal Links**: All footer legal links (`Privacy Policy`, `Terms of Use`, `Corporate Verification`, `Trademark Policy`, `Copyright & Licensing`, `DMCA Policy`, `Statutory FIR Notice`) now open directly inside the GitHub profile repository (`hrlpavan/hrlpavan`) in a new tab. Eliminated dummy `href="#"` anchor scroll behavior entirely.
+- **Company History Published**: Official corporate history document (`COMPANY_HISTORY.md`) published to the `hrlpavan` profile repository documenting the four-phase evolution of HRL International.
+- **Vercel Production Deployment**: Live site at [hrl-brand-seo.vercel.app](https://hrl-brand-seo.vercel.app) re-deployed with optimized `.vercelignore` — deployment bundle reduced from 9.8MB to 177KB for instant build times.
+- **Document Inventory**: Complete 26-document legal and corporate vault now synchronized across `hrlpavan`, `hrl-executive-career-archive`, and `hrl-international-website-` repositories.
+
+*Last updated: September 2026*
