@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Project Announcements & Release Timeline | HRL International</title>
+  <meta name="description" content="Official technical release registry and project announcements from HRL International and AI Chief Architect Pavan Kumar Sadashiv." />
+  <link rel="canonical" href="https://hrlpavan.github.io/hrl-international-website-/announcements.html" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display" />
+
+  <style>
+    :root {
+      --bg: #000000;
+      --card-bg: #121214;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #f5f5f7;
+      --text-muted: #86868b;
+      --accent: #d1002d;
+      --accent-blue: #0071e3;
+      --accent-green: #30d158;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Navigation Bar */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-inner {
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text);
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 24px 40px;
+      text-align: center;
+    }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .hero-title {
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+    .hero-subhead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--text-muted);
+      max-width: 740px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+    }
+
+    /* Filter Controls */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .filter-btn {
+      background: #1c1c1e;
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 980px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      background: #2c2c2e;
+      color: #fff;
+    }
+    .filter-btn.active {
+      background: var(--text);
+      color: #000;
+      font-weight: 600;
+      border-color: var(--text);
+    }
+
+    /* Announcements Container */
+    .timeline {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Announcement Card */
+    .announcement-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 36px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .announcement-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .announcement-card.featured {
+      border-color: rgba(209, 0, 45, 0.5);
+      background: linear-gradient(180deg, rgba(209, 0, 45, 0.08) 0%, rgba(18, 18, 20, 1) 100%);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .release-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+    }
+    .release-badge.latest {
+      background: rgba(209, 0, 45, 0.2);
+      color: #ff453a;
+      border: 1px solid rgba(209, 0, 45, 0.4);
+    }
+    .release-badge.cuda {
+      background: rgba(48, 209, 88, 0.15);
+      color: #30d158;
+      border: 1px solid rgba(48, 209, 88, 0.3);
+    }
+    .release-date {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .card-title {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+    .card-desc {
+      font-size: 15px;
+      color: #a1a1a6;
+      line-height: 1.6;
+      margin-bottom: 22px;
+      max-width: 860px;
+    }
+
+    /* Specs & Specs Pills */
+    .specs-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .spec-tag {
+      background: #1c1c1e;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #d1d1d6;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Action Links */
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 20px;
+    }
+    .btn-primary {
+      background: var(--text);
+      color: #000;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary:hover {
+      background: #e5e5ea;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent-blue);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .btn-secondary:hover {
+      color: #2997ff;
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .announcement-card {
+        padding: 24px 20px;
+      }
+      .card-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Global Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span>HRL INTERNATIONAL</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="announcements.html" class="active">Announcements</a></li>
+        <li><a href="https://github.com/hrlpavan" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://github.com/hrlpavan/all-projects-portfolio" target="_blank" rel="noopener noreferrer">31+ Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero">
+    <span class="eyebrow">Official Technical Registry</span>
+    <h1 class="hero-title">Project Announcements &amp; Release Archive</h1>
+    <p class="hero-subhead">
+      Chronological index of sovereign software architectures, low-level hardware runtimes, and autonomous AI systems engineered by Pavan Kumar Sadashiv.
+    </p>
+
+    <!-- Category Filters -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProjects('all')">All Releases (7)</button>
+      <button class="filter-btn" onclick="filterProjects('hypervisor')">Hypervisors &amp; Systems</button>
+      <button class="filter-btn" onclick="filterProjects('gpu')">GPU &amp; Runtimes</button>
+      <button class="filter-btn" onclick="filterProjects('languages')">Languages &amp; Reasoning</button>
+      <button class="filter-btn" onclick="filterProjects('solvers')">Optimization &amp; DSP</button>
+    </div>
+  </header>
+
+  <!-- Timeline Cards -->
+  <main class="timeline">
+
+    <!-- 1. LATEST: HRL X MAC X Windows VM Protocol -->
+    <article class="announcement-card featured" data-category="hypervisor">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="release-badge latest">Latest Flagship Release · v1.0</span>
+          <span class="release-date">September 2026</span>
+        </div>
+      </div>
+      <h2 class="card-title">HRL X MAC X Windows VM Protocol Supercharged By LLM</h2>
+      <p class="card-desc">
+        An enterprise-grade, high-reliability hybrid execution protocol bridging macOS (Apple Silicon Host), Parallels Desktop Hypervisor, Windows 11 Virtual Machine (UiPath Studio Automation), DaVinci Resolve Studio (Media Production), and Western Digital My Passport External Storage, autonomously orchestrated and verified by an AI agent layer.
+      </p>
+      <div class="specs-row">
+        <span class="spec-tag">Apple Silicon Hypervisor</span>
+        <span class="spec-tag">prlctl Headless Automation</span>
+        <span class="spec-tag">UiPath Studio Windows 11</span>
+        <span class="spec-tag">DaVinci Resolve PID 74039</span>
+        <span class="spec-tag">NTFS/POSIX Cross-Storage</span>
+        <span class="spec-tag">Autonomous LLM Protocol</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/hrlpavan/HRL-X-MAC-X-Windows-VM-Protocol-Supercharged-By-LLM" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Explore Repository &nearr;
+        </a>
+        <a href="https://github.com/hrlpavan/HRL-X-MAC-X-Windows-VM-Protocol-Supercharged-By-LLM/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          Architecture Manual
+        </a>
+      </div>
+    </article>
+
+    <!-- 2. LocalAI GPU Runtime -->
+    <article class="announcement-card" data-category="gpu">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="release-badge cuda">CUDA &amp; RTX Engine · v1.0</span>
+          <span class="release-date">August 2026</span>
+        </div>
+      </div>
+      <h2 class="card-title">LocalAI GPU Runtime for NVIDIA CUDA &amp; RTX Hardware</h2>
+      <p class="card-desc">
+        A production-grade, zero-egress C++20 and CUDA on-device generative AI runtime engineered for GeForce RTX and DGX workstations. Features an atomic 0.17 µs Paged KV-Cache allocator with 0.00% memory fragmentation, sub-5 µs static CUDA Graph replay, and FP8 Ada Lovelace hardware acceleration delivering 1,538+ tokens/sec sustained throughput.
+      </p>
+      <div class="specs-row">
+        <span class="spec-tag">0.17 µs KV-Cache</span>
+        <span class="spec-tag">Sub-5 µs CUDA Graph Replay</span>
+        <span class="spec-tag">FP8 / Tensor Cores</span>
+        <span class="spec-tag">1,538+ tok/sec</span>
+        <span class="spec-tag">C++20 Zero-Egress</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/hrlpavan/nvedia-project-by-hrl" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          GitHub Repository &nearr;
+        </a>
+        <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          Interactive Live Studio
+        </a>
+        <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/implementation.html" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          Technical Specification
+        </a>
+      </div>
+    </article>
+
+    <!-- 3. HRL Programming Language -->
+    <article class="announcement-card" data-category="languages">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="release-badge">Domain-Specific Language · v1.0</span>
+          <span class="release-date">August 2026</span>
+        </div>
+      </div>
+      <h2 class="card-title">HRL (Hierarchical Reasoning Language) for Autonomous LLMs</h2>
+      <p class="card-desc">
+        A verifiable programming language and runtime engineered for Large Language Models, dual-timescale FeUdal macro/micro planning (C=8), symbolic reachability verification (Rc(s)), and autonomous multi-agent fleet orchestration with zero semantic drift.
+      </p>
+      <div class="specs-row">
+        <span class="spec-tag">Dual-Timescale FeUdal Planning (C=8)</span>
+        <span class="spec-tag">Symbolic Verification Rc(s)</span>
+        <span class="spec-tag">Deterministic LLM Compiler</span>
+        <span class="spec-tag">Multi-Agent Fleet Orchestration</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/hrlpavan/hrl-lang" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Language Repository &nearr;
+        </a>
+        <a href="hrl-lang.html" class="btn-secondary">
+          Language Portal
+        </a>
+        <a href="https://github.com/hrlpavan/hrl-lang/blob/main/PATENT_SPECIFICATION_HRL_LANG.md" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          Patent Specification
+        </a>
+      </div>
+    </article>
+
+    <!-- 4. HRL Project Extreme -->
+    <article class="announcement-card" data-category="languages">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="release-badge">Autonomous Simulation · v1.0</span>
+          <span class="release-date">August 2026</span>
+        </div>
+      </div>
+      <h2 class="card-title">HRL Project Extreme: Reachability Verification &amp; Robotics Simulation</h2>
+      <p class="card-desc">
+        A production-grade hierarchical simulation harness benchmarked against target autonomous robotics frameworks. Validates high-order state transitions, goal conditioning, and discrete multi-policy arbitration.
+      </p>
+      <div class="specs-row">
+        <span class="spec-tag">Target Robotics Simulation</span>
+        <span class="spec-tag">Reachability Envelopes</span>
+        <span class="spec-tag">Autonomous Multi-Agent Policy</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/hrlpavan/hrl-project-extreme" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          GitHub Repository &nearr;
+        </a>
+        <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          Live Policy Theater
+        </a>
+      </div>
+    </article>
+
+    <!-- 5. InvigiGrid Matrix AI Solver -->
+    <article class="announcement-card" data-category="solvers">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="release-badge">Combinatorial Solvers · v2.4</span>
+          <span class="release-date">August 2026</span>
+        </div>
+      </div>
+      <h2 class="card-title">InvigiGrid Matrix: NP-Hard Constraint Satisfaction Auto-Solver</h2>
+      <p class="card-desc">
+        An algorithmic discrete constraint solver engineered for complex spatial and temporal resource allocation. Implements backtracking with forward checking, minimum remaining values (MRV), and degree heuristics for zero-conflict multi-constraint optimization.
+      </p>
+      <div class="specs-row">
+        <span class="spec-tag">NP-Hard CSP Solver</span>
+        <span class="spec-tag">MRV &amp; Degree Heuristics</span>
+        <span class="spec-tag">Automated Spatial Allocation</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://hrlpavan.github.io/invigimatrix/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Launch Live Auto-Solver &nearr;
+        </a>
+      </div>
+    </article>
+
+    <!-- 6. HRL V12 Engine -->
+    <article class="announcement-card" data-category="solvers">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="release-badge">3D Simulation &amp; DSP · v1.0</span>
+          <span class="release-date">August 2026</span>
+        </div>
+      </div>
+      <h2 class="card-title">HRL V12 Engine: Quad-Cam 48-Valve WebGL Physics &amp; DSP Synthesis</h2>
+      <p class="card-desc">
+        A real-time 3D simulation of a 60° Quad-Cam 48-Valve racing engine featuring physical crankshaft-piston kinematics, procedural Web Audio harmonics synthesis, and live telemetry diagnostics.
+      </p>
+      <div class="specs-row">
+        <span class="spec-tag">Three.js / WebGL 3D</span>
+        <span class="spec-tag">Web Audio DSP Synthesis</span>
+        <span class="spec-tag">Physics Kinematics</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/hrlpavan/hrl-v12-engine" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          GitHub Repository &nearr;
+        </a>
+        <a href="https://hrlpavan.github.io/hrl-v12-engine/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          Interactive 3D Simulation
+        </a>
+      </div>
+    </article>
+
+    <!-- 7. OmniTransform AI Media Suite -->
+    <article class="announcement-card" data-category="solvers">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="release-badge">Media Automation · v2.0</span>
+          <span class="release-date">July 2026</span>
+        </div>
+      </div>
+      <h2 class="card-title">OmniTransform AI: High-Scale Algorithmic Media Suite</h2>
+      <p class="card-desc">
+        A media production and distribution engine driving over 2.5 Million organic views across Hollywood cinematic promotions, DaVinci Resolve color grading pipelines, and multimodal creator publishing.
+      </p>
+      <div class="specs-row">
+        <span class="spec-tag">2.5M+ Algorithmic Reach</span>
+        <span class="spec-tag">DaVinci Resolve Studio 21</span>
+        <span class="spec-tag">Automated Multimodal Pipelines</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/hrlpavan/omnitransform-ai-resources" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          GitHub Repository &nearr;
+        </a>
+        <a href="https://hrlpavan.github.io/omnitransform-ai-resources/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          Live Showcase
+        </a>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 HRL International Private Limited. Founded by Pavan Kumar Sadashiv.</p>
+    <div style="margin-top: 10px;">
+      <a href="index.html">Home</a>
+      <a href="announcements.html">Announcements</a>
+      <a href="legal.html">Legal &amp; IP Charter</a>
+      <a href="https://github.com/hrlpavan">GitHub Profile</a>
+    </div>
+  </footer>
+
+  <script>
+    function filterProjects(category) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      const cards = document.querySelectorAll('.announcement-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
