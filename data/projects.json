@@ -1,469 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Project Announcements &amp; Portfolio Server | HRL International</title>
-  <meta name="description" content="Official technical release registry and connected master portfolio catalog of all 31+ engineering projects by Pavan Kumar Sadashiv (HRL International)." />
-  <link rel="canonical" href="https://hrlpavan.github.io/hrl-international-website-/announcements.html" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display" />
-
-  <style>
-    :root {
-      --bg: #000000;
-      --card-bg: #121214;
-      --card-border: rgba(255, 255, 255, 0.08);
-      --text: #f5f5f7;
-      --text-muted: #86868b;
-      --accent: #d1002d;
-      --accent-blue: #0071e3;
-      --accent-green: #30d158;
-      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-      line-height: 1.5;
-    }
-
-    /* Navigation Bar */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid var(--card-border);
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .nav-inner {
-      width: 100%;
-      max-width: 1200px;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-brand {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 13px;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--text);
-    }
-
-    /* Hero Section */
-    .hero {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 64px 24px 32px;
-      text-align: center;
-    }
-    .eyebrow {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      margin-bottom: 12px;
-      display: inline-block;
-    }
-    .hero-title {
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-    .hero-subhead {
-      font-size: clamp(15px, 2vw, 18px);
-      color: var(--text-muted);
-      max-width: 780px;
-      margin: 0 auto 28px;
-      font-weight: 400;
-    }
-
-    /* Server Connection Status Banner */
-    .server-status-bar {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: rgba(18, 18, 20, 0.95);
-      border: 1px solid rgba(48, 209, 88, 0.35);
-      padding: 8px 18px;
-      border-radius: 980px;
-      margin-bottom: 36px;
-      font-size: 12px;
-      font-family: var(--font-mono);
-      color: #30d158;
-      box-shadow: 0 0 20px rgba(48, 209, 88, 0.15);
-    }
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      background: #30d158;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #30d158;
-      animation: pulse 1.8s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.7; }
-      50% { transform: scale(1.3); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.7; }
-    }
-
-    /* Search & Filter Controls */
-    .controls-container {
-      max-width: 880px;
-      margin: 0 auto 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      align-items: center;
-    }
-    .search-input-wrap {
-      width: 100%;
-      position: relative;
-    }
-    .search-input {
-      width: 100%;
-      background: #1c1c1e;
-      border: 1px solid var(--card-border);
-      color: #fff;
-      font-size: 14px;
-      padding: 14px 20px 14px 44px;
-      border-radius: 12px;
-      outline: none;
-      transition: all 0.2s ease;
-    }
-    .search-input:focus {
-      border-color: rgba(209, 0, 45, 0.6);
-      box-shadow: 0 0 15px rgba(209, 0, 45, 0.25);
-    }
-    .search-icon {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      font-size: 15px;
-    }
-
-    .filter-bar {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      background: #1c1c1e;
-      border: 1px solid var(--card-border);
-      color: var(--text-muted);
-      font-size: 13px;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 980px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .filter-btn:hover {
-      background: #2c2c2e;
-      color: #fff;
-    }
-    .filter-btn.active {
-      background: var(--text);
-      color: #000;
-      font-weight: 600;
-      border-color: var(--text);
-    }
-
-    /* Announcements Container */
-    .timeline {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0 24px 100px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    /* Announcement Card */
-    .announcement-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 32px 36px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    .announcement-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-    .announcement-card.featured {
-      border-color: rgba(209, 0, 45, 0.5);
-      background: linear-gradient(180deg, rgba(209, 0, 45, 0.08) 0%, rgba(18, 18, 20, 1) 100%);
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 14px;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .card-meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .release-badge {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text);
-    }
-    .release-badge.latest {
-      background: rgba(209, 0, 45, 0.2);
-      color: #ff453a;
-      border: 1px solid rgba(209, 0, 45, 0.4);
-    }
-    .release-badge.cuda {
-      background: rgba(48, 209, 88, 0.15);
-      color: #30d158;
-      border: 1px solid rgba(48, 209, 88, 0.3);
-    }
-    .release-date {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-    }
-
-    .card-title {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      color: #ffffff;
-    }
-    .card-desc {
-      font-size: 15px;
-      color: #a1a1a6;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      max-width: 880px;
-    }
-
-    /* Specs & Tags */
-    .specs-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 22px;
-    }
-    .spec-tag {
-      background: #1c1c1e;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #d1d1d6;
-      font-size: 12px;
-      font-family: var(--font-mono);
-      padding: 4px 10px;
-      border-radius: 6px;
-    }
-    .spec-tag.lang {
-      color: #58a6ff;
-      border-color: rgba(88, 166, 255, 0.2);
-    }
-
-    /* Action Links */
-    .card-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding-top: 18px;
-    }
-    .btn-primary {
-      background: var(--text);
-      color: #000;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 980px;
-      text-decoration: none;
-      transition: background 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .btn-primary:hover {
-      background: #e5e5ea;
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--accent-blue);
-      font-size: 13px;
-      font-weight: 500;
-      padding: 8px 14px;
-      border-radius: 980px;
-      text-decoration: none;
-      transition: color 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .btn-secondary:hover {
-      color: #2997ff;
-      text-decoration: underline;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--text-muted);
-      font-size: 16px;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--card-border);
-      padding: 40px 24px;
-      text-align: center;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-    footer a {
-      color: var(--text-muted);
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer a:hover {
-      color: var(--text);
-    }
-
-    @media (max-width: 768px) {
-      .announcement-card {
-        padding: 24px 20px;
-      }
-      .card-title {
-        font-size: 20px;
-      }
-      .card-actions {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Global Nav -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">
-        <span>HRL INTERNATIONAL</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Overview</a></li>
-        <li><a href="announcements.html" class="active">Announcements</a></li>
-        <li><a href="https://github.com/hrlpavan" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="https://github.com/hrlpavan/all-projects-portfolio" target="_blank" rel="noopener noreferrer">31+ Projects Portfolio</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Header -->
-  <header class="hero">
-    <span class="eyebrow">Connected Master Portfolio Server</span>
-    <h1 class="hero-title">Project Announcements &amp; Engineering Registry</h1>
-    <p class="hero-subhead">
-      Live, synchronized catalog of all 31+ production repositories, autonomous AI systems, low-level GPU runtimes, and algorithmic simulations engineered by Pavan Kumar Sadashiv.
-    </p>
-
-    <!-- Server Connection Badge -->
-    <div class="server-status-bar">
-      <span class="pulse-dot"></span>
-      <span>CONNECTED TO MASTER PORTFOLIO SERVER // 31 ACTIVE PRODUCTION REPOSITORIES</span>
-    </div>
-
-    <!-- Search & Filter Controls -->
-    <div class="controls-container">
-      <div class="search-input-wrap">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="project-search" class="search-input" placeholder="Search 31+ projects by name, technology, or domain (e.g., C++20, CUDA, LLM, DSP)..." oninput="handleSearch()" />
-      </div>
-
-      <div class="filter-bar">
-        <button class="filter-btn active" data-cat="all" onclick="setFilter('all', this)">All Projects (31+)</button>
-        <button class="filter-btn" data-cat="ai-systems" onclick="setFilter('ai-systems', this)">Autonomous AI &amp; LLMs</button>
-        <button class="filter-btn" data-cat="compute" onclick="setFilter('compute', this)">3D Simulation &amp; GPU</button>
-        <button class="filter-btn" data-cat="languages" onclick="setFilter('languages', this)">Languages &amp; Compilers</button>
-        <button class="filter-btn" data-cat="media" onclick="setFilter('media', this)">Media &amp; Creative Tools</button>
-        <button class="filter-btn" data-cat="enterprise" onclick="setFilter('enterprise', this)">Enterprise &amp; Charters</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Dynamic Timeline Cards Container -->
-  <main class="timeline" id="projects-container">
-    <!-- Cards rendered dynamically via JavaScript -->
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 HRL International Private Limited. Founded &amp; Architected by Pavan Kumar Sadashiv.</p>
-    <div style="margin-top: 10px;">
-      <a href="index.html">Home</a>
-      <a href="announcements.html">Announcements</a>
-      <a href="https://github.com/hrlpavan/all-projects-portfolio">Master Portfolio Server</a>
-      <a href="https://github.com/hrlpavan/daily-project-updates">Daily Updates</a>
-      <a href="https://github.com/hrlpavan">GitHub Profile</a>
-    </div>
-  </footer>
-
-  <!-- Embedded Portfolio Server Data -->
-  <script id="portfolio-data" type="application/json">
 [
   {
     "id": 1,
@@ -529,81 +63,6 @@
     ],
     "summary": "HRL is a specialized domain-specific language designed to elevate LLM orchestration from unstructured prompting to deterministic, verifiable programming logic with hierarchical reasoning trees.",
     "filter_category": "languages"
-  },
-  {
-    "id": 10,
-    "filename": "10-nvedia-project-by-hrl.md",
-    "name": "nvedia-project-by-hrl",
-    "title": "NVIDIA Accelerated Platform by HRL",
-    "category": "GPU Acceleration & High Performance Computing",
-    "desc": "NVIDIA Accelerated Computing & Parallel Architecture Demonstration Platform by HRL.",
-    "html_url": "https://github.com/hrlpavan/nvedia-project-by-hrl",
-    "primary_lang": "HTML",
-    "languages": [
-      "HTML",
-      "C++",
-      "Python",
-      "Cuda",
-      "CMake",
-      "Shell"
-    ],
-    "visibility": "Public",
-    "created_at": "2026-09-02",
-    "highlights": [
-      "Custom CUDA kernels for matrix tiling and fused attention",
-      "TensorRT inference optimization and FP16/INT8 quantization benchmarks",
-      "Unified virtual memory memory-bound workload profiling",
-      "Interactive hardware capability and warp occupancy visualizer"
-    ],
-    "tech_stack": [
-      "CUDA",
-      "C++20",
-      "TensorRT",
-      "CMake",
-      "Python",
-      "HTML5 HUD"
-    ],
-    "summary": "A dedicated high-performance computing showcase exploring cutting-edge CUDA optimization, memory hierarchy exploitation, and GPU acceleration for next-generation AI workloads.",
-    "filter_category": "compute"
-  },
-  {
-    "id": 7,
-    "filename": "07-hrl-v12-engine.md",
-    "name": "hrl-v12-engine",
-    "title": "HRL V12 Engine 3D Simulation",
-    "category": "3D Graphics & Mechanical Simulation",
-    "desc": "Interactive 3D WebGL 60\u00b0 Quad-Cam 48-Valve V12 Four-Stroke Racing Engine simulation with real-time procedural Web Audio synthesis and analytical telemetry by HRL Labs.",
-    "html_url": "https://github.com/hrlpavan/hrl-v12-engine",
-    "primary_lang": "JavaScript",
-    "languages": [
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "C",
-      "Python",
-      "Go",
-      "Rust",
-      "Zig",
-      "TypeScript"
-    ],
-    "visibility": "Public",
-    "created_at": "2026-09-08",
-    "highlights": [
-      "Kinematically accurate 60\u00b0 Quad-Cam 48-Valve V12 mechanical simulation",
-      "Procedural Web Audio engine acoustics simulating exhaust pulses and harmonics",
-      "Real-time PV diagram, thermal stress, and RPM telemetry HUD",
-      "Cross-language computational cores implemented in C, Rust, Zig, Go, and JS"
-    ],
-    "tech_stack": [
-      "WebGL",
-      "Three.js",
-      "Web Audio API",
-      "Rust (Wasm)",
-      "Zig",
-      "C"
-    ],
-    "summary": "An astonishing browser-based digital twin of a Formula 1-grade V12 racing engine. Features accurate four-stroke Otto cycle thermodynamics, real-time procedural audio synthesis, and telemetry telemetry.",
-    "filter_category": "compute"
   },
   {
     "id": 3,
@@ -736,6 +195,45 @@
     "filter_category": "other"
   },
   {
+    "id": 7,
+    "filename": "07-hrl-v12-engine.md",
+    "name": "hrl-v12-engine",
+    "title": "HRL V12 Engine 3D Simulation",
+    "category": "3D Graphics & Mechanical Simulation",
+    "desc": "Interactive 3D WebGL 60\u00b0 Quad-Cam 48-Valve V12 Four-Stroke Racing Engine simulation with real-time procedural Web Audio synthesis and analytical telemetry by HRL Labs.",
+    "html_url": "https://github.com/hrlpavan/hrl-v12-engine",
+    "primary_lang": "JavaScript",
+    "languages": [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "C",
+      "Python",
+      "Go",
+      "Rust",
+      "Zig",
+      "TypeScript"
+    ],
+    "visibility": "Public",
+    "created_at": "2026-09-08",
+    "highlights": [
+      "Kinematically accurate 60\u00b0 Quad-Cam 48-Valve V12 mechanical simulation",
+      "Procedural Web Audio engine acoustics simulating exhaust pulses and harmonics",
+      "Real-time PV diagram, thermal stress, and RPM telemetry HUD",
+      "Cross-language computational cores implemented in C, Rust, Zig, Go, and JS"
+    ],
+    "tech_stack": [
+      "WebGL",
+      "Three.js",
+      "Web Audio API",
+      "Rust (Wasm)",
+      "Zig",
+      "C"
+    ],
+    "summary": "An astonishing browser-based digital twin of a Formula 1-grade V12 racing engine. Features accurate four-stroke Otto cycle thermodynamics, real-time procedural audio synthesis, and telemetry telemetry.",
+    "filter_category": "compute"
+  },
+  {
     "id": 8,
     "filename": "08-hrl-x-rolls-royce.md",
     "name": "hrl-x-rolls-royce",
@@ -803,6 +301,42 @@
       "WebRTC"
     ],
     "summary": "A real-time digital signal processing engine engineered to cancel ambient acoustic disturbances while preserving vocal timbre through adaptive filtering and deep spectral subtraction.",
+    "filter_category": "compute"
+  },
+  {
+    "id": 10,
+    "filename": "10-nvedia-project-by-hrl.md",
+    "name": "nvedia-project-by-hrl",
+    "title": "NVIDIA Accelerated Platform by HRL",
+    "category": "GPU Acceleration & High Performance Computing",
+    "desc": "NVIDIA Accelerated Computing & Parallel Architecture Demonstration Platform by HRL.",
+    "html_url": "https://github.com/hrlpavan/nvedia-project-by-hrl",
+    "primary_lang": "HTML",
+    "languages": [
+      "HTML",
+      "C++",
+      "Python",
+      "Cuda",
+      "CMake",
+      "Shell"
+    ],
+    "visibility": "Public",
+    "created_at": "2026-09-02",
+    "highlights": [
+      "Custom CUDA kernels for matrix tiling and fused attention",
+      "TensorRT inference optimization and FP16/INT8 quantization benchmarks",
+      "Unified virtual memory memory-bound workload profiling",
+      "Interactive hardware capability and warp occupancy visualizer"
+    ],
+    "tech_stack": [
+      "CUDA",
+      "C++20",
+      "TensorRT",
+      "CMake",
+      "Python",
+      "HTML5 HUD"
+    ],
+    "summary": "A dedicated high-performance computing showcase exploring cutting-edge CUDA optimization, memory hierarchy exploitation, and GPU acceleration for next-generation AI workloads.",
     "filter_category": "compute"
   },
   {
@@ -1435,105 +969,3 @@
     "filter_category": "enterprise"
   }
 ]
-  </script>
-
-  <script>
-    let allProjects = [];
-    let currentFilter = 'all';
-    let searchQuery = '';
-
-    function initPortfolio() {
-      try {
-        const raw = document.getElementById('portfolio-data').textContent;
-        allProjects = JSON.parse(raw);
-        renderProjects();
-      } catch (err) {
-        fetch('data/projects.json')
-          .then(res => res.json())
-          .then(data => {
-            allProjects = data;
-            renderProjects();
-          })
-          .catch(e => console.error('Error loading projects:', e));
-      }
-    }
-
-    function setFilter(category, btn) {
-      currentFilter = category;
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderProjects();
-    }
-
-    function handleSearch() {
-      searchQuery = document.getElementById('project-search').value.toLowerCase().trim();
-      renderProjects();
-    }
-
-    function renderProjects() {
-      const container = document.getElementById('projects-container');
-      const filtered = allProjects.filter(p => {
-        const matchesCat = (currentFilter === 'all') || (p.filter_category === currentFilter);
-        if (!matchesCat) return false;
-        if (!searchQuery) return true;
-        const text = (p.title + ' ' + p.desc + ' ' + (p.tech_stack || []).join(' ') + ' ' + p.primary_lang + ' ' + p.category).toLowerCase();
-        return text.includes(searchQuery);
-      });
-
-      if (filtered.length === 0) {
-        container.innerHTML = '<div class="empty-state">No engineering projects found matching "' + searchQuery + '".</div>';
-        return;
-      }
-
-      container.innerHTML = filtered.map((p, idx) => {
-        const isFeatured = (idx < 2 && currentFilter === 'all') || (p.name === 'aether-engine' || p.name === 'hrl-lang');
-        const badgeClass = isFeatured ? 'release-badge latest' : (p.primary_lang === 'CUDA' || p.category.includes('GPU') ? 'release-badge cuda' : 'release-badge');
-        const techTags = (p.tech_stack || []).slice(0, 6).map(t => '<span class="spec-tag">' + t + '</span>').join('');
-        const langTag = p.primary_lang ? '<span class="spec-tag lang">' + p.primary_lang + '</span>' : '';
-        const deepDiveUrl = 'https://github.com/hrlpavan/all-projects-portfolio/blob/main/projects/' + p.filename;
-
-        let liveLink = '';
-        if (p.name === 'nvedia-project-by-hrl') {
-          liveLink = '<a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" class="btn-secondary">Interactive Studio &nearr;</a>';
-        } else if (p.name === 'hrl-v12-engine') {
-          liveLink = '<a href="https://hrlpavan.github.io/hrl-v12-engine/" target="_blank" rel="noopener noreferrer" class="btn-secondary">Live 3D Engine &nearr;</a>';
-        } else if (p.name === 'invigimatrix' || p.name === 'exam-invigilation-dsa-app') {
-          liveLink = '<a href="https://hrlpavan.github.io/invigimatrix/" target="_blank" rel="noopener noreferrer" class="btn-secondary">Launch Auto-Solver &nearr;</a>';
-        } else if (p.name === 'hrl-project-extreme') {
-          liveLink = '<a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" class="btn-secondary">Policy Theater &nearr;</a>';
-        } else if (p.name === 'omnitransform-ai-resources') {
-          liveLink = '<a href="https://hrlpavan.github.io/omnitransform-ai-resources/" target="_blank" rel="noopener noreferrer" class="btn-secondary">Live Media Suite &nearr;</a>';
-        }
-
-        return `
-          <article class="announcement-card ${isFeatured ? 'featured' : ''}" data-category="${p.filter_category}">
-            <div class="card-top">
-              <div class="card-meta">
-                <span class="${badgeClass}">${p.category} · v1.0</span>
-                <span class="release-date">${p.created_at || 'Production'}</span>
-              </div>
-            </div>
-            <h2 class="card-title">${p.title}</h2>
-            <p class="card-desc">${p.desc}</p>
-            <div class="specs-row">
-              ${langTag}
-              ${techTags}
-            </div>
-            <div class="card-actions">
-              <a href="${p.html_url}" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                Explore Repository &nearr;
-              </a>
-              <a href="${deepDiveUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                Portfolio Deep-Dive &nearr;
-              </a>
-              ${liveLink}
-            </div>
-          </article>
-        `;
-      }).join('');
-    }
-
-    document.addEventListener('DOMContentLoaded', initPortfolio);
-  </script>
-</body>
-</html>
